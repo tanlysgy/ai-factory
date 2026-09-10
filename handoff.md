@@ -15,16 +15,17 @@
 
 | | |
 |---|---|
-| Phase | M0 — GitHub Actions 自动部署 |
-| Status | **VERIFIED** — Git Push → GitHub Actions → Cloudflare → 线上更新 全链路真实验证通过(2026-09-10) |
+| Phase | M0 ✅ 完成 / M1 设计阶段(本轮仅文档,不编码) |
+| Status | **M0: VERIFIED** · **M1: DESIGN COMPLETE**(2026-09-10)— Demand Radar 设计已沉淀,编码前有 3 项待确认 |
 
 ## Current Sprint
 
-M0: 建立 `handoff.md` + Git Push → GitHub Actions → Cloudflare Workers 自动部署链路。
+M1(Design):Demand Radar — 从互联网公开信号系统性发现可验证的赚钱机会。本轮仅完成产品与架构设计并沉淀文档,零编码。
 
-## Objective
+## Objective(两段)
 
-让 `git push` 触发 GitHub Actions 完成 `pnpm install` → `pnpm build` → `wrangler deploy`,使 `https://ai-factory.sgyyyds.qzz.io/` 随 push 自动更新。这是唯一目标;不做产品开发。
+- **M0(完成)**:系统自动部署链路 — `git push → GitHub Actions → Cloudflare → 线上更新`,已实测通过。
+- **M1(本阶段)**:为「个人 AI 副业生产线」的第一环做设计 — Demand Radar:让人类系统性发现、多信号验证、证据可审计的赚钱机会。本轮是设计文档,**不是产品开发**。
 
 ## Current Architecture
 
@@ -97,19 +98,23 @@ git push (master)
 - [x] GitHub Actions workflow(`.github/workflows/deploy.yml`)已添加并 commit。
 - [x] **GitHub Actions 全链路 VERIFIED** — `gh workflow run` 手动触发(run `34443987301`)→ 8 steps 全绿 → `Uploaded ai-factory (2.68 sec)` → Version `e8be234d-65b7-4fe7-b73b-e9039de85ef4`。
 - [x] **Push 自动部署 VERIFIED** — push commit `8e67910`(带 `M0-CI-VERIFY-20260910` 标记)→ 线上出现标记;还原 push commit `65f220e` → 标记消失,页面回到 Astro 默认首页(`<title>Astro Basics</title>`)。
+- [x] **M1 Demand Radar DESIGN COMPLETE** — `docs/plans/M1-demand-radar-design.md` 已创建(仅文档,零编码;含 5 类信号模型、Pipeline、透明评分、Evidence 模型、V1 范围、Non-goals、成本与 Legal)。
 - [x] `.codegraph/` 未纳入版本控制(保持 untracked,不提交)。
 
 ## In Progress
 
-- **无** — M0 已完成。
+- **M1 编码待启动** — 设计已完成;按文档 §22 `Recommended Implementation Order` 实施,但先确认 3 个 Blocking Input。
 
 ## Next
 
 ```
-M1 — Website / Information Architecture
+M1(编码)— 按 docs/plans/M1-demand-radar-design.md §22 顺序实施
 ```
 
-(由下一次任务单独执行。M0 目标已达成,无未完成项。)
+**编码前需人确认(文档 §22 Blocking Unknowns):**
+1. 每周能投入雷达的时间上限(建议默认 3–5 个机会/周)。
+2. 一个**真实 Seed**(个人感兴趣的领域/场景/痛点)用于跑通样板与首个雷达周期。
+3. V1 是否需要公开只读展示页,还是纯本地文件。
 
 ## Architecture Decisions
 
@@ -117,12 +122,25 @@ M1 — Website / Information Architecture
 - 单 workflow(install → build → deploy),最小可维护,不引入 lint/test 体系(项目当前没有 lint/test script,不为 CI 强行引入)。
 - CI 不写 `CLOUDFLARE_ACCOUNT_ID`:wrangler-action v4 自行解析账户,减少一个 Secret 依赖。
 - 未修改 `wrangler.jsonc`、未改域名、未重构 Astro —— 现有部署架构已实际工作。
+- **M1 架构决策(2026-09-10)**:V1 用「git 管理的文件系统 + frontmatter」作为证据仓库(`radar/`),不建数据库;唯一自动部分是透明评分的纯函数脚本;一切抓取自动化 Deferred 且必须先过 ToS 审查;Score 永远以 `Score/Confidence/Coverage` 三元组呈现,禁止小数伪精确。详见 `docs/plans/M1-demand-radar-design.md`。
 
 ## Constraints
 
 - 不推送 / 不提交任何 Secret 值。
 - 不修改 GitHub 默认分支名。
 - 不扩大任务范围;不进入 M1。
+
+## M1 Design Status
+
+| | |
+|---|---|
+| M1 Status | **DESIGN COMPLETE**(2026-09-10) |
+| Design Document | `docs/plans/M1-demand-radar-design.md` |
+| 本轮产出 | 纯文档;零业务代码 / 零依赖 / 零 API 接入 / 零部署 / 零 UI 修改 |
+| Key Decisions | 5 类信号模型;Table-driven Pipeline(每步 Automation Level + 原因);透明三元组评分;Evidence 一级公民 + 三层可审计;V1 = 文件仓库 + 纯函数脚本;人工下注 |
+| Current Scope | V1:Seed→Keyword→证据采集→评分→人审→Experiment 记录 + 第 1 个真实雷达周期 |
+| V1 Non-goals | 数据库/API/爬虫/付费数据/支付/登录/Dashboard/部署/大型基础设施 |
+| Known Unknowns(编码前) | ①每周可用时间 ②真实 Seed ③是否需公开展示页 |
 
 ## Known Issues
 
@@ -177,7 +195,8 @@ M1 — Website / Information Architecture
 接替者进入项目时,按序做:
 
 1. 读取本 `handoff.md`(事实源,优先于记忆/聊天记录)。
-2. 读取 `AGENTS.md` / `CLAUDE.md`(当前内容相同,指 Astro 开发与文档约定)。
+2. 若涉及产品/架构设计:先读 `docs/plans/M1-demand-radar-design.md`(M1 设计唯一事实源)。
+3. 读取 `AGENTS.md` / `CLAUDE.md`(当前内容相同,指 Astro 开发与文档约定)。
 3. `git status` / `git branch --show-current` 确认分支与工作区。
 4. 以本文件 `Verification` 表格的命令重新核对关键状态,再开始工作。
 5. 切勿把 Secret 写入本文件 / 代码 / `.env` 并提交;Secret 一律走 GitHub Actions Secrets。
@@ -188,3 +207,4 @@ M1 — Website / Information Architecture
 - 2026-09-10 — 初始化本文件。状态:M0 进行中;workflow 已配置未验证;线上基线 200。
 - 2026-09-10 — commit `d116b81` push 触发 GitHub Actions:install+build ✅,deploy 缺 `CLOUDFLARE_API_TOKEN` ❌(预期)。状态改为 **BLOCKED**,下一步=配置 Secret。
 - 2026-09-10 — Secret 已配置。`gh workflow run` + push 触发均全绿(`Uploaded ai-factory`,Version `e8be234d`);带标记 commit `8e67910` push → 线上出现标记,还原 commit `65f220e` → 标记消失。**M0 全链路 VERIFIED**,状态改为 ✅。
+- 2026-09-10 — **M1 Demand Radar 设计完成**(仅文档)。创建 `docs/plans/M1-demand-radar-design.md`;更新 M1 状态为 DESIGN COMPLETE。下一阶段 = 确认 §22 三个输入后按顺序编码。
