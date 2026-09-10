@@ -72,3 +72,5 @@ _filled after running: numbers + narrative, real data only_
 - radar/opportunities/opp-001-context-light-agent-session-workflow-tools.md
 - radar/evidence/ev-260910-01.md (multi-session costs/conflicts/context loss)
 - radar/evidence/ev-260910-07.md (context-window cost aversion)
+- radar/experiments/exp-001-distribution-opportunities.md (sprint 001-B: distribution shortlist)
+- radar/experiments/exp-001-distribution-log.md (sprint 001-B: manual tracking sheet)
