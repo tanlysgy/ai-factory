@@ -1,0 +1,515 @@
+---
+import '../../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>AI Ready Check — is your site readable by AI crawlers? | AI Factory</title>
+		<meta
+			name="description"
+			content="Check whether your website is ready to be discovered, understood, and cited by AI crawlers. A small, transparent AI Factory experiment."
+		/>
+	</head>
+	<body class="bg-neutral-50 text-neutral-900 antialiased">
+		<main class="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+			<header>
+				<p class="font-mono text-xs uppercase tracking-widest text-neutral-500">
+					AI Factory · Experiment 003
+				</p>
+				<h1 class="mt-6 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+					AI Ready Check
+				</h1>
+				<p class="mt-5 max-w-xl text-lg leading-relaxed text-neutral-600">
+					Check whether your website is ready to be discovered, understood, and cited by AI
+					crawlers.
+				</p>
+			</header>
+
+			<section class="mt-10" aria-labelledby="check-heading">
+				<h2 id="check-heading" class="sr-only">Run a check</h2>
+				<form id="check-form" class="space-y-4" novalidate aria-label="AI readiness check">
+					<div class="flex flex-col gap-3 sm:flex-row">
+						<label for="url" class="sr-only">Website URL</label>
+						<input
+							id="url"
+							name="url"
+							type="text"
+							inputmode="url"
+							autocomplete="url"
+							spellcheck="false"
+							required
+							placeholder="example.com"
+							class="w-full flex-1 rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm placeholder:text-neutral-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+						/>
+						<button
+							id="submit-button"
+							type="submit"
+							class="shrink-0 rounded-lg bg-indigo-600 px-6 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
+						>
+							Check AI Readiness
+						</button>
+					</div>
+					<p class="text-xs text-neutral-400">
+						Reads your homepage, robots.txt, sitemap and llms.txt — four requests, no crawling,
+						nothing stored. Try{` `}
+						<button
+							type="button"
+							id="sample-button"
+							class="underline decoration-dotted underline-offset-2 hover:text-neutral-600"
+						>example.com</button>.
+					</p>
+				</form>
+			</section>
+
+			<div id="state-loading" class="mt-10 rounded-xl border border-neutral-200 bg-white p-6" role="status" hidden>
+				<p class="text-sm text-neutral-600">
+					Fetching the page, robots.txt, llms.txt and sitemap…
+				</p>
+			</div>
+
+			<div id="state-error" class="mt-10 rounded-xl border border-red-200 bg-red-50 p-6" role="alert" hidden>
+				<h2 class="text-sm font-medium text-red-800">Could not check that URL</h2>
+				<p id="error-message" class="mt-2 text-sm text-red-700"></p>
+			</div>
+
+			<section id="state-results" class="mt-10" aria-live="polite" aria-labelledby="results-heading" hidden>
+				<h2 id="results-heading" class="sr-only">Readiness results</h2>
+
+				<div class="rounded-2xl border border-neutral-200 bg-white p-6 sm:p-8">
+					<p class="font-mono text-xs uppercase tracking-widest text-neutral-500">
+						AI Readiness Score
+					</p>
+					<div class="mt-4 flex flex-wrap items-end gap-x-4 gap-y-2">
+						<p id="score-total" class="text-5xl font-semibold tracking-tight">—</p>
+						<p id="score-label" class="pb-1 text-lg font-medium text-neutral-500"></p>
+					</div>
+					<p id="score-summary" class="mt-3 text-sm text-neutral-600"></p>
+					<p id="score-analyzed" class="mt-1 text-sm text-neutral-500"></p>
+					<div id="score-sections" class="mt-6 space-y-3"></div>
+				</div>
+
+				<div id="fixes" class="mt-8"></div>
+				<div id="sections" class="mt-8 space-y-6"></div>
+				<div id="details" class="mt-8"></div>
+			</section>
+
+			<section class="mt-16">
+				<div class="rounded-xl border border-dashed border-neutral-300 bg-neutral-100/60 p-6">
+					<h2 class="font-mono text-xs uppercase tracking-widest text-neutral-500">Honest note</h2>
+					<ul class="mt-3 space-y-2 text-sm leading-relaxed text-neutral-600">
+						<li>
+							This page reports the public access rules and markup that a crawler would
+							encounter. It does not determine whether any AI platform will index, use or cite
+							your site — those are separate decisions made by each platform.
+						</li>
+						<li>
+							The score is a fixed, readable checklist, not a prediction. It is computed here in
+							plain code, with no AI model involved.
+						</li>
+						<li>
+							llms.txt is an optional emerging convention, not a universal requirement. Missing
+							it is not a fault.
+						</li>
+						<li>
+							This is an AI Factory experiment. It makes four requests, stores nothing, needs no
+							account, and sets no cookies.
+						</li>
+					</ul>
+				</div>
+			</section>
+		</main>
+
+		<footer class="border-t border-neutral-200 py-8">
+			<p class="px-6 text-center text-xs text-neutral-400">
+				AI Factory · Experiment 003 · AI Ready Check
+			</p>
+		</footer>
+
+		<script>
+			import { track } from '../../lib/track';
+
+			type Status = 'pass' | 'warn' | 'fail';
+			type Access = 'allowed' | 'blocked' | 'unrestricted';
+
+			interface ScoreItem {
+				id: string;
+				label: string;
+				status: Status;
+				points: number;
+				maxPoints: number;
+				detail: string;
+				why: string;
+				fix?: string;
+			}
+			interface ScoreSection {
+				id: string;
+				label: string;
+				earned: number;
+				max: number;
+				items: ScoreItem[];
+			}
+			interface Report {
+				url: string;
+				finalUrl: string;
+				checkedAt: string;
+				homepage: { status: number; title: string | null; metaDescription: string | null; canonical: string | null; lang: string | null; h1Count: number; openGraphTags: number; validHtml: boolean; jsonLd: { blocks: number; invalid: number; types: string[] } };
+				robots: { found: boolean; status: number | null; groupCount: number; sitemaps: string[]; broadDisallow: boolean; crawlers: Array<{ name: string; token: string; kind: 'crawler' | 'control'; access: Access; rule: string | null }> };
+				sitemap: { source: 'robots' | 'default'; url: string; found: boolean; status: number | null; isXml: boolean; isIndex: boolean; urlCount: number; truncated: boolean; sample: string[] };
+				llmsTxt: { found: boolean; status: number | null; title: string | null; sections: string[]; sample: string[] };
+				score: { total: number; max: number; label: string; sections: ScoreSection[] };
+				actions: Array<{ title: string; detail: string; why: string; fix?: string; severity: 'fail' | 'warn'; maxPoints: number }>;
+				requests: number;
+			}
+
+			const GLYPH: Record<Status, string> = { pass: '✓', warn: '⚠', fail: '✕' };
+			const TONE: Record<Status, string> = {
+				pass: 'text-emerald-700',
+				warn: 'text-amber-700',
+				fail: 'text-red-700',
+			};
+			const ACCESS_TONE: Record<Access, string> = {
+				allowed: 'bg-emerald-50 text-emerald-700',
+				unrestricted: 'bg-neutral-100 text-neutral-600',
+				blocked: 'bg-red-50 text-red-700',
+			};
+			const ACCESS_TEXT: Record<Access, string> = {
+				allowed: 'allowed',
+				unrestricted: 'not mentioned',
+				blocked: 'disallowed',
+			};
+
+			const form = document.getElementById('check-form') as HTMLFormElement | null;
+			const input = document.getElementById('url') as HTMLInputElement | null;
+			const button = document.getElementById('submit-button') as HTMLButtonElement | null;
+			const loading = document.getElementById('state-loading');
+			const errorBox = document.getElementById('state-error');
+			const errorMessage = document.getElementById('error-message');
+			const results = document.getElementById('state-results');
+
+			function el<K extends keyof HTMLElementTagNameMap>(
+				tag: K,
+				className?: string,
+				text?: string,
+			): HTMLElementTagNameMap[K] {
+				const node = document.createElement(tag);
+				if (className) node.className = className;
+				if (text !== undefined) node.textContent = text;
+				return node;
+			}
+
+			function show(active: HTMLElement | null): void {
+				for (const node of [loading, errorBox, results]) {
+					if (!node) continue;
+					if (node === active) node.removeAttribute('hidden');
+					else node.setAttribute('hidden', '');
+				}
+			}
+
+			function card(className = 'rounded-xl border border-neutral-200 bg-white p-6'): HTMLElement {
+				return el('div', className);
+			}
+
+			/**
+			 * The API only ever returns validated http(s) URLs, but never trust a
+			 * rendered value: anything else is shown as plain text instead of a link.
+			 */
+			function safeHref(value: string): string | null {
+				return /^https?:\/\//i.test(value) ? value : null;
+			}
+
+			function statusLine(item: ScoreItem): HTMLElement {
+				const wrap = el('div', 'flex items-start gap-3');
+				const glyph = el('span', `mt-0.5 w-4 shrink-0 text-center text-sm font-semibold ${TONE[item.status]}`, GLYPH[item.status]);
+				const body = el('div', 'min-w-0');
+				const heading = el('p', 'text-sm font-medium', item.label);
+				if (item.status !== 'pass') {
+					heading.append(el('span', 'ml-2 text-xs font-normal text-neutral-400', `worth ${item.maxPoints} pts`));
+				}
+				body.append(heading);
+				body.append(el('p', 'mt-0.5 text-sm break-words text-neutral-600', item.detail));
+				wrap.append(glyph, body);
+				return wrap;
+			}
+
+			function renderScore(report: Report): void {
+				const total = document.getElementById('score-total');
+				const label = document.getElementById('score-label');
+				const summary = document.getElementById('score-summary');
+				const analyzed = document.getElementById('score-analyzed');
+				if (total) total.textContent = `${report.score.total} / ${report.score.max}`;
+				if (label) label.textContent = report.score.label;
+				if (summary) {
+					const failed = report.score.sections.flatMap((s) => s.items).filter((i) => i.status === 'fail').length;
+					const warned = report.score.sections.flatMap((s) => s.items).filter((i) => i.status === 'warn').length;
+					summary.textContent =
+						failed + warned === 0
+							? 'Every check passed.'
+							: `${failed} check${failed === 1 ? '' : 's'} failed and ${warned} need${warned === 1 ? 's' : ''} attention.`;
+				}
+				if (analyzed) {
+					const wrap = el('span');
+					const href = safeHref(report.url);
+					const link = href
+						? el('a', 'text-indigo-600 underline underline-offset-2 break-all', report.url)
+						: el('span', 'break-all text-neutral-700', report.url);
+					if (href) {
+						link.setAttribute('href', href);
+						link.setAttribute('rel', 'nofollow noopener noreferrer');
+						link.setAttribute('target', '_blank');
+					}
+					wrap.append('Checked: ', link, ` · HTTP ${report.homepage.status} · ${report.requests} requests · ${new Date(report.checkedAt).toLocaleString()}`);
+					analyzed.replaceChildren(wrap);
+				}
+
+				const bars = document.getElementById('score-sections');
+				if (!bars) return;
+				bars.replaceChildren();
+				for (const section of report.score.sections) {
+					const row = el('div');
+					const head = el('div', 'flex items-baseline justify-between gap-4 text-sm');
+					head.append(el('span', 'font-medium', section.label));
+					head.append(el('span', 'tabular-nums text-neutral-500', `${section.earned} / ${section.max}`));
+					const track = el('div', 'mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-neutral-100');
+					const fill = el('div', 'h-full rounded-full bg-indigo-500');
+					const pct = section.max > 0 ? Math.round((section.earned / section.max) * 100) : 0;
+					fill.style.width = `${pct}%`;
+					if (pct < 50) fill.className = 'h-full rounded-full bg-red-400';
+					else if (pct < 85) fill.className = 'h-full rounded-full bg-amber-400';
+					track.append(fill);
+					row.append(head, track);
+					bars.append(row);
+				}
+			}
+
+			function renderFixes(report: Report): void {
+				const box = document.getElementById('fixes');
+				if (!box) return;
+				box.replaceChildren();
+
+				if (report.actions.length === 0) {
+					const done = card();
+					done.append(el('h2', 'text-lg font-semibold tracking-tight', 'No blocking issues found'));
+					done.append(
+						el(
+							'p',
+							'mt-2 text-sm text-neutral-600',
+							'Every signal this check looks at was present. Keep the signals current as the site changes.',
+						),
+					);
+					box.append(done);
+					return;
+				}
+
+				box.append(el('h2', 'text-lg font-semibold tracking-tight', 'Fix these first'));
+				const list = el('div', 'mt-4 space-y-4');
+				report.actions.forEach((action, index) => {
+					const item = card();
+					const head = el('div', 'flex items-start gap-3');
+					head.append(el('span', 'mt-0.5 font-mono text-sm text-neutral-400', String(index + 1).padStart(2, '0')));
+					const body = el('div', 'min-w-0 flex-1');
+					body.append(el('h3', 'text-base font-medium', action.title));
+					body.append(el('p', 'mt-2 text-sm text-neutral-600', action.detail));
+					body.append(el('p', 'mt-2 text-sm text-neutral-500', action.why));
+					if (action.fix) {
+						const fix = el('p', 'mt-3 rounded-lg bg-neutral-50 px-3 py-2 text-sm text-neutral-700');
+						fix.append(el('span', 'font-medium', 'What to do: '), action.fix);
+						body.append(fix);
+					}
+					head.append(body);
+					item.append(head);
+					list.append(item);
+				});
+				box.append(list);
+			}
+
+			function renderSections(report: Report): void {
+				const box = document.getElementById('sections');
+				if (!box) return;
+				box.replaceChildren();
+				for (const section of report.score.sections) {
+					const wrap = card();
+					const head = el('div', 'flex items-baseline justify-between gap-4');
+					head.append(el('h2', 'text-lg font-semibold tracking-tight', section.label));
+					head.append(el('span', 'text-sm tabular-nums text-neutral-500', `${section.earned} / ${section.max}`));
+					wrap.append(head);
+					const list = el('div', 'mt-5 space-y-4');
+					for (const item of section.items) list.append(statusLine(item));
+					wrap.append(list);
+					box.append(wrap);
+				}
+			}
+
+			function renderDetails(report: Report): void {
+				const box = document.getElementById('details');
+				if (!box) return;
+				box.replaceChildren();
+
+				const details = el('details', 'rounded-xl border border-neutral-200 bg-white p-6');
+				details.append(el('summary', 'cursor-pointer text-sm font-medium', 'Technical detail'));
+
+				const inner = el('div', 'mt-5 space-y-6');
+
+				// robots.txt
+				const robotsBlock = el('div');
+				robotsBlock.append(el('h3', 'text-sm font-medium', 'robots.txt'));
+				robotsBlock.append(
+					el(
+						'p',
+						'mt-1 text-sm text-neutral-600',
+						report.robots.found
+							? `Found (HTTP ${report.robots.status}) with ${report.robots.groupCount} user-agent group(s).`
+							: report.robots.status === null
+								? 'Could not be retrieved.'
+								: `Not found (HTTP ${report.robots.status}).`,
+					),
+				);
+				robotsBlock.append(
+					el(
+						'p',
+						'mt-1 text-xs text-neutral-500',
+						'These are the public access rules stated in robots.txt for the site root (/). They do not indicate whether any platform will use your content.',
+					),
+				);
+				const table = el('div', 'mt-3 divide-y divide-neutral-100');
+				for (const crawler of report.robots.crawlers) {
+					const row = el('div', 'flex flex-wrap items-center gap-x-3 gap-y-1 py-2');
+					row.append(el('span', 'w-36 shrink-0 font-mono text-xs text-neutral-700', crawler.name));
+					const badge = el('span', `rounded px-1.5 py-0.5 text-[10px] uppercase tracking-wide ${ACCESS_TONE[crawler.access]}`, ACCESS_TEXT[crawler.access]);
+					row.append(badge);
+					if (crawler.rule) row.append(el('span', 'font-mono text-xs text-neutral-500', crawler.rule));
+					if (crawler.kind === 'control') row.append(el('span', 'text-xs text-neutral-400', '(usage control token, not a crawler)'));
+					table.append(row);
+				}
+				robotsBlock.append(table);
+				inner.append(robotsBlock);
+
+				// sitemap
+				const sitemapBlock = el('div');
+				sitemapBlock.append(el('h3', 'text-sm font-medium', 'Sitemap'));
+				sitemapBlock.append(
+					el('p', 'mt-1 text-sm break-all text-neutral-600',
+						`${report.sitemap.url} — ${report.sitemap.found ? `found (HTTP ${report.sitemap.status}), ${report.sitemap.urlCount} URL(s)${report.sitemap.truncated ? ' (first 50 counted)' : ''}${report.sitemap.isIndex ? ', sitemap index' : ''}` : report.sitemap.status === null ? 'not retrievable' : `not found (HTTP ${report.sitemap.status})`}`,
+					),
+				);
+				sitemapBlock.append(el('p', 'mt-1 text-xs text-neutral-500',
+					report.sitemap.source === 'robots' ? 'Discovered from the robots.txt Sitemap directive.' : 'Checked the conventional /sitemap.xml location.',
+				));
+				if (report.sitemap.sample.length) {
+					const sample = el('ul', 'mt-2 space-y-1');
+					for (const entry of report.sitemap.sample) {
+						sample.append(el('li', 'break-all font-mono text-xs text-neutral-500', entry));
+					}
+					sitemapBlock.append(sample);
+				}
+				inner.append(sitemapBlock);
+
+				// llms.txt
+				const llmsBlock = el('div');
+				llmsBlock.append(el('h3', 'text-sm font-medium', 'llms.txt'));
+				llmsBlock.append(
+					el('p', 'mt-1 text-sm text-neutral-600',
+						report.llmsTxt.found
+							? `Found (HTTP ${report.llmsTxt.status})${report.llmsTxt.title ? ` — “${report.llmsTxt.title}”` : ''}`
+							: report.llmsTxt.status === null ? 'Could not be retrieved.' : `Not found (HTTP ${report.llmsTxt.status}).`,
+					),
+				);
+				llmsBlock.append(el('p', 'mt-1 text-xs text-neutral-500',
+					'llms.txt is an optional emerging convention, not a universal requirement.',
+				));
+				if (report.llmsTxt.sections.length) {
+					llmsBlock.append(el('p', 'mt-2 text-xs text-neutral-500', `Sections: ${report.llmsTxt.sections.join(', ')}`));
+				}
+				inner.append(llmsBlock);
+
+				// structured data + basic head signals
+				const headBlock = el('div');
+				headBlock.append(el('h3', 'text-sm font-medium', 'Page signals'));
+				const rows: Array<[string, string]> = [
+					['Title', report.homepage.title ?? '— none'],
+					['Meta description', report.homepage.metaDescription ?? '— none'],
+					['Canonical', report.homepage.canonical ?? '— none'],
+					['Language', report.homepage.lang ?? '— not set'],
+					['H1 headings', String(report.homepage.h1Count)],
+					['Open Graph tags', String(report.homepage.openGraphTags)],
+					['JSON-LD blocks', `${report.homepage.jsonLd.blocks}${report.homepage.jsonLd.invalid ? ` (${report.homepage.jsonLd.invalid} unparseable)` : ''}`],
+					['Schema types', report.homepage.jsonLd.types.join(', ') || '— none declared'],
+				];
+				const dl = el('dl', 'mt-3 space-y-2');
+				for (const [key, value] of rows) {
+					const row = el('div', 'sm:grid sm:grid-cols-[10rem_1fr] sm:gap-4');
+					row.append(el('dt', 'text-xs uppercase tracking-wide text-neutral-500', key));
+					row.append(el('dd', 'mt-0.5 text-sm break-words text-neutral-800 sm:mt-0', value));
+					dl.append(row);
+				}
+				headBlock.append(dl);
+				inner.append(headBlock);
+
+				details.append(inner);
+				box.append(details);
+			}
+
+			async function check(rawUrl: string): Promise<void> {
+				show(loading);
+				if (button) button.disabled = true;
+				try {
+					const response = await fetch('/api/ai-ready-check', {
+						method: 'POST',
+						headers: { 'content-type': 'application/json' },
+						body: JSON.stringify({ url: rawUrl }),
+					});
+					const data = (await response.json()) as
+						| { ok: true; report: Report }
+						| { ok: false; error: string };
+
+					if (!data.ok) {
+						if (errorMessage) errorMessage.textContent = data.error;
+						show(errorBox);
+						track('ai_ready_check_error', { reason: data.error });
+						return;
+					}
+
+					const report = data.report;
+					renderScore(report);
+					renderFixes(report);
+					renderSections(report);
+					renderDetails(report);
+					show(results);
+					track('ai_ready_check_result', {
+						score: report.score.total,
+						label: report.score.label,
+						blocked: report.robots.crawlers.filter((c) => c.access === 'blocked').length,
+					});
+				} catch {
+					if (errorMessage) errorMessage.textContent = 'The check could not be completed. Please try again.';
+					show(errorBox);
+					track('ai_ready_check_error', { reason: 'network' });
+				} finally {
+					if (button) button.disabled = false;
+				}
+			}
+
+			form?.addEventListener('submit', (event) => {
+				event.preventDefault();
+				const value = input?.value.trim() ?? '';
+				if (!value) {
+					input?.focus();
+					return;
+				}
+				track('ai_ready_check_submit');
+				void check(value);
+			});
+
+			document.getElementById('sample-button')?.addEventListener('click', () => {
+				if (!input) return;
+				input.value = 'example.com';
+				input.focus();
+			});
+		</script>
+	</body>
+</html>
