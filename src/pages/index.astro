@@ -1,11 +1,126 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const experiments = [
+	{ number: '004', title: 'Site Intelligence AI', description: 'Analyze website AI visibility and technical readiness.', href: '/experiments/site-intelligence/', accent: 'mint' },
+	{ number: '003', title: 'AI Ready Check', description: 'Check whether websites are prepared for AI crawlers.', href: '/experiments/ai-ready-check/', accent: 'lime' },
+	{ number: '002', title: 'SEO Checker', description: 'Instant technical website analysis.', href: '/experiments/seo-checker/', accent: 'blue' },
+];
+
+const pipeline = ['Signal Discovery', 'Evidence Collection', 'Opportunity Evaluation', 'Prototype', 'Real-world Validation', 'Product'];
+const radarPipeline = ['Seed', 'Evidence', 'Opportunity', 'Experiment', 'Decision'];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>AI Factory | Opportunity discovery and rapid validation</title>
+		<meta name="description" content="AI Factory is an opportunity discovery and rapid validation engine. Research ideas, build experiments, measure signals, and decide what deserves to become a product." />
+	</head>
+	<body>
+		<div class="page-shell">
+			<header class="site-header">
+				<a class="brand" href="/" aria-label="AI Factory home"><span class="brand-mark" aria-hidden="true">AF</span><span>AI Factory</span></a>
+				<nav aria-label="Main navigation"><a href="#experiments">Experiments</a><a href="#research-system">Research system</a></nav>
+			</header>
+
+			<main>
+				<section class="hero" aria-labelledby="hero-title">
+					<div class="hero-content">
+						<p class="eyebrow"><span class="live-dot"></span> Public product laboratory</p>
+						<h1 id="hero-title">AI Factory</h1>
+						<p class="hero-lede">An opportunity discovery and rapid validation engine.</p>
+						<p class="hero-description">Research ideas. Build experiments. Measure signals. Decide what deserves to become a product.</p>
+						<div class="hero-actions"><a class="button button-primary" href="#experiments">Explore Experiments <span aria-hidden="true">-&gt;</span></a><a class="button button-secondary" href="#research-system">View Research System <span aria-hidden="true">-&gt;</span></a></div>
+					</div>
+					<div class="hero-visual" aria-label="The AI Factory validation loop">
+						<div class="visual-header"><span>FACTORY / 005</span><span>RUNNING</span></div>
+						<div class="orbit orbit-outer"></div><div class="orbit orbit-middle"></div><div class="orbit orbit-inner"></div>
+						<div class="orbit-core"><span>IDEA</span><strong>→</strong><span>PROOF</span></div>
+						<div class="orbit-node node-discover">01 <span>discover</span></div><div class="orbit-node node-build">02 <span>build</span></div><div class="orbit-node node-measure">03 <span>measure</span></div><div class="orbit-node node-decide">04 <span>decide</span></div>
+						<div class="visual-footer"><span class="footer-bar"></span><span>from signal to product</span></div>
+					</div>
+				</section>
+
+				<section class="manifesto-band" aria-label="AI Factory purpose"><p>Build less on assumption.<br /><strong>Learn faster from reality.</strong></p><span class="manifesto-index">/ why this exists</span></section>
+
+				<section class="section process-section" id="how-it-works" aria-labelledby="process-title">
+					<div class="section-intro"><p class="section-label">01 / Operating model</p><h2 id="process-title">How AI Factory Works</h2><p>A repeatable loop for turning a question about the market into evidence about what to build next.</p></div>
+					<div class="process-grid">{pipeline.map((step, index) => <div class="process-step"><span class="step-number">0{index + 1}</span><strong>{step}</strong>{index < pipeline.length - 1 && <span class="step-arrow" aria-hidden="true">→</span>}</div>)}</div>
+				</section>
+
+				<section class="section experiments-section" id="experiments" aria-labelledby="experiments-title">
+					<div class="section-heading-row"><div class="section-intro compact"><p class="section-label">02 / Public prototypes</p><h2 id="experiments-title">Live Experiments</h2></div><p class="section-aside">Small products, shipped in public.<br />Each one answers a specific question.</p></div>
+					<div class="experiment-grid">{experiments.map((experiment) => <a class={`experiment-card accent-${experiment.accent}`} href={experiment.href}><div class="card-topline"><span>EXP {experiment.number}</span><span class="card-status"><i></i>Live</span></div><div class="card-art" aria-hidden="true"><span></span><span></span><span></span></div><div class="card-body"><h3>{experiment.title}</h3><p>{experiment.description}</p></div><div class="card-link">Open experiment <span aria-hidden="true">↗</span></div></a>)}</div>
+					<div class="experiment-footnote"><span>EXP 001</span><span>Cost Reduction validation experiment</span><span>Completed research record</span></div>
+				</section>
+
+				<section class="research-section" id="research-system" aria-labelledby="research-title">
+					<div class="research-copy"><p class="section-label">03 / The research system</p><h2 id="research-title">Demand Radar</h2><p class="research-lede">Demand Radar prevents building based on assumptions.</p><p class="research-body">It keeps the work honest: collect evidence, score opportunities, and run the smallest experiment that can change the decision.</p><a class="text-link" href="/radar/">Explore the research system <span aria-hidden="true">-&gt;</span></a></div>
+					<div class="radar-flow" aria-label="Demand Radar flow">{radarPipeline.map((step, index) => <div class="radar-step"><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong>{index < radarPipeline.length - 1 && <i aria-hidden="true">→</i>}</div>)}</div>
+				</section>
+
+				<section class="section status-section" aria-labelledby="status-title">
+					<div class="section-heading-row"><div class="section-intro compact"><p class="section-label">04 / Current status</p><h2 id="status-title">The work, as it is.</h2></div><p class="section-aside">No inflated traction metrics.<br />Only what has been verified.</p></div>
+					<div class="status-grid"><div class="status-item"><span class="status-code">M0</span><strong>Verified deployment pipeline</strong><span>Astro → GitHub Actions → Cloudflare</span></div><div class="status-item"><span class="status-code">M1</span><strong>Demand Radar operational</strong><span>Evidence, opportunity and scoring system in radar/</span></div><div class="status-item"><span class="status-code">3+</span><strong>Public prototypes</strong><span>Three live experiments available to try</span></div></div>
+				</section>
+			</main>
+
+			<footer class="site-footer"><div><span class="brand-mark small" aria-hidden="true">AF</span><span>AI Factory</span></div><span>Opportunity discovery / rapid validation</span><span>© 2026</span></footer>
+		</div>
+	</body>
+</html>
+
+<style>
+	:global(*) { box-sizing: border-box; }
+	:global(html) { scroll-behavior: smooth; background: #f4f5ef; }
+	:global(body) { margin: 0; color: #172522; background: #f4f5ef; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+	:global(a) { color: inherit; }
+	.page-shell { overflow: hidden; }
+	.site-header, main, .site-footer { width: min(1160px, calc(100% - 64px)); margin: 0 auto; }
+	.site-header { display: flex; align-items: center; justify-content: space-between; height: 78px; border-bottom: 1px solid #d4dbd4; }
+	.brand { display: inline-flex; align-items: center; gap: 10px; color: #173b32; font-size: 14px; font-weight: 800; text-decoration: none; letter-spacing: .01em; }
+	.brand-mark { display: grid; place-items: center; width: 31px; height: 31px; color: #f4f5ef; background: #173b32; font: 800 10px ui-monospace, monospace; }
+	.brand-mark.small { width: 24px; height: 24px; font-size: 8px; }
+	nav { display: flex; gap: 29px; }
+	nav a { color: #64756e; font: 11px ui-monospace, monospace; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+	nav a:hover, .text-link:hover { color: #25836a; }
+	.hero { display: grid; grid-template-columns: minmax(0, 1fr) 440px; align-items: center; gap: 78px; min-height: 640px; padding: 75px 0 84px; }
+	.hero-content { max-width: 650px; }
+	.eyebrow, .section-label { margin: 0; color: #25836a; font: 700 10px/1.3 ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; }
+	.eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 25px; }
+	.live-dot { width: 7px; height: 7px; background: #b9d957; border-radius: 50%; box-shadow: 0 0 0 5px rgba(185, 217, 87, .18); }
+	h1 { margin: 0; color: #173b32; font-size: clamp(65px, 10vw, 126px); line-height: .9; letter-spacing: -.075em; font-weight: 800; }
+	.hero-lede { max-width: 480px; margin: 27px 0 0; color: #315a4c; font-size: 25px; line-height: 1.22; letter-spacing: -.025em; font-weight: 550; }
+	.hero-description { max-width: 510px; margin: 19px 0 0; color: #71827b; font-size: 15px; line-height: 1.6; }
+	.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+	.button { display: inline-flex; align-items: center; gap: 18px; padding: 13px 17px; font-size: 12px; font-weight: 750; text-decoration: none; transition: transform .2s, background .2s, color .2s; }
+	.button:hover { transform: translateY(-2px); }
+	.button-primary { color: #f4f5ef; background: #173b32; }
+	.button-primary:hover { background: #286451; }
+	.button-secondary { color: #315a4c; border: 1px solid #b8c7be; background: transparent; }
+	.button-secondary:hover { color: #173b32; background: #fff; }
+	.hero-visual { position: relative; min-height: 420px; padding: 22px; color: #b5d3c3; background: #173b32; box-shadow: 15px 15px 0 #cbd8cf; }
+	.visual-header, .visual-footer { display: flex; justify-content: space-between; color: #86ab99; font: 10px ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; }
+	.visual-header span:last-child { color: #c8df61; }
+	.orbit { position: absolute; left: 50%; top: 52%; border: 1px solid #3f6d5c; border-radius: 50%; transform: translate(-50%, -50%) rotate(22deg); }
+	.orbit-outer { width: 315px; height: 247px; }.orbit-middle { width: 245px; height: 194px; border-color: #588573; transform: translate(-50%, -50%) rotate(-31deg); }.orbit-inner { width: 167px; height: 134px; border-color: #76a08b; transform: translate(-50%, -50%) rotate(12deg); }
+	.orbit-core { position: absolute; left: 50%; top: 52%; display: flex; align-items: center; gap: 8px; color: #173b32; background: #c8df61; padding: 15px 16px; transform: translate(-50%, -50%); font: 800 11px ui-monospace, monospace; }.orbit-core strong { font-size: 16px; }
+	.orbit-node { position: absolute; display: grid; gap: 2px; color: #c8df61; font: 700 10px ui-monospace, monospace; letter-spacing: .04em; }.orbit-node span { color: #a7c6b6; font-size: 9px; font-weight: 400; text-transform: uppercase; }.node-discover { top: 21%; left: 15%; }.node-build { top: 31%; right: 11%; }.node-measure { bottom: 22%; right: 16%; }.node-decide { bottom: 16%; left: 17%; }
+	.visual-footer { position: absolute; right: 22px; bottom: 22px; left: 22px; align-items: center; gap: 9px; }.footer-bar { height: 1px; flex: 1; background: #588573; }
+	.manifesto-band { display: flex; align-items: end; justify-content: space-between; padding: 28px 0 31px; border-top: 1px solid #d4dbd4; border-bottom: 1px solid #d4dbd4; }.manifesto-band p { margin: 0; color: #6e8078; font-size: 19px; line-height: 1.35; letter-spacing: -.015em; }.manifesto-band strong { color: #173b32; font-weight: 700; }.manifesto-index { color: #87968f; font: 10px ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; }
+	.section { padding: 112px 0; }.section-intro { max-width: 545px; }.section-intro h2, .research-copy h2 { margin: 18px 0 14px; color: #173b32; font-size: clamp(34px, 5vw, 52px); line-height: 1; letter-spacing: -.055em; }.section-intro p:not(.section-label), .section-aside { margin: 0; color: #71827b; font-size: 15px; line-height: 1.55; }
+	.process-grid { display: grid; grid-template-columns: repeat(6, 1fr); margin-top: 62px; border-top: 1px solid #cad6cd; border-bottom: 1px solid #cad6cd; }.process-step { position: relative; display: grid; gap: 30px; min-height: 164px; padding: 25px 18px 25px 0; border-right: 1px solid #cad6cd; }.process-step:not(:first-child) { padding-left: 17px; }.process-step:last-child { border-right: 0; }.step-number { color: #25836a; font: 10px ui-monospace, monospace; }.process-step strong { align-self: end; max-width: 120px; color: #315a4c; font-size: 14px; line-height: 1.25; }.step-arrow { position: absolute; right: -8px; top: 50%; z-index: 1; display: grid; place-items: center; width: 15px; height: 15px; color: #25836a; background: #f4f5ef; font-size: 13px; }
+	.section-heading-row { display: flex; align-items: end; justify-content: space-between; gap: 35px; }.compact h2 { margin-bottom: 0; }.section-aside { text-align: right; }.experiment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; margin-top: 58px; }.experiment-card { position: relative; display: flex; min-height: 337px; flex-direction: column; padding: 19px; color: #173b32; border: 1px solid #ccd8cf; background: #fff; text-decoration: none; transition: transform .2s, box-shadow .2s; }.experiment-card:hover { transform: translateY(-5px); box-shadow: 8px 8px 0 #cfddd3; }.card-topline { display: flex; justify-content: space-between; color: #82928a; font: 10px ui-monospace, monospace; letter-spacing: .1em; }.card-status { display: flex; align-items: center; gap: 5px; color: #25836a; }.card-status i { width: 6px; height: 6px; background: #b9d957; border-radius: 50%; }
+	.card-art { display: flex; align-items: center; gap: 8px; height: 128px; margin: 24px -19px 25px; padding: 0 19px; background: #eef3eb; overflow: hidden; }.card-art span { display: block; height: 7px; flex: 1; background: #c8df61; }.card-art span:nth-child(2) { height: 48px; background: #7fae94; }.card-art span:nth-child(3) { height: 84px; background: #173b32; }.accent-lime .card-art { background: #f0f3df; }.accent-lime .card-art span:nth-child(1) { height: 83px; background: #c8df61; }.accent-lime .card-art span:nth-child(2) { height: 32px; background: #9ebd58; }.accent-blue .card-art { background: #edf2f2; }.accent-blue .card-art span:nth-child(1) { height: 29px; background: #91b8b1; }.accent-blue .card-art span:nth-child(2) { height: 82px; background: #4b8178; }
+	.card-body { flex: 1; }.card-body h3 { margin: 0; font-size: 21px; letter-spacing: -.035em; }.card-body p { max-width: 230px; margin: 9px 0 0; color: #71827b; font-size: 13px; line-height: 1.5; }.card-link { display: flex; justify-content: space-between; margin-top: 26px; padding-top: 14px; border-top: 1px solid #e0e7e0; color: #25836a; font: 11px ui-monospace, monospace; }.card-link span { font-size: 16px; line-height: 10px; }.experiment-footnote { display: grid; grid-template-columns: 100px 1fr 1fr; gap: 12px; margin-top: 18px; padding: 17px 19px; color: #7f8f87; border: 1px dashed #c9d5cc; font: 11px ui-monospace, monospace; }.experiment-footnote span:last-child { text-align: right; }
+	.research-section { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: center; gap: 85px; padding: 104px max(calc((100vw - 1160px) / 2), 32px); color: #dce9df; background: #173b32; }.research-copy { max-width: 430px; }.research-copy .section-label { color: #b5cf62; }.research-copy h2 { color: #f0f5ed; }.research-lede { margin: 0; color: #c8dfd0; font-size: 18px; line-height: 1.35; }.research-body { margin: 18px 0 29px; color: #8fb29e; font-size: 14px; line-height: 1.6; }.text-link { display: inline-flex; gap: 15px; color: #c8df61; font: 700 12px ui-monospace, monospace; text-decoration: none; }.radar-flow { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid #4b7765; border-bottom: 1px solid #4b7765; }.radar-step { position: relative; display: grid; gap: 28px; min-height: 140px; padding: 17px 12px 17px 0; border-right: 1px solid #4b7765; }.radar-step:not(:first-child) { padding-left: 12px; }.radar-step:last-child { border-right: 0; }.radar-step span { color: #b5cf62; font: 10px ui-monospace, monospace; }.radar-step strong { align-self: end; color: #f0f5ed; font-size: 13px; }.radar-step i { position: absolute; top: 50%; right: -7px; z-index: 1; color: #b5cf62; background: #173b32; font-style: normal; }
+	.status-section { padding-bottom: 125px; }.status-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; margin-top: 58px; }.status-item { display: grid; gap: 11px; min-height: 145px; padding: 21px; border: 1px solid #ccd8cf; background: #fff; }.status-code { color: #25836a; font: 800 12px ui-monospace, monospace; }.status-item strong { color: #315a4c; font-size: 14px; }.status-item span:last-child { color: #82928a; font: 11px/1.45 ui-monospace, monospace; }.site-footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 23px 0 30px; border-top: 1px solid #d4dbd4; color: #819089; font: 10px ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }.site-footer > div { display: flex; align-items: center; gap: 8px; color: #315a4c; font-weight: 800; }
+	@media (max-width: 880px) { .hero { grid-template-columns: 1fr; gap: 50px; }.hero-visual { max-width: 560px; width: 100%; }.research-section { grid-template-columns: 1fr; gap: 50px; } }
+	@media (max-width: 680px) { .site-header, main, .site-footer { width: min(100% - 34px, 1160px); }.site-header { height: 66px; }nav { gap: 13px; }nav a { font-size: 9px; }.hero { min-height: 0; padding: 68px 0 64px; }h1 { font-size: 68px; }.hero-lede { font-size: 21px; }.hero-visual { min-height: 350px; box-shadow: 9px 9px 0 #cbd8cf; }.orbit-outer { width: 275px; height: 220px; }.orbit-middle { width: 215px; height: 175px; }.orbit-inner { width: 145px; height: 118px; }.section { padding: 78px 0; }.manifesto-band { align-items: start; flex-direction: column; gap: 18px; }.process-grid { grid-template-columns: repeat(2, 1fr); margin-top: 40px; }.process-step, .process-step:not(:first-child) { min-height: 135px; padding: 20px 15px; border-bottom: 1px solid #cad6cd; border-right: 1px solid #cad6cd; }.process-step:nth-child(2n) { border-right: 0; }.process-step:nth-last-child(-n+2) { border-bottom: 0; }.step-arrow { display: none; }.section-heading-row { align-items: start; flex-direction: column; gap: 16px; }.section-aside { text-align: left; }.experiment-grid, .status-grid { grid-template-columns: 1fr; gap: 13px; margin-top: 38px; }.experiment-card { min-height: 305px; }.experiment-footnote { grid-template-columns: 74px 1fr; }.experiment-footnote span:last-child { grid-column: 2; text-align: left; }.research-section { padding: 78px 17px; }.radar-flow { grid-template-columns: repeat(5, 1fr); }.radar-step { min-height: 115px; padding-right: 6px; }.radar-step:not(:first-child) { padding-left: 6px; }.radar-step strong { font-size: 10px; overflow-wrap: anywhere; }.radar-step i { display: none; }.status-section { padding-bottom: 85px; }.site-footer { align-items: start; flex-direction: column; } }
+	@media (max-width: 420px) { nav a:first-child { display: none; }h1 { font-size: 59px; }.hero-actions { align-items: stretch; flex-direction: column; }.button { justify-content: space-between; }.hero-visual { min-height: 320px; padding: 17px; }.node-discover { left: 7%; }.node-build { right: 4%; }.node-measure { right: 7%; }.node-decide { left: 7%; }.orbit-outer { width: 245px; height: 195px; }.orbit-middle { width: 193px; height: 157px; }.orbit-inner { width: 129px; height: 105px; }.visual-footer { right: 17px; bottom: 17px; left: 17px; }.research-section { padding-right: 17px; padding-left: 17px; } }
+</style>
