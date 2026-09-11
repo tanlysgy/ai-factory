@@ -1,0 +1,38 @@
+{
+  "fontFamilies": [
+    [
+      "\"Times New Roman\"",
+      6
+    ],
+    [
+      "system-ui, sans-serif",
+      6
+    ]
+  ],
+  "fontSizes": [
+    [
+      "16px",
+      11
+    ],
+    [
+      "24px",
+      1
+    ]
+  ],
+  "fontWeights": [
+    [
+      "400",
+      11
+    ],
+    [
+      "700",
+      1
+    ]
+  ],
+  "lineHeights": [
+    [
+      "normal",
+      12
+    ]
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "capturedAt": "2026-09-11T10:49:08.301Z",
+  "title": "Example Domain",
+  "url": "https://example.com/",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "cssAssets": [],
+  "inlineStyleBlocks": 1,
+  "colors": [
+    [
+      "rgb(0, 0, 0)",
+      1
+    ],
+    [
+      "rgb(238, 238, 238)",
+      1
+    ],
+    [
+      "rgb(51, 68, 136)",
+      1
+    ]
+  ],
+  "typography": {
+    "fontFamilies": [
+      [
+        "\"Times New Roman\"",
+        6
+      ],
+      [
+        "system-ui, sans-serif",
+        6
+      ]
+    ],
+    "fontSizes": [
+      [
+        "16px",
+        11
+      ],
+      [
+        "24px",
+        1
+      ]
+    ],
+    "fontWeights": [
+      [
+        "400",
+        11
+      ],
+      [
+        "700",
+        1
+      ]
+    ],
+    "lineHeights": [
+      [
+        "normal",
+        12
+      ]
+    ]
+  }
+}

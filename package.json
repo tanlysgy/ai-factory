@@ -10,6 +10,7 @@
     "build": "astro build",
     "test": "node --test --experimental-strip-types src/lib/seo-analyze.test.ts src/lib/ai-ready-check.test.ts src/lib/site-intelligence.test.ts src/lib/ai-visibility.test.ts radar/engine/score.test.mjs",
     "preview": "astro preview",
+    "preview:tunnel": "tools/browser/preview-tunnel.sh",
     "astro": "astro",
     "generate-types": "wrangler types"
   },
