@@ -1,0 +1,388 @@
+{
+  "url": "https://www.raycast.com/",
+  "result": {
+    "url": "https://www.raycast.com/",
+    "title": "Raycast - Your shortcut to everything",
+    "viewport": {
+      "w": 1440,
+      "h": 1000
+    },
+    "body": {
+      "bg": "rgb(7, 8, 10)",
+      "color": "rgb(255, 255, 255)",
+      "font": "Inter, \"Inter Fallback\", sans-serif"
+    },
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Your shortcut to everything."
+      },
+      {
+        "tag": "H2",
+        "text": "Take shortcuts, not detours."
+      },
+      {
+        "tag": "H2",
+        "text": "It’s not about saving time."
+      },
+      {
+        "tag": "H2",
+        "text": "There’s an extension for that."
+      },
+      {
+        "tag": "H3",
+        "text": "Plus thousands more..."
+      },
+      {
+        "tag": "H2",
+        "text": "Meet your new virtual assistant"
+      },
+      {
+        "tag": "H3",
+        "text": "AI Chat"
+      },
+      {
+        "tag": "H3",
+        "text": "Quick AI"
+      },
+      {
+        "tag": "H3",
+        "text": "AI Extensions"
+      },
+      {
+        "tag": "H2",
+        "text": "Built for professionals like you."
+      },
+      {
+        "tag": "H2",
+        "text": "Don't repeat yourself."
+      },
+      {
+        "tag": "H2",
+        "text": "Stay in the loop."
+      },
+      {
+        "tag": "H3",
+        "text": "Build the perfect tools."
+      },
+      {
+        "tag": "H2",
+        "text": "Take the short way."
+      }
+    ],
+    "nav": [],
+    "buttons": [
+      "Store",
+      "Pro",
+      "AI",
+      "iOS",
+      "Windows",
+      "Teams",
+      "Enterprise",
+      "Blog",
+      "Pricing",
+      "Log in",
+      "Download",
+      "Log in",
+      "Download for Mac",
+      "Install via Homebrew",
+      "Download V1",
+      "The Raycast Keyboard",
+      "Download",
+      "Productivity",
+      "Engineering",
+      "Design"
+    ],
+    "colors": [
+      [
+        "rgb(255, 255, 255)",
+        2225
+      ],
+      [
+        "rgba(255, 255, 255, 0.4)",
+        245
+      ],
+      [
+        "rgb(106, 107, 108)",
+        174
+      ],
+      [
+        "rgb(156, 156, 157)",
+        142
+      ],
+      [
+        "rgba(255, 255, 255, 0.05)",
+        104
+      ],
+      [
+        "rgba(255, 255, 255, 0.6)",
+        102
+      ],
+      [
+        "rgb(67, 67, 69)",
+        69
+      ],
+      [
+        "rgb(230, 230, 230)",
+        57
+      ],
+      [
+        "rgba(255, 255, 255, 0.1)",
+        30
+      ],
+      [
+        "rgba(255, 255, 255, 0.8)",
+        19
+      ],
+      [
+        "rgba(255, 255, 255, 0.9)",
+        16
+      ],
+      [
+        "rgb(47, 48, 49)",
+        14
+      ],
+      [
+        "rgba(255, 255, 255, 0.3)",
+        11
+      ],
+      [
+        "rgba(255, 255, 255, 0.2)",
+        9
+      ],
+      [
+        "rgba(255, 255, 255, 0.28)",
+        7
+      ],
+      [
+        "rgb(8, 9, 12)",
+        6
+      ]
+    ],
+    "radii": [
+      [
+        "0px",
+        2377
+      ],
+      [
+        "11px",
+        159
+      ],
+      [
+        "8px",
+        109
+      ],
+      [
+        "100%",
+        101
+      ],
+      [
+        "6px",
+        76
+      ],
+      [
+        "12px",
+        53
+      ],
+      [
+        "20px",
+        38
+      ],
+      [
+        "16px",
+        28
+      ],
+      [
+        "99999px",
+        24
+      ],
+      [
+        "4px",
+        23
+      ],
+      [
+        "10px",
+        12
+      ],
+      [
+        "9px",
+        12
+      ],
+      [
+        "5px",
+        6
+      ],
+      [
+        "2px",
+        5
+      ],
+      [
+        "2.5px",
+        5
+      ],
+      [
+        "25%",
+        5
+      ]
+    ],
+    "shadows": [
+      [
+        "rgba(0, 0, 0, 0.4) 0px 1.5px 0.5px 2.5px, rgb(0, 0, 0) 0px 0px 0.5px 1px, rgba(0, 0, 0, 0.25) 0px 2px 1px 1px inset, rgba(255, 255, 255, 0.2) 0px 1px 1px 1px inset, rgba(0, 0, 0, 0) 0px 0px 0px 0px inset",
+        159
+      ],
+      [
+        "rgb(27, 28, 30) 0px 0px 0px 1px, rgb(7, 8, 10) 0px 0px 0px 1px inset",
+        54
+      ],
+      [
+        "rgba(215, 201, 175, 0.05) 0px 0px 20px 5px, rgba(215, 201, 175, 0.05) 0px 0px 16px -7px",
+        18
+      ],
+      [
+        "rgba(0, 0, 0, 0.28) 0px 1.189px 2.377px 0px",
+        17
+      ],
+      [
+        "rgba(255, 255, 255, 0.05) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.25) 0px 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset",
+        17
+      ],
+      [
+        "rgba(0, 0, 0, 0.5) 0px 0px 0px 2px, rgba(255, 255, 255, 0.19) 0px 0px 14px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0.4px 0px inset, rgb(255, 255, 255) 0px 1px 0.4px 0px inset",
+        6
+      ],
+      [
+        "rgba(0, 0, 0, 0.03) 0px 7px 3px 0px, rgba(0, 0, 0, 0.25) 0px 4px 4px 0px",
+        6
+      ],
+      [
+        "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset",
+        6
+      ],
+      [
+        "rgba(0, 0, 0, 0.4) 0px 4px 40px 8px, rgba(0, 0, 0, 0.8) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.3) 0px 0.5px 0px 0px inset",
+        4
+      ],
+      [
+        "rgba(255, 255, 255, 0.15) 0px 1px 1px 0px inset",
+        3
+      ],
+      [
+        "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.4) 0px 30px 50px 0px, rgba(3, 15, 129, 0.09) 0px 4px 24px 0px, rgba(255, 255, 255, 0.06) 0px 0px 0px 1px inset",
+        3
+      ],
+      [
+        "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, rgba(7, 13, 79, 0.1) 0px 0px 20px 3px, rgba(85, 0, 98, 0.1) 0px 0px 40px 20px, rgba(255, 255, 255, 0.06) 0px 0px 0px 1px inset",
+        2
+      ],
+      [
+        "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.4) 0px 30px 50px 0px, rgba(51, 3, 129, 0.09) 0px 4px 24px 0px, rgba(255, 255, 255, 0.06) 0px 0px 0px 1px inset",
+        2
+      ],
+      [
+        "rgba(255, 255, 255, 0.1) 0px 1px 0px 0px inset, rgba(7, 13, 79, 0.1) 0px 0px 20px 3px, rgba(7, 40, 79, 0.1) 0px 0px 40px 20px, rgba(255, 255, 255, 0.06) 0px 0px 0px 1px inset",
+        2
+      ],
+      [
+        "rgba(245, 48, 107, 0.1) 0px 0px 20px 0px",
+        1
+      ],
+      [
+        "rgba(255, 255, 255, 0.03) 0px 0px 40px 20px, rgba(255, 255, 255, 0.3) 0px 0.5px 0px 0px inset",
+        1
+      ]
+    ],
+    "fontSizes": [
+      [
+        "16px",
+        1499
+      ],
+      [
+        "13px",
+        550
+      ],
+      [
+        "14px",
+        298
+      ],
+      [
+        "23.75px",
+        225
+      ],
+      [
+        "32px",
+        221
+      ],
+      [
+        "24px",
+        143
+      ],
+      [
+        "18px",
+        40
+      ],
+      [
+        "12px",
+        36
+      ],
+      [
+        "20px",
+        18
+      ],
+      [
+        "11px",
+        12
+      ],
+      [
+        "10px",
+        8
+      ],
+      [
+        "11.9px",
+        6
+      ],
+      [
+        "15px",
+        3
+      ],
+      [
+        "22px",
+        2
+      ],
+      [
+        "64px",
+        1
+      ],
+      [
+        "56px",
+        1
+      ]
+    ],
+    "fonts": [
+      [
+        "Inter, \"Inter Fallback\", sans-serif",
+        2288
+      ],
+      [
+        "\"SF Pro Text\", \"SF Pro Icons\", Inter, \"Inter Fallback\"",
+        524
+      ],
+      [
+        "\"SF Pro\"",
+        215
+      ],
+      [
+        "GeistMono, ui-monospace, SFMono-Regular, \"Roboto Mono\", Menlo, Monaco, \"Liberation Mono\", \"DejaVu Sans Mono\", \"Courier New\", monospace",
+        31
+      ],
+      [
+        "Inter, \"Inter Fallback\"",
+        4
+      ],
+      [
+        "\"JetBrains Mono\", \"JetBrains Mono Fallback\", Menlo, Monaco, Courier, monospace",
+        1
+      ]
+    ],
+    "sections": []
+  }
+}

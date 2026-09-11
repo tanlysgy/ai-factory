@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Aurora is a fictional keyboard-first command launcher demo. Recreated independently from a visual reference site as a Website Factory pipeline test." />
+  <title>Aurora — Your command center for everything</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-theme="dark">
+  <div class="page-glow" aria-hidden="true"></div>
+
+  <header class="topbar shell">
+    <a class="brand" href="#hero" aria-label="Aurora home">
+      <span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Aurora</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#launcher">Launcher</a>
+      <a href="#collections">Collections</a>
+      <a href="#assistant">Assistant</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <div class="topbar-actions">
+      <a class="ghost-link" href="#pricing">Log in</a>
+      <a class="button button-primary" href="#download">Download</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero shell">
+      <p class="eyebrow"><span class="live-dot"></span> The independent command center</p>
+      <h1>Your command center for everything.</h1>
+      <p class="lede">One fast launcher for apps, files, tools and the web. Draw your own maps with commands that feel effortless.</p>
+      <div class="hero-actions">
+        <a class="button button-accent" href="#download">Download for macOS</a>
+        <a class="button button-quiet" href="#install">Install with Homebrew</a>
+      </div>
+      <p class="hero-note">macOS 15 or newer. Apple silicon supported.</p>
+    </section>
+
+    <section id="launcher" class="demo shell" aria-labelledby="demo-title">
+      <div class="section-head">
+        <p class="section-label">01 / The launcher</p>
+        <h2 id="demo-title">One interface, everything you need.</h2>
+      </div>
+      <div class="app-frame" role="img" aria-label="Aurora launcher window mockup">
+        <div class="app-titlebar"><span class="traffic red"></span><span class="traffic yellow"></span><span class="traffic green"></span><span class="app-title">Aurora</span></div>
+        <div class="app-search">
+          <input id="demo-search" type="search" value="open" aria-label="Search commands" autocomplete="off" spellcheck="false" />
+          <kbd>⌘ K</kbd>
+        </div>
+        <div class="app-results">
+          <div class="result-row">
+            <span class="result-icon icon-indigo">A</span>
+            <div class="result-meta"><strong>Open Applications</strong><span>Apps</span></div>
+            <kbd>↵</kbd>
+          </div>
+          <div class="result-row active">
+            <span class="result-icon icon-mint">↗</span>
+            <div class="result-meta"><strong>Open … in Aurora</strong><span>Shortcuts</span></div>
+            <kbd class="result-keys">⌘ ↵</kbd>
+          </div>
+          <div class="result-row">
+            <span class="result-icon icon-amber">◆</span>
+            <div class="result-meta"><strong>Open Clipboard History</strong><span>Clipboard</span></div>
+            <kbd>⌘ ⇧ V</kbd>
+          </div>
+          <div class="result-row">
+            <span class="result-icon icon-coral">?</span>
+            <div class="result-meta"><strong>Open Documentation</strong><span>Documentation</span></div>
+            <kbd>⇧ ?</kbd>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="principles" class="shell" aria-labelledby="principles-title">
+      <div class="section-head">
+        <p class="section-label">02 / Principles</p>
+        <h2 id="principles-title">Designed around how you actually work.</h2>
+      </div>
+      <div class="principle-grid">
+        <article><h3>Fast.</h3><p>Your hands stay on the keyboard and your focus stays on the task. Milliseconds matter.</p></article>
+        <article><h3>Ergonomic.</h3><p>Shortcuts become muscle memory, so the interface gets out of your way.</p></article>
+        <article><h3>Personal.</h3><p>Commands, collections and themes adapt to your tools, not the other way around.</p></article>
+      </div>
+    </section>
+
+    <section id="collections" class="shell" aria-labelledby="collections-title">
+      <div class="section-head">
+        <p class="section-label">03 / Collections</p>
+        <h2 id="collections-title">There's a command for that.</h2>
+        <p>Bring your favorite tools into one place without switching windows.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Collection categories">
+        <button class="tab active" role="tab" aria-selected="true" data-filter="Productivity">Productivity</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="Engineering">Engineering</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="Design">Design</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="Writing">Writing</button>
+      </div>
+      <div class="card-grid">
+        <article class="card" data-category="Productivity"><h3>Tasks</h3><p>Create, search and update tasks without leaving the keyboard.</p><span class="card-tag">Productivity</span></article>
+        <article class="card" data-category="Productivity"><h3>Calendar</h3><p>Check the day ahead, join calls and block focus time instantly.</p><span class="card-tag">Productivity</span></article>
+        <article class="card" data-category="Engineering"><h3>Terminal</h3><p>Run commands, inspect output and push fixes from one place.</p><span class="card-tag">Engineering</span></article>
+        <article class="card" data-category="Engineering"><h3>Git</h3><p>Search branches, review diffs and open pull requests quickly.</p><span class="card-tag">Engineering</span></article>
+        <article class="card" data-category="Design"><h3>Assets</h3><p>Search colors, icons and design files with live previews.</p><span class="card-tag">Design</span></article>
+        <article class="card" data-category="Writing"><h3>Drafts</h3><p>Capture half-formed ideas before they disappear.</p><span class="card-tag">Writing</span></article>
+      </div>
+    </section>
+
+    <section id="assistant" class="shell" aria-labelledby="assistant-title">
+      <div class="section-head">
+        <p class="section-label">04 / Assistant</p>
+        <h2 id="assistant-title">Meet your quiet copilot.</h2>
+        <p>Describe what you want and Aurora proposes the next step with your own tools.</p>
+      </div>
+      <div class="assistant-card">
+        <div class="assistant-prompt"><span class="assistant-label">Ask Aurora</span><strong>Summarize the agenda for my next meeting</strong></div>
+        <div class="assistant-suggestion"><span class="assistant-label">Suggested command</span><strong>Open meeting notes → draft a summary → send</strong></div>
+      </div>
+    </section>
+
+    <section id="pricing" class="shell" aria-labelledby="pricing-title">
+      <div class="section-head">
+        <p class="section-label">05 / Pricing</p>
+        <h2 id="pricing-title">Start free, upgrade when you're ready.</h2>
+      </div>
+      <div class="pricing-grid">
+        <article class="plan"><h3>Starter</h3><p class="price">$0<span>/ mo</span></p><ul><li>Core launcher</li><li>20 collections</li><li>Community themes</li></ul><a class="button button-quiet" href="#download">Get started</a></article>
+        <article class="plan featured"><span class="plan-flag">Most popular</span><h3>Pro</h3><p class="price">$12<span>/ mo</span></p><ul><li>Everything in Starter</li><li>Unlimited collections</li><li>Assistant commands</li><li>Priority support</li></ul><a class="button button-accent" href="#download">Start Pro trial</a></article>
+      </div>
+    </section>
+
+    <section id="download" class="cta shell">
+      <p class="eyebrow">Try it today</p>
+      <h2>Take the short way.</h2>
+      <p>Download Aurora and run your first command in under a minute.</p>
+      <div class="hero-actions">
+        <a class="button button-accent" href="#download">Download for macOS</a>
+        <a class="button button-quiet" href="#install">Install with Homebrew</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <div class="footer-top">
+      <span class="brand-name">Aurora</span>
+      <nav aria-label="Footer navigation">
+        <a href="#launcher">Product</a>
+        <a href="#collections">Collections</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#download">Download</a>
+      </nav>
+    </div>
+    <p class="footer-note">Fictional demo built as an independent recreation for a Website Factory pipeline test. No affiliation with any referenced product.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
