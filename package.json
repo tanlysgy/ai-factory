@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "test": "node --test --experimental-strip-types src/lib/seo-analyze.test.ts src/lib/ai-ready-check.test.ts src/lib/site-intelligence.test.ts radar/engine/score.test.mjs",
+    "test": "node --test --experimental-strip-types src/lib/seo-analyze.test.ts src/lib/ai-ready-check.test.ts src/lib/site-intelligence.test.ts src/lib/ai-visibility.test.ts radar/engine/score.test.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types"
