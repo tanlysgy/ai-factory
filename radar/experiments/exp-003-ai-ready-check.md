@@ -22,11 +22,13 @@ created_at: "2026-09-11"
 launched_at: "2026-09-11"
 concluded_at: null
 
-observed_signal: null
+observed_signal: >-
+  Built and deployed in one session, then verified against production with real
+  third-party sites. Scores matched the pre-deployment local runs exactly.
 observed_numbers:
-  metric: null
-  value: null
-result: null
+  metric: "browser-level production checks passed"
+  value: 11
+result: iterate
 decision: null
 decision_why: null
 cost_hours: 0
@@ -136,7 +138,7 @@ that indexing decisions belong to each platform. `llms.txt` is described everywh
 | Real-world parsing | analyzer run against live `example.com`, `astro.build`, `stripe.com`, `x.com`, `reddit.com` | plausible, differentiated scores |
 | UI behaviour | headless Chromium against the built site | 28 checks passed |
 | Build | `pnpm build` | passes; 4 static routes + 2 on-demand routes |
-| Production | live checks against the deployed Worker | see `## Result & decision` |
+| Production | live checks against the deployed Worker | 11 browser checks + full API matrix passed |
 
 ### Real observed output (2026-09-11, before deployment)
 
@@ -161,6 +163,39 @@ evidence that the scoring discriminates rather than returning a constant.
   change. The tool reports what exists today.
 - Local end-to-end fetching is impossible in this environment (proxy-only networking); production
   is the authoritative end-to-end test. See `handoff.md` Known Issues.
+
+## Production verification (2026-09-11)
+
+Deployed via the existing pipeline (commit `aee5be2`, GitHub Actions run `34558921738`, success).
+Live base: `https://ai-factory.sgyyyds.qzz.io`.
+
+**API matrix (real requests against the live Worker):**
+
+| Case | Observed |
+|---|---|
+| `example.com` | 200 OK · score 15 "Needs work" · 4 requests · 0.8s |
+| `stripe.com` (SaaS) | 200 OK · score 100 "AI ready" · llms.txt + sitemap found · 1.3s |
+| `x.com` (obvious robots rules) | 200 OK · score 45 · broad `Disallow: /` · all 7 tokens disallowed · 1.2s |
+| `localhost`, `127.0.0.1`, `10.0.0.1`, `172.16.0.1`, `192.168.1.1`, `169.254.169.254`, `metadata.google.internal`, `user:pw@example.com`, `javascript:`, `not a url` | all rejected, HTTP 400, `ok:false` |
+| Slow origin (`httpbin.org/delay/30`) | ended cleanly after ~11s with `code:"timeout"` |
+| Unresolvable domain | ended cleanly with a handled error (see limitations) |
+| Non-HTML URL | ended cleanly with `code:"not_html"` |
+| `GET` / missing field / malformed JSON | 405 / 400 / 400, all valid JSON |
+
+No 5xx, no unhandled SSR error, and no request exceeded the 10-second bound.
+
+**Browser checks (headless Chromium against production):** 11 passed — page loads, results
+hidden initially, live results render, score and label present, 4 section bars, 4 section cards,
+telemetry event fires, blocked-crawler detail renders, private host rejected, no horizontal
+overflow at 375px.
+
+### Two minor UX nits (known, not fixed)
+
+1. An unresolvable domain reports "returned HTTP 530" (Cloudflare's origin-DNS error) rather than
+   a friendlier "could not reach that site". The message is accurate but technical.
+2. When robots.txt is absent, the two robots-derived warnings outrank "robots.txt accessible" in
+   the fix list because ranking is by points lost. Each entry still states its own remediation, so
+   the actionable advice is present, just not grouped.
 
 ## Next step
 

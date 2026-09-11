@@ -104,6 +104,8 @@ git push (master)
 - [x] **exp-001 fake-door 落地页已上线** — `/experiments/cost-reduction`(`1207dd1`),仅前端 + 控制台 `track()`,无后端无分析。
 - [x] **exp-001 分发冲刺准备完成** — `radar/experiments/exp-001-distribution-{opportunities,drafts,log}.md`(`275f5d7`);15 个已验证渠道 + 3 份话术模板,**尚未发帖**(待人审)。
 - [x] **exp-002 SEO Checker 原型已上线** — `/experiments/seo-checker`(`5edb551`),线上实测:页面 200、实时抓取 `example.com` / `astro.build` 返回真实分析、私有地址被服务端拒绝。
+- [x] **exp-003 AI Ready Check 已上线并验证** — `/experiments/ai-ready-check`(`aee5be2`);4 次有界请求(page/robots.txt/sitemap/llms.txt)+ 100 分透明评分(纯代码,无 LLM)。线上实测 `example.com` 15、`stripe.com` 100、`x.com` 45(broad Disallow + 7 个 AI token 全禁),私有地址/凭据全部 400 拒绝,慢站 11s 干净超时,无 SSR 错误。
+- [x] `pnpm test` 脚本已加入 `package.json`(node --test,63 个测试:seo-analyze 20 + ai-ready-check 42 + radar score engine 26)。
 
 ## In Progress
 
@@ -217,3 +219,4 @@ M1(编码)— 按 docs/plans/M1-demand-radar-design.md §22 顺序实施
 - 2026-09-11 — exp-001 fake-door 上线(`1207dd1`,Cloudflare 已部署,headless 验证 10/10)。
 - 2026-09-11 — exp-001 分发冲刺准备(`275f5d7`):15 个渠道 + 3 模板 + 追踪表,零发帖。
 - 2026-09-11 — **exp-002 SEO Checker 上线并验证**(`5edb551`):首个按需路由 `/api/analyze`;单测 20/20、本地 UI 21/21、线上 UI 11/11、既有 radar 测试 26/26,`pnpm build` 通过,CI deploy success。记录于 `radar/experiments/exp-002-seo-checker.md`。
+- 2026-09-11 — **exp-003 AI Ready Check 上线并验证**(`aee5be2`):第二个按需路由 `/api/ai-ready-check`;`pnpm test` 63/63、本地 UI 28/28、线上 UI 11/11,CI deploy success。记录于 `radar/experiments/exp-003-ai-ready-check.md`(含评分模型、两条有意的评分决策、真实站点对照结果与已知缺陷)。
