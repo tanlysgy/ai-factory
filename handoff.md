@@ -29,7 +29,7 @@ M1(Design):Demand Radar — 从互联网公开信号系统性发现可验证的�
 
 ## Current Architecture
 
-单 Worker + 静态资产。流程:
+单 Worker:静态资产 + 1 个按需路由(`/api/analyze`,用于 exp-002 SEO Checker 的实时抓取)。流程:
 
 ```
 git push (master)
@@ -41,7 +41,8 @@ git push (master)
 
 - `astro build` 输出 `dist/`(`dist/client/` 为静态资产,`dist/server/` 为 SSR entrypoint)。
 - Wrangler 在构建时 **redirect** 到 `dist/client/wrangler.json`(源自根目录 `wrangler.jsonc`,Assets 目录为 `./dist`)。这是 Astro + Cloudflare 的正常行为,不是错误。
-- 本站当前按静态站点构建(build output: `static`),SSR entrypoint 仍会被编译并部署,`env.SESSION`、`env.IMAGES` 绑定会被附加。本地无对应 KV/Images 资源,`wrangler dev` 时由 miniflare 模拟(记录于 `Known Issues`)。
+- 本站按静态站点构建(build output: `static`);个别路由用 `export const prerender = false` 单独开启按需渲染(`src/pages/api/analyze.ts` 是唯一一处)。`env.SESSION`、`env.IMAGES` 绑定会被附加。本地无对应 KV/Images 资源,`wrangler dev` 时由 miniflare 模拟(记录于 `Known Issues`)。
+- 含按需路由后,构建产物为 `dist/client/`(静态资源)+ `dist/server/entry.mjs`,Wrangler 使用生成的 `dist/server/wrangler.json`(`main: entry.mjs`,`assets: ../client`)。
 
 ## Tech Stack
 
@@ -100,6 +101,9 @@ git push (master)
 - [x] **Push 自动部署 VERIFIED** — push commit `8e67910`(带 `M0-CI-VERIFY-20260910` 标记)→ 线上出现标记;还原 push commit `65f220e` → 标记消失,页面回到 Astro 默认首页(`<title>Astro Basics</title>`)。
 - [x] **M1 Demand Radar DESIGN COMPLETE** — `docs/plans/M1-demand-radar-design.md` 已创建(仅文档,零编码;含 5 类信号模型、Pipeline、透明评分、Evidence 模型、V1 范围、Non-goals、成本与 Legal)。
 - [x] `.codegraph/` 未纳入版本控制(保持 untracked,不提交)。
+- [x] **exp-001 fake-door 落地页已上线** — `/experiments/cost-reduction`(`1207dd1`),仅前端 + 控制台 `track()`,无后端无分析。
+- [x] **exp-001 分发冲刺准备完成** — `radar/experiments/exp-001-distribution-{opportunities,drafts,log}.md`(`275f5d7`);15 个已验证渠道 + 3 份话术模板,**尚未发帖**(待人审)。
+- [x] **exp-002 SEO Checker 原型已上线** — `/experiments/seo-checker`(`5edb551`),线上实测:页面 200、实时抓取 `example.com` / `astro.build` 返回真实分析、私有地址被服务端拒绝。
 
 ## In Progress
 
@@ -146,7 +150,9 @@ M1(编码)— 按 docs/plans/M1-demand-radar-design.md §22 顺序实施
 
 1. **本地 OAuth token 已过期** → 本地无法再交互式 `wrangler login`/`wrangler deploy`;本地验证走 `--dry-run`,实际部署走 CI(CI 全链路已验证,不再阻塞)。
 2. **`wrangler dev`(未在本次验证)**:adapter 默认声明 `SESSION` KV 与 `IMAGES` Images 绑定,本地无对应资源时由 miniflare 模拟;`pnpm build` 与 `--dry-run` 均正常。若日后用 `wrangler dev` 遇到绑定错误,可按需为 KV/Images 建模,不属于 M0 范围。
-3. 暂无其他已知问题。
+3. **本地无法做外网抓取(环境限制,非代码问题)** — 本机出网只能走本地代理(`HTTP(S)_PROXY=127.0.0.1:7897`),直连 DNS 返回 `0.0.0.0`。`curl` 会读代理环境变量,但 **Node `fetch`(undici)与 workerd 都不会**;且本仓库的 `astro dev` 在此环境会被自动判定为 AI agent 环境而强制后台运行,后台进程会丢掉 `NODE_USE_ENV_PROXY`。因此 `POST /api/analyze` 在**本地**必然返回 `unreachable`,在**线上 Worker** 正常(已实测)。
+   绕行方式:直接跑纯函数用 `NODE_USE_ENV_PROXY=1 node ...`;本地 UI 验证用 Playwright `route.fulfill` 喂真实抓取到的 payload;浏览器访问外网需给 Chromium 传 `proxy: { server: 'http://127.0.0.1:7897' }`。**结论:涉及真实抓取的端到端验证一律以线上为准。**
+4. 暂无其他已知问题。
 
 ## Verification
 
@@ -208,3 +214,6 @@ M1(编码)— 按 docs/plans/M1-demand-radar-design.md §22 顺序实施
 - 2026-09-10 — commit `d116b81` push 触发 GitHub Actions:install+build ✅,deploy 缺 `CLOUDFLARE_API_TOKEN` ❌(预期)。状态改为 **BLOCKED**,下一步=配置 Secret。
 - 2026-09-10 — Secret 已配置。`gh workflow run` + push 触发均全绿(`Uploaded ai-factory`,Version `e8be234d`);带标记 commit `8e67910` push → 线上出现标记,还原 commit `65f220e` → 标记消失。**M0 全链路 VERIFIED**,状态改为 ✅。
 - 2026-09-10 — **M1 Demand Radar 设计完成**(仅文档)。创建 `docs/plans/M1-demand-radar-design.md`;更新 M1 状态为 DESIGN COMPLETE。下一阶段 = 确认 §22 三个输入后按顺序编码。
+- 2026-09-11 — exp-001 fake-door 上线(`1207dd1`,Cloudflare 已部署,headless 验证 10/10)。
+- 2026-09-11 — exp-001 分发冲刺准备(`275f5d7`):15 个渠道 + 3 模板 + 追踪表,零发帖。
+- 2026-09-11 — **exp-002 SEO Checker 上线并验证**(`5edb551`):首个按需路由 `/api/analyze`;单测 20/20、本地 UI 21/21、线上 UI 11/11、既有 radar 测试 26/26,`pnpm build` 通过,CI deploy success。记录于 `radar/experiments/exp-002-seo-checker.md`。

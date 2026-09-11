@@ -24,11 +24,14 @@ created_at: "2026-09-11"
 launched_at: "2026-09-11"
 concluded_at: null
 
-observed_signal: null
+observed_signal: >-
+  Shipped in one session and worked end to end on the first deployment. The page
+  is publicly reachable, and the live Worker fetched and analyzed real external
+  sites at request time. Verified 2026-09-11.
 observed_numbers:
-  metric: null
-  value: null
-result: null
+  metric: "live end-to-end checks passed"
+  value: 11
+result: iterate
 decision: null
 decision_why: null
 cost_hours: 0
@@ -103,13 +106,24 @@ Explicitly not built, and not to be built under this experiment:
 
 ## Observed signal
 
-Verified 2026-09-11. See `## Result & decision` for the final state.
+Verified 2026-09-11 against production, not only locally:
+
+- `/experiments/seo-checker/` → **HTTP 200**, publicly reachable.
+- `POST /api/analyze` on the live Worker → **HTTP 200** for real targets:
+  `example.com` (559 B, title "Example Domain", no meta description → correctly flagged)
+  and `astro.build` (~309 KB, 136 links, 6 checks) with correct technology hints.
+- Private-host input rejected live (`127.0.0.1` → refused server-side).
+- Web Vitals, backlinks, and keyword data: absent, as scoped.
 
 ## Result & decision
 
-- **Result:** _filled after the live production check_
-- **Decision:** _pending human review_
-- **Why:** _pending human review_
+- **Result:** iterate — the pipeline hypothesis held; the tool is real but the analyzer is a prototype.
+- **Decision:** _pending human review (AI must not decide)._
+- **AI's honest read:** the capability question is answered — a consumer-web utility pattern was
+  reproduced and shipped publicly in one session on the existing stack, with no new services,
+  accounts, or spend. The *product* question is not answered and this experiment provides no
+  evidence for it: nothing here shows demand. The smallest honest next increment is replacing the
+  regex parser with a real HTML parser; anything larger should wait for evidence this file cannot give.
 
 ## Verification
 
@@ -121,7 +135,7 @@ Verified 2026-09-11. See `## Result & decision` for the final state.
 | UI behaviour | headless Chromium against the built site | 21 checks passed (states, rendering, XSS safety, responsive) |
 | Existing tests | `node radar/engine/score.test.mjs` | 26 passed, 0 failed |
 | Build | `pnpm build` | passes; 3 static routes + 1 on-demand route |
-| Production | live request against the deployed Worker | see commit notes |
+| Production | headless browser + live HTTP against the deployed Worker | 11 checks passed, real external fetch |
 
 ### Known limitations (honest)
 
