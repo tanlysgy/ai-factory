@@ -1,0 +1,1045 @@
+{
+  "capturedAt": "2026-09-11T15:15:03.787Z",
+  "url": "https://www.11ty.dev/",
+  "title": "Eleventy is a simpler static site generator",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "page": {
+    "scrollHeight": 10377,
+    "overflowX": false
+  },
+  "colors": [
+    [
+      "rgb(56, 56, 56)",
+      2002
+    ],
+    [
+      "rgb(34, 34, 34)",
+      1246
+    ],
+    [
+      "rgb(24, 115, 165)",
+      441
+    ],
+    [
+      "rgb(255, 255, 255)",
+      174
+    ],
+    [
+      "rgb(102, 102, 102)",
+      120
+    ],
+    [
+      "rgb(204, 204, 204)",
+      75
+    ],
+    [
+      "rgb(39, 40, 34)",
+      41
+    ],
+    [
+      "rgb(233, 233, 233)",
+      34
+    ],
+    [
+      "rgb(239, 239, 239)",
+      32
+    ],
+    [
+      "rgb(0, 224, 224)",
+      30
+    ],
+    [
+      "rgb(255, 160, 122)",
+      24
+    ],
+    [
+      "rgb(171, 227, 56)",
+      21
+    ],
+    [
+      "rgb(221, 221, 221)",
+      19
+    ],
+    [
+      "rgb(0, 167, 118)",
+      13
+    ],
+    [
+      "rgb(24, 49, 83)",
+      13
+    ],
+    [
+      "rgb(243, 105, 69)",
+      12
+    ],
+    [
+      "rgb(255, 215, 0)",
+      12
+    ],
+    [
+      "rgb(84, 140, 216)",
+      12
+    ],
+    [
+      "rgb(240, 241, 243)",
+      11
+    ],
+    [
+      "rgb(85, 85, 85)",
+      10
+    ],
+    [
+      "rgb(123, 104, 218)",
+      6
+    ],
+    [
+      "rgb(18, 133, 254)",
+      6
+    ],
+    [
+      "rgb(234, 197, 79)",
+      6
+    ],
+    [
+      "rgb(243, 105, 68)",
+      6
+    ]
+  ],
+  "typography": {
+    "fontFamilies": [
+      [
+        "system-ui, sans-serif",
+        1265
+      ],
+      [
+        "\"Roboto Mono\", Consolas, Monaco, \"Andale Mono\", \"Ubuntu Mono\", monospace",
+        140
+      ],
+      [
+        "Georgia, serif",
+        61
+      ],
+      [
+        "\"Times New Roman\"",
+        34
+      ],
+      [
+        "BenchNine, system-ui, sans-serif",
+        13
+      ],
+      [
+        "Arial",
+        4
+      ]
+    ],
+    "fontSizes": [
+      [
+        "18px",
+        604
+      ],
+      [
+        "16px",
+        449
+      ],
+      [
+        "14.0625px",
+        132
+      ],
+      [
+        "13.1836px",
+        103
+      ],
+      [
+        "21.375px",
+        61
+      ],
+      [
+        "12.3596px",
+        44
+      ],
+      [
+        "15px",
+        32
+      ],
+      [
+        "16.875px",
+        23
+      ],
+      [
+        "14px",
+        17
+      ],
+      [
+        "40px",
+        17
+      ],
+      [
+        "86.4px",
+        7
+      ],
+      [
+        "20px",
+        5
+      ],
+      [
+        "12px",
+        4
+      ],
+      [
+        "13.125px",
+        4
+      ],
+      [
+        "11.5871px",
+        2
+      ],
+      [
+        "13.3333px",
+        2
+      ],
+      [
+        "13.5px",
+        2
+      ],
+      [
+        "14.4px",
+        2
+      ],
+      [
+        "15.75px",
+        2
+      ],
+      [
+        "16.1px",
+        2
+      ],
+      [
+        "56.25px",
+        2
+      ],
+      [
+        "94.5px",
+        1
+      ]
+    ],
+    "fontWeights": [
+      [
+        "400",
+        1256
+      ],
+      [
+        "500",
+        181
+      ],
+      [
+        "700",
+        78
+      ],
+      [
+        "300",
+        2
+      ]
+    ],
+    "lineHeights": [
+      [
+        "normal",
+        612
+      ],
+      [
+        "28.8px",
+        245
+      ],
+      [
+        "20.625px",
+        132
+      ],
+      [
+        "32px",
+        110
+      ],
+      [
+        "19.336px",
+        103
+      ],
+      [
+        "27px",
+        94
+      ],
+      [
+        "34.2px",
+        50
+      ],
+      [
+        "18.1275px",
+        44
+      ],
+      [
+        "25.6px",
+        44
+      ],
+      [
+        "22.0001px",
+        23
+      ],
+      [
+        "22.4px",
+        9
+      ],
+      [
+        "24px",
+        7
+      ],
+      [
+        "30.375px",
+        7
+      ],
+      [
+        "21.6px",
+        6
+      ],
+      [
+        "15px",
+        5
+      ],
+      [
+        "18px",
+        4
+      ],
+      [
+        "26.25px",
+        4
+      ],
+      [
+        "28px",
+        4
+      ],
+      [
+        "16.9945px",
+        2
+      ],
+      [
+        "22.54px",
+        2
+      ],
+      [
+        "25.2px",
+        2
+      ],
+      [
+        "26.6667px",
+        2
+      ],
+      [
+        "32.4px",
+        2
+      ],
+      [
+        "67.5px",
+        2
+      ]
+    ]
+  },
+  "spacing": [
+    {
+      "px": 2,
+      "occurrences": 230
+    },
+    {
+      "px": 4,
+      "occurrences": 116
+    },
+    {
+      "px": 5,
+      "occurrences": 57
+    },
+    {
+      "px": 18,
+      "occurrences": 50
+    },
+    {
+      "px": 9,
+      "occurrences": 47
+    },
+    {
+      "px": 11,
+      "occurrences": 37
+    },
+    {
+      "px": 7,
+      "occurrences": 24
+    },
+    {
+      "px": 12,
+      "occurrences": 24
+    },
+    {
+      "px": 16,
+      "occurrences": 19
+    },
+    {
+      "px": 3,
+      "occurrences": 17
+    },
+    {
+      "px": 10,
+      "occurrences": 10
+    },
+    {
+      "px": 8,
+      "occurrences": 7
+    },
+    {
+      "px": 32,
+      "occurrences": 6
+    },
+    {
+      "px": 80,
+      "occurrences": 6
+    },
+    {
+      "px": 1,
+      "occurrences": 5
+    },
+    {
+      "px": 6,
+      "occurrences": 4
+    },
+    {
+      "px": 14,
+      "occurrences": 4
+    },
+    {
+      "px": 48,
+      "occurrences": 4
+    },
+    {
+      "px": 21,
+      "occurrences": 2
+    },
+    {
+      "px": 36,
+      "occurrences": 2
+    }
+  ],
+  "radius": [
+    [
+      "7.2px",
+      54
+    ],
+    [
+      "2.7px",
+      46
+    ],
+    [
+      "4px",
+      41
+    ],
+    [
+      "50%",
+      27
+    ],
+    [
+      "2.53125px",
+      16
+    ],
+    [
+      "2.4px",
+      14
+    ],
+    [
+      "5.34375px",
+      12
+    ],
+    [
+      "4.5px",
+      11
+    ],
+    [
+      "1.85394px",
+      7
+    ],
+    [
+      "0px 5px 5px",
+      6
+    ],
+    [
+      "5.4px",
+      6
+    ],
+    [
+      "0px 0px 3.9375px",
+      2
+    ],
+    [
+      "0px 4.21875px 0px 0px",
+      2
+    ],
+    [
+      "16px",
+      2
+    ],
+    [
+      "2.10938px",
+      2
+    ],
+    [
+      "2.1px",
+      2
+    ],
+    [
+      "4.21875px 0px 0px",
+      2
+    ],
+    [
+      "4.2px",
+      2
+    ],
+    [
+      "4.5px 4.5px 0px 0px",
+      2
+    ],
+    [
+      "10px",
+      1
+    ],
+    [
+      "141.75px",
+      1
+    ],
+    [
+      "2.625px",
+      1
+    ],
+    [
+      "3px 3px 0px 0px",
+      1
+    ],
+    [
+      "4.8px",
+      1
+    ]
+  ],
+  "shadows": [
+    [
+      "rgb(34, 34, 34) 0px 0px 2.25px 0px",
+      27
+    ],
+    [
+      "rgba(0, 0, 0, 0.08) 0px 3px 6px 0px",
+      13
+    ],
+    [
+      "rgb(0, 0, 0) 0px 8px 6px -6px",
+      1
+    ],
+    [
+      "rgb(102, 89, 92) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(128, 128, 242) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(129, 187, 217) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(130, 165, 235) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(133, 133, 133) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(15, 31, 54) 0px 6px 0px 0px",
+      1
+    ],
+    [
+      "rgb(153, 153, 153) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(153, 153, 163) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(171, 255, 132) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(177, 126, 222) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(177, 177, 177) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(195, 195, 195) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(198, 198, 198) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(23, 178, 129) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(231, 229, 255) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(236, 129, 49) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(239, 159, 140) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(243, 105, 68) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(251, 195, 30) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(251, 55, 255) 0px 0px 0px 3px",
+      1
+    ],
+    [
+      "rgb(254, 153, 3) 0px 0px 0px 3px",
+      1
+    ]
+  ],
+  "sections": [
+    {
+      "tag": "header",
+      "id": "",
+      "class": "elv-header elv-header-default",
+      "heading": ""
+    },
+    {
+      "tag": "main",
+      "id": "",
+      "class": "elv-layout elv-layout-toc",
+      "heading": "Eleventy is a simpler static site generator"
+    },
+    {
+      "tag": "footer",
+      "id": "",
+      "class": "elv-footer-wrap",
+      "heading": "Sponsors"
+    }
+  ],
+  "ctaPatterns": [
+    {
+      "text": "Skip to navigation",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Skip to main content",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Build Awesome",
+      "tag": "a",
+      "classes": "products-ba elv-externalexempt",
+      "style": {
+        "bg": "rgb(255, 255, 255)",
+        "radius": "3px 3px 0px 0px",
+        "border": "rgb(0, 167, 118)"
+      }
+    },
+    {
+      "text": "Font Awesome",
+      "tag": "a",
+      "classes": "products-fa elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(84, 140, 216)"
+      }
+    },
+    {
+      "text": "Web Awesome",
+      "tag": "a",
+      "classes": "products-wa elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(243, 105, 69)"
+      }
+    },
+    {
+      "text": "Podcast Awesome",
+      "tag": "a",
+      "classes": "elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(34, 34, 34)"
+      }
+    },
+    {
+      "text": "Blog Awesome",
+      "tag": "a",
+      "classes": "elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(34, 34, 34)"
+      }
+    },
+    {
+      "text": "11ty",
+      "tag": "a",
+      "classes": "elv-nav-menu-logo",
+      "style": {
+        "bg": "rgb(34, 34, 34)",
+        "radius": "2.4px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "Get Started",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "Blog",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "Community",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "v3.1.6",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "v4 Pre-release",
+      "tag": "a",
+      "classes": "elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "v3 Stable",
+      "tag": "a",
+      "classes": "elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "v2",
+      "tag": "a",
+      "classes": "elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "v1",
+      "tag": "a",
+      "classes": "elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "v0",
+      "tag": "a",
+      "classes": "elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "History",
+      "tag": "a",
+      "classes": "elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "Firehose",
+      "tag": "a",
+      "classes": "elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "Search",
+      "tag": "button",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "16px",
+        "border": "rgba(0, 0, 0, 0.4)"
+      }
+    },
+    {
+      "text": "GitHub",
+      "tag": "a",
+      "classes": "elv-skipicon",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "YouTube",
+      "tag": "a",
+      "classes": "nound elv-externalexempt elv-nav-sociallink",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "Mastodon",
+      "tag": "a",
+      "classes": "nound elv-nav-sociallink",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "Bluesky",
+      "tag": "a",
+      "classes": "nound elv-nav-sociallink",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "Discord",
+      "tag": "a",
+      "classes": "nound elv-nav-sociallink",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(56, 56, 56)"
+      }
+    },
+    {
+      "text": "Build Awesome",
+      "tag": "a",
+      "classes": "elv-hero elv-externalexempt",
+      "style": {
+        "bg": "rgb(0, 167, 118)",
+        "radius": "0px",
+        "border": "rgb(34, 34, 34)"
+      }
+    },
+    {
+      "text": "Eleventy",
+      "tag": "a",
+      "classes": "elv-hero-11ty",
+      "style": {
+        "bg": "rgb(34, 34, 34)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Blog",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(0, 0, 0)"
+      }
+    },
+    {
+      "text": "Back Build Awesome Pro and make it easier to build for the w",
+      "tag": "a",
+      "classes": "elv-toc-callout-link",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(0, 0, 0)"
+      }
+    },
+    {
+      "text": "Versions",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(0, 0, 0)"
+      }
+    },
+    {
+      "text": "3.1.6",
+      "tag": "a",
+      "classes": "elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(0, 0, 0)"
+      }
+    },
+    {
+      "text": "4.0.0-alpha.10",
+      "tag": "a",
+      "classes": "elv-externalexempt",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(0, 0, 0)"
+      }
+    },
+    {
+      "text": "Get Started",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(24, 115, 165)"
+      }
+    },
+    {
+      "text": "Why Eleventy?",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(24, 115, 165)"
+      }
+    },
+    {
+      "text": "Performance",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(24, 115, 165)"
+      }
+    },
+    {
+      "text": "Glossary",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(24, 115, 165)"
+      }
+    },
+    {
+      "text": "Opening a Terminal",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(24, 115, 165)"
+      }
+    },
+    {
+      "text": "Installing JavaScript",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(24, 115, 165)"
+      }
+    },
+    {
+      "text": "CommonJS, ESM, TypeScript",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(24, 115, 165)"
+      }
+    },
+    {
+      "text": "Starter Projects",
+      "tag": "a",
+      "classes": "",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(24, 115, 165)"
+      }
+    }
+  ]
+}

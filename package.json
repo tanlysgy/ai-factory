@@ -12,7 +12,10 @@
     "preview": "astro preview",
     "preview:tunnel": "tools/browser/preview-tunnel.sh",
     "astro": "astro",
-    "generate-types": "wrangler types"
+    "generate-types": "wrangler types",
+    "factory:create": "tools/factory/factory-create.sh",
+    "factory:scaffold": "tools/factory/factory-scaffold.sh",
+    "preview:static": "tools/browser/serve-static.sh"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.3.1",

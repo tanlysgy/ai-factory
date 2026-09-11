@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rank Lab — SEO tool template</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar shell">
+    <a class="brand" href="#">Rank Lab</a>
+    <nav><a href="#checker">Checker</a><a href="#reports">Reports</a><a href="#pricing">Pricing</a></nav>
+  </header>
+
+  <main class="shell">
+    <section id="checker" class="hero">
+      <p class="eyebrow">SEO tool template</p>
+      <h1>Check any website in seconds.</h1>
+      <p class="lede">Enter a URL and get a transparent technical report. This is a demo shell — replace it with your own analysis logic.</p>
+      <form class="url-form" onsubmit="event.preventDefault(); window.seoTool?.run();">
+        <input id="url" type="url" placeholder="https://example.com" required />
+        <button class="button button-primary" type="submit">Analyze</button>
+      </form>
+      <div id="result" class="result hidden">
+        <div class="score"><span>Overall</span><strong id="score">0</strong><small>/100</small></div>
+        <p id="note">Run a demo check to populate the score.</p>
+      </div>
+    </section>
+
+    <section id="reports">
+      <h2>Example report sections</h2>
+      <div class="grid">
+        <article class="card"><h3>On-page</h3><p>Title, meta, canonical, headings.</p></article>
+        <article class="card"><h3>Crawl</h3><p>Robots, sitemap, ai crawler access.</p></article>
+        <article class="card"><h3>Structured data</h3><p>Schema types and coverage.</p></article>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2>Pricing</h2>
+      <div class="grid">
+        <article class="card"><h3>Free</h3><p class="price">$0</p><p>10 demo checks / day.</p></article>
+        <article class="card featured"><h3>Pro</h3><p class="price">$15</p><p>Full reports and monitoring.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell"><p>Rank Lab — fictional demo brand. No production SEO service.</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>

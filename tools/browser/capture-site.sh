@@ -10,6 +10,7 @@ Captures a reference website with the local Codex Browser skill.
 Optional environment variables:
   BROWSER_PROXY   Browser proxy URL. Defaults to HTTPS_PROXY/http_proxy when set.
   BROWSER_WAIT_MS Extra settle time after navigation. Defaults to 1000.
+  BROWSER_TIMEOUT_MS Browser command timeout. Defaults to 30000.
 EOF
 	exit 2
 }
@@ -21,6 +22,7 @@ output_dir=$2
 browser_bin=${CODEX_BROWSER_BIN:-/home/sgy/.local/bin/codex-browser}
 proxy=${BROWSER_PROXY:-${HTTPS_PROXY:-${https_proxy:-}}}
 wait_ms=${BROWSER_WAIT_MS:-1000}
+timeout_ms=${BROWSER_TIMEOUT_MS:-30000}
 
 [[ -n "$url" ]] || { echo "capture-site: URL is required" >&2; exit 2; }
 [[ -x "$browser_bin" ]] || { echo "capture-site: Codex Browser not found at $browser_bin" >&2; exit 1; }
@@ -40,14 +42,14 @@ echo "Capturing $url"
 echo "Output: $output_dir"
 
 "$browser_bin" screenshot "$url" "$output_dir/full-page.png" \
-	--full-page --wait "$wait_ms" --timeout 30000 "${browser_args[@]}"
+	--full-page --wait "$wait_ms" --timeout "$timeout_ms" "${browser_args[@]}"
 "$browser_bin" screenshot "$url" "$output_dir/desktop.png" \
-	--viewport 1440x1000 --wait "$wait_ms" --timeout 30000 "${browser_args[@]}"
+	--viewport 1440x1000 --wait "$wait_ms" --timeout "$timeout_ms" "${browser_args[@]}"
 "$browser_bin" screenshot "$url" "$output_dir/mobile.png" \
-	--viewport 390x844 --wait "$wait_ms" --timeout 30000 "${browser_args[@]}"
+	--viewport 390x844 --wait "$wait_ms" --timeout "$timeout_ms" "${browser_args[@]}"
 
 "$browser_bin" html "$url" --full-page --max-text 2000000 --wait "$wait_ms" \
-	--timeout 30000 "${browser_args[@]}" > "$tmp_dir/html.json"
+	--timeout "$timeout_ms" "${browser_args[@]}" > "$tmp_dir/html.json"
 jq -e '.html and (.html | type == "string")' "$tmp_dir/html.json" >/dev/null
 jq -r '.html' "$tmp_dir/html.json" > "$output_dir/index.html"
 
@@ -86,7 +88,7 @@ metadata_js='() => {
 }'
 
 "$browser_bin" eval "$url" "$metadata_js" --viewport 1440x1000 --wait "$wait_ms" \
-	--timeout 30000 "${browser_args[@]}" > "$tmp_dir/metadata.json"
+	--timeout "$timeout_ms" "${browser_args[@]}" > "$tmp_dir/metadata.json"
 jq -e '.result and (.result | type == "object")' "$tmp_dir/metadata.json" >/dev/null
 jq '.result' "$tmp_dir/metadata.json" > "$output_dir/metadata.json"
 jq '.result.cssAssets' "$tmp_dir/metadata.json" > "$output_dir/css-assets.json"

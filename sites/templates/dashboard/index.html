@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pulse — Dashboard template</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#">Pulse</a>
+    <nav>
+      <a href="#overview" class="active">Overview</a>
+      <a href="#activity">Activity</a>
+      <a href="#teams">Teams</a>
+      <a href="#settings">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <h1>Overview</h1>
+      <span class="badge">Live demo</span>
+    </header>
+
+    <section id="overview" class="metrics">
+      <article class="metric"><span>Visitors</span><strong>12,480</strong><small>+8.2% vs last week</small></article>
+      <article class="metric"><span>Active seats</span><strong>342</strong><small>+12 this week</small></article>
+      <article class="metric"><span>Usage</span><strong>87%</strong><small>within plan limits</small></article>
+    </section>
+
+    <section id="activity" class="panel">
+      <h2>Recent activity</h2>
+      <div class="chart-placeholder" role="img" aria-label="Activity chart placeholder"></div>
+    </section>
+
+    <section id="teams" class="panel">
+      <h2>Teams</h2>
+      <table>
+        <thead><tr><th>Team</th><th>Members</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Growth</td><td>12</td><td><span class="pill ok">Active</span></td></tr>
+          <tr><td>Engine</td><td>8</td><td><span class="pill warn">At limit</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
