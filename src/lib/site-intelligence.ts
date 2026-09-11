@@ -116,7 +116,9 @@ export function buildWebsiteQuality(analysis: SeoAnalysis): WebsiteQualityReport
 			analysis.metaDescription
 				? `${analysis.metaDescription.length} characters present.`
 				: 'No meta description found.',
-			'Improve the missing meta description.',
+			analysis.metaDescription
+				? 'Refine the meta description to roughly 50–160 characters.'
+				: 'Improve the missing meta description.',
 		),
 		qualityItem(
 			'canonical',

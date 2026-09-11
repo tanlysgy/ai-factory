@@ -16,11 +16,15 @@ method: >-
   checker behind one new API route and result page. Use deterministic scoring,
   no storage, no auth, no external APIs, and no LLM calls.
 created_at: "2026-09-11"
-launched_at: null
+launched_at: "2026-09-11"
 concluded_at: null
-observed_signal: null
-observed_numbers: null
-result: pending
+observed_signal: >-
+  Deployed through the existing GitHub Actions workflow and verified against
+  production with a real external website plus local/private URL rejection.
+observed_numbers:
+  metric: "production report and safety checks passed"
+  value: 4
+result: iterate
 decision: null
 decision_why: null
 cost_hours: 0
@@ -64,11 +68,11 @@ deterministic action plan.
 
 ## Success criteria
 
-- [ ] Public URL works.
-- [ ] A visitor can enter a URL and receive a real combined report.
-- [ ] The result reads as a product demo on desktop and mobile.
-- [ ] `pnpm test` and `pnpm build` pass.
-- [ ] Existing experiments remain unchanged and their tests pass.
+- [x] Public URL works.
+- [x] A visitor can enter a URL and receive a real combined report.
+- [x] The result reads as a product demo on desktop and mobile.
+- [x] `pnpm test` and `pnpm build` pass.
+- [x] Existing experiments remain unchanged and their tests pass.
 
 ## Files
 
@@ -76,6 +80,22 @@ deterministic action plan.
 - `src/pages/api/site-intelligence.ts`
 - `src/lib/site-intelligence.ts`
 - `src/lib/site-intelligence.test.ts`
+
+## Production verification
+
+Deployed from commit `aa96d30` through GitHub Actions run `34563960160`.
+The live base is `https://ai-factory.sgyyyds.qzz.io`.
+
+- `/experiments/site-intelligence/` returned HTTP 200.
+- `POST /api/site-intelligence` with `example.com` returned HTTP 200, a real
+  report, overall score 35, and 5 bounded requests.
+- `localhost` and `192.168.1.1` were rejected with HTTP 400 and
+  `code: "invalid_url"`.
+- `pnpm test`: 67 passed. `pnpm build`: passed.
+
+The local browser automation surface was unavailable in this session, so no
+browser screenshot is included in this record. The deployed HTML and API were
+verified over HTTP.
 
 ## Known limitations
 
