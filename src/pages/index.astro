@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Navigation from '../components/design/Navigation.astro';
+import Footer from '../components/design/Footer.astro';
 
 const experiments = [
 	{ number: '004', title: 'Site Intelligence AI', description: 'Analyze website AI visibility and technical readiness.', href: '/experiments/site-intelligence/', accent: 'mint' },
@@ -29,10 +31,13 @@ const radarPipeline = ['Seed', 'Evidence', 'Opportunity', 'Experiment', 'Decisio
 	</head>
 	<body>
 		<div class="page-shell">
-			<header class="site-header">
-				<a class="brand" href="/" aria-label="AI Factory home"><span class="brand-mark" aria-hidden="true">AF</span><span>AI Factory</span></a>
-				<nav aria-label="Main navigation"><a href="/factory/">Command Center</a><a href="#experiments">Experiments</a><a href="#research-system">Research system</a></nav>
-			</header>
+			<Navigation
+				links={[
+					{ label: 'Command Center', href: '/factory/' },
+					{ label: 'Experiments', href: '#experiments' },
+					{ label: 'Research', href: '#research-system' },
+				]}
+			/>
 
 			<main>
 				<section class="hero" aria-labelledby="hero-title">
@@ -81,7 +86,7 @@ const radarPipeline = ['Seed', 'Evidence', 'Opportunity', 'Experiment', 'Decisio
 				</section>
 			</main>
 
-			<footer class="site-footer"><div><span class="brand-mark small" aria-hidden="true">AF</span><span>AI Factory</span></div><span>Opportunity discovery / rapid validation</span><span>© 2026</span></footer>
+			<Footer />
 		</div>
 	</body>
 </html>
@@ -105,14 +110,16 @@ const radarPipeline = ['Seed', 'Evidence', 'Opportunity', 'Experiment', 'Decisio
 	.eyebrow, .section-label { margin: 0; color: #25836a; font: 700 10px/1.3 ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; }
 	.eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 25px; }
 	.live-dot { width: 7px; height: 7px; background: #b9d957; border-radius: 50%; box-shadow: 0 0 0 5px rgba(185, 217, 87, .18); }
-	h1 { margin: 0; color: #173b32; font-size: clamp(65px, 10vw, 126px); line-height: .9; letter-spacing: -.075em; font-weight: 800; }
+	h1 { margin: 0; color: #173b32; font-size: clamp(65px, 10vw, 112px); line-height: .92; letter-spacing: -.04em; font-weight: 800; }
 	.hero-lede { max-width: 480px; margin: 27px 0 0; color: #315a4c; font-size: 25px; line-height: 1.22; letter-spacing: -.025em; font-weight: 550; }
 	.hero-description { max-width: 510px; margin: 19px 0 0; color: #71827b; font-size: 15px; line-height: 1.6; }
 	.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-	.button { display: inline-flex; align-items: center; gap: 18px; padding: 13px 17px; font-size: 12px; font-weight: 750; text-decoration: none; transition: transform .2s, background .2s, color .2s; }
-	.button:hover { transform: translateY(-2px); }
+	.button { display: inline-flex; align-items: center; gap: 18px; min-height: 46px; padding: 0 22px; font-size: 13px; font-weight: 750; text-decoration: none; transition: transform 150ms cubic-bezier(.22, 1, .36, 1), background 150ms, color 150ms, box-shadow 150ms; }
+	.button:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 rgba(23,59,50,.18); }
 	.button-primary { color: #f4f5ef; background: #173b32; }
 	.button-primary:hover { background: #286451; }
+	.button-secondary { color: #173b32; background: transparent; border: 1px solid #173b32; }
+	.button:focus-visible { outline: 2px solid #173b32; outline-offset: 2px; }
 	.button-secondary { color: #315a4c; border: 1px solid #b8c7be; background: transparent; }
 	.button-secondary:hover { color: #173b32; background: #fff; }
 	.hero-visual { position: relative; min-height: 420px; padding: 22px; color: #b5d3c3; background: #173b32; box-shadow: 15px 15px 0 #cbd8cf; }

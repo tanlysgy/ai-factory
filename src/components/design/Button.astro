@@ -1,0 +1,32 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'dark';
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  id?: string;
+  target?: string;
+  rel?: string;
+  'aria-label'?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  type = 'button',
+  disabled = false,
+  id,
+  target,
+  rel,
+  'aria-label': ariaLabel,
+} = Astro.props;
+
+const cls = variant === 'dark' ? 'ds-btn ds-btn-dark' : variant === 'secondary' ? 'ds-btn ds-btn-secondary' : 'ds-btn ds-btn-primary';
+const Tag = href ? 'a' : 'button';
+---
+
+{#if Tag === 'a'}
+  <a {href} class={cls} {id} {target} {rel} aria-label={ariaLabel}><slot /></a>
+{:else}
+  <button class={cls} {type} {disabled} {id} aria-label={ariaLabel}><slot /></button>
+{/if}

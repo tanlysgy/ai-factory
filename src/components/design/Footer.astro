@@ -1,0 +1,30 @@
+---
+interface Props {
+  label?: string;
+  theme?: 'light' | 'dark';
+}
+const { label = 'Opportunity discovery / rapid validation', theme = 'light' } = Astro.props;
+---
+<footer class={`factory-footer ${theme}`}>
+  <div class="footer-inner">
+    <div><span class="brand-mark small" aria-hidden="true">AF</span><span>AI Factory</span></div>
+    <span>{label}</span>
+    <a href="/">Home</a>
+  </div>
+</footer>
+<style>
+  .factory-footer { border-top: 1px solid var(--color-line); }
+  .factory-footer.dark { border-color: var(--color-line-dark); }
+  .footer-inner { width: min(1160px, calc(100% - 64px)); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 30px 0 40px; color: var(--color-muted); font: 10px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+  .dark .footer-inner { color: #5f7d6c; }
+  .footer-inner > div { display: flex; align-items: center; gap: 8px; color: var(--color-ink); font-weight: 800; }
+  .dark .footer-inner > div { color: #8fa99b; }
+  .brand-mark.small { display: grid; place-items: center; width: 24px; height: 24px; color: var(--color-cream); background: var(--color-ink); font: 800 8px var(--font-mono); }
+  .dark .brand-mark.small { color: #102018; background: var(--color-acid); }
+  .footer-inner a { color: var(--color-ink); text-decoration: none; transition: color var(--duration-fast) var(--ease-out); }
+  .footer-inner a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .dark .footer-inner a { color: var(--color-acid); }
+  @media (max-width: 680px) {
+    .footer-inner { width: min(100% - 34px, 1160px); align-items: flex-start; flex-direction: column; padding: 26px 0 34px; }
+  }
+</style>

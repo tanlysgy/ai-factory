@@ -1,0 +1,14 @@
+---
+interface Props {
+  title?: string;
+  featured?: boolean;
+  href?: string;
+}
+const { title, featured = false, href } = Astro.props;
+const cls = `ds-card${featured ? ' featured' : ''}`;
+const Tag = href ? 'a' : 'article';
+---
+<{Tag} class={cls} href={href}>
+  {title && <h3>{title}</h3>}
+  <slot />
+</{Tag}>

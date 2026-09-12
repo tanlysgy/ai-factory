@@ -1,5 +1,7 @@
 ---
 import '../../styles/global.css';
+import Navigation from '../../components/design/Navigation.astro';
+import Footer from '../../components/design/Footer.astro';
 ---
 
 <!doctype html>
@@ -15,17 +17,18 @@ import '../../styles/global.css';
 			content="An early experiment exploring a local-first way to reduce unnecessary context re-sends for heavy Claude Code and Codex users."
 		/>
 	</head>
-	<body class="bg-neutral-50 text-neutral-900 antialiased">
+	<body class="bg-[#f4f5ef] text-[#172522] antialiased">
+		<Navigation meta="Experiment 001 · Cost Reduction" />
 		<main class="mx-auto max-w-3xl px-6 py-16 sm:py-24">
 			<!-- Hero -->
 			<header class="text-center">
-				<p class="font-mono text-xs uppercase tracking-widest text-neutral-500">
+				<p class="font-mono text-xs uppercase tracking-widest text-[#71827b]">
 					AI Factory · Experiment 001
 				</p>
 				<h1 class="mt-6 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
 					Stop paying for repeated AI context.
 				</h1>
-				<p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-neutral-600">
+				<p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[#64756e]">
 					Heavy Claude Code and Codex users often rebuild expensive context manually.
 					We're exploring a local-first way to reduce unnecessary context re-sends.
 				</p>
@@ -33,11 +36,11 @@ import '../../styles/global.css';
 					<a
 						id="cta-primary"
 						href="#waitlist"
-						class="inline-block rounded-lg bg-indigo-600 px-6 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-indigo-500"
+						class="inline-block rounded-none bg-[#173b32] px-6 py-3 text-sm font-medium text-white shadow-[4px_4px_0_rgba(23,59,50,0.14)] transition-colors hover:bg-[#315a4c]"
 					>
 						Join the early access list
 					</a>
-					<p class="mt-4 text-sm text-neutral-500">
+					<p class="mt-4 text-sm text-[#71827b]">
 						No product exists yet — we're validating whether this is worth building.
 					</p>
 				</div>
@@ -46,34 +49,34 @@ import '../../styles/global.css';
 			<!-- Pain -->
 			<section id="pain" class="mt-24">
 				<h2 class="text-2xl font-semibold tracking-tight">The friction we keep seeing</h2>
-				<p class="mt-3 text-neutral-600">
+				<p class="mt-3 text-[#64756e]">
 					Common themes from heavy agent users — no made-up numbers, just the patterns.
 				</p>
 				<div class="mt-10 grid gap-6 sm:grid-cols-2">
-					<div class="rounded-xl border border-neutral-200 bg-white p-6">
+					<div class="rounded-none border border-[#d4dbd4] bg-white p-6">
 						<h3 class="font-medium">Rebuilding context</h3>
-						<p class="mt-2 text-sm leading-relaxed text-neutral-600">
+						<p class="mt-2 text-sm leading-relaxed text-[#64756e]">
 							Every new session means re-explaining the codebase, the decisions, and
 							the constraints you already covered yesterday.
 						</p>
 					</div>
-					<div class="rounded-xl border border-neutral-200 bg-white p-6">
+					<div class="rounded-none border border-[#d4dbd4] bg-white p-6">
 						<h3 class="font-medium">Repeated context sends</h3>
-						<p class="mt-2 text-sm leading-relaxed text-neutral-600">
+						<p class="mt-2 text-sm leading-relaxed text-[#64756e]">
 							The same files and instructions get re-sent over and over — and every
 							re-send costs tokens.
 						</p>
 					</div>
-					<div class="rounded-xl border border-neutral-200 bg-white p-6">
+					<div class="rounded-none border border-[#d4dbd4] bg-white p-6">
 						<h3 class="font-medium">Unexpected API bills</h3>
-						<p class="mt-2 text-sm leading-relaxed text-neutral-600">
+						<p class="mt-2 text-sm leading-relaxed text-[#64756e]">
 							Usage from redundant re-sends is hard to predict, and the bill doesn't
 							explain itself.
 						</p>
 					</div>
-					<div class="rounded-xl border border-neutral-200 bg-white p-6">
+					<div class="rounded-none border border-[#d4dbd4] bg-white p-6">
 						<h3 class="font-medium">DIY scripts and workarounds</h3>
-						<p class="mt-2 text-sm leading-relaxed text-neutral-600">
+						<p class="mt-2 text-sm leading-relaxed text-[#64756e]">
 							People hand-roll memory files, paste buffers, and scripts to cope.
 							They work — until they don't.
 						</p>
@@ -84,35 +87,35 @@ import '../../styles/global.css';
 			<!-- What We're Exploring -->
 			<section id="exploring" class="mt-24">
 				<h2 class="text-2xl font-semibold tracking-tight">What we're exploring</h2>
-				<p class="mt-3 text-neutral-600">
+				<p class="mt-3 text-[#64756e]">
 					Three directions we're curious about. None of this exists yet.
 				</p>
 				<ul class="mt-10 space-y-4">
-					<li class="flex gap-4 rounded-xl border border-neutral-200 bg-white p-6">
-						<span class="font-mono text-sm text-indigo-600">01</span>
+					<li class="flex gap-4 rounded-none border border-[#d4dbd4] bg-white p-6">
+						<span class="font-mono text-sm text-[#173b32]">01</span>
 						<div>
 							<h3 class="font-medium">Local-first</h3>
-							<p class="mt-1 text-sm leading-relaxed text-neutral-600">
+							<p class="mt-1 text-sm leading-relaxed text-[#64756e]">
 								We're exploring keeping session context on your machine instead of
 								re-sending it.
 							</p>
 						</div>
 					</li>
-					<li class="flex gap-4 rounded-xl border border-neutral-200 bg-white p-6">
-						<span class="font-mono text-sm text-indigo-600">02</span>
+					<li class="flex gap-4 rounded-none border border-[#d4dbd4] bg-white p-6">
+						<span class="font-mono text-sm text-[#173b32]">02</span>
 						<div>
 							<h3 class="font-medium">Context-aware</h3>
-							<p class="mt-1 text-sm leading-relaxed text-neutral-600">
+							<p class="mt-1 text-sm leading-relaxed text-[#64756e]">
 								We're exploring smarter, lighter ways to carry project context
 								across sessions.
 							</p>
 						</div>
 					</li>
-					<li class="flex gap-4 rounded-xl border border-neutral-200 bg-white p-6">
-						<span class="font-mono text-sm text-indigo-600">03</span>
+					<li class="flex gap-4 rounded-none border border-[#d4dbd4] bg-white p-6">
+						<span class="font-mono text-sm text-[#173b32]">03</span>
 						<div>
 							<h3 class="font-medium">Transparent cost visibility</h3>
-							<p class="mt-1 text-sm leading-relaxed text-neutral-600">
+							<p class="mt-1 text-sm leading-relaxed text-[#64756e]">
 								We're exploring clearer visibility into what repeated context is
 								actually costing you.
 							</p>
@@ -124,21 +127,21 @@ import '../../styles/global.css';
 			<!-- Who It's For -->
 			<section id="who" class="mt-24">
 				<h2 class="text-2xl font-semibold tracking-tight">Who it's for</h2>
-				<ul class="mt-8 space-y-3 text-neutral-600">
+				<ul class="mt-8 space-y-3 text-[#64756e]">
 					<li class="flex items-start gap-3">
-						<span class="mt-1 text-indigo-600">▸</span>
+						<span class="mt-1 text-[#173b32]">▸</span>
 						Heavy Claude Code users who run many sessions a day.
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="mt-1 text-indigo-600">▸</span>
+						<span class="mt-1 text-[#173b32]">▸</span>
 						Codex users who re-paste the same context constantly.
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="mt-1 text-indigo-600">▸</span>
+						<span class="mt-1 text-[#173b32]">▸</span>
 						Developers juggling dozens of agent sessions across projects.
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="mt-1 text-indigo-600">▸</span>
+						<span class="mt-1 text-[#173b32]">▸</span>
 						API-budget conscious developers who watch their usage numbers.
 					</li>
 				</ul>
@@ -146,9 +149,9 @@ import '../../styles/global.css';
 
 			<!-- Fake-Door Form -->
 			<section id="waitlist" class="mt-24">
-				<div class="rounded-2xl border border-neutral-200 bg-white p-8 sm:p-10">
+				<div class="rounded-2xl border border-[#d4dbd4] bg-white p-8 sm:p-10">
 					<h2 class="text-2xl font-semibold tracking-tight">Join the early access list</h2>
-					<p class="mt-3 text-neutral-600">
+					<p class="mt-3 text-[#64756e]">
 						We're not building anything yet. Joining tells us there's real interest —
 						we'll reach out if this experiment continues.
 					</p>
@@ -169,29 +172,29 @@ import '../../styles/global.css';
 									required
 									autocomplete="email"
 									placeholder="you@example.com"
-									class="mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-2.5 text-sm placeholder:text-neutral-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+									class="mt-2 w-full rounded-none border border-[#173b32] bg-white px-4 py-2.5 text-sm placeholder:text-[#91a29a] focus:border-[#173b32] focus:outline-none focus:ring-2 focus:ring-[#173b32]/15"
 								/>
 							</div>
 							<div>
 								<label for="frustration" class="block text-sm font-medium">
-									What's your biggest frustration? <span class="text-neutral-400">(optional)</span>
+									What's your biggest frustration? <span class="text-[#91a29a]">(optional)</span>
 								</label>
 								<textarea
 									id="frustration"
 									name="frustration"
 									rows="3"
 									placeholder="e.g. re-pasting the same files into every session"
-									class="mt-2 w-full resize-y rounded-lg border border-neutral-300 bg-white px-4 py-2.5 text-sm placeholder:text-neutral-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+									class="mt-2 w-full resize-y rounded-none border border-[#173b32] bg-white px-4 py-2.5 text-sm placeholder:text-[#91a29a] focus:border-[#173b32] focus:outline-none focus:ring-2 focus:ring-[#173b32]/15"
 								></textarea>
 							</div>
 							<div>
 								<button
 									type="submit"
-									class="w-full rounded-lg bg-indigo-600 px-6 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-indigo-500 sm:w-auto"
+									class="w-full rounded-none bg-[#173b32] px-6 py-3 text-sm font-medium text-white shadow-[4px_4px_0_rgba(23,59,50,0.14)] transition-colors hover:bg-[#315a4c] sm:w-auto"
 								>
 									Join the early access list
 								</button>
-								<p class="mt-3 text-xs text-neutral-400">
+								<p class="mt-3 text-xs text-[#91a29a]">
 									No spam, no product yet. This is an early experiment — nothing
 									you submit is stored or sent anywhere.
 								</p>
@@ -201,16 +204,16 @@ import '../../styles/global.css';
 
 					<div id="waitlist-thank-you" class="py-12 text-center" aria-live="polite" hidden>
 						<p class="text-lg font-medium">Thanks. We'll contact early testers if this experiment continues.</p>
-						<p class="mt-2 text-sm text-neutral-500">That's the whole fake door — the experiment just measured your intent.</p>
+						<p class="mt-2 text-sm text-[#71827b]">That's the whole fake door — the experiment just measured your intent.</p>
 					</div>
 				</div>
 			</section>
 
 			<!-- Transparency -->
 			<section class="mt-16">
-				<div class="rounded-xl border border-dashed border-neutral-300 bg-neutral-100/60 p-6">
-					<h2 class="font-mono text-xs uppercase tracking-widest text-neutral-500">Honest note</h2>
-					<p class="mt-3 text-sm leading-relaxed text-neutral-600">
+				<div class="rounded-none border border-dashed border-[#173b32] bg-[#eef3eb]/60 p-6">
+					<h2 class="font-mono text-xs uppercase tracking-widest text-[#71827b]">Honest note</h2>
+					<p class="mt-3 text-sm leading-relaxed text-[#64756e]">
 						This page is part of an AI Factory validation experiment. There is no
 						product, no backend, and nothing you submit is stored or sent anywhere.
 						We're testing whether this idea is worth building.
@@ -219,11 +222,7 @@ import '../../styles/global.css';
 			</section>
 		</main>
 
-		<footer class="border-t border-neutral-200 py-8">
-			<p class="px-6 text-center text-xs text-neutral-400">
-				AI Factory · Experiment 001 · local-first context cost reduction
-			</p>
-		</footer>
+		<Footer label="Experiment 001 · local-first context cost reduction" />
 
 		<script>
 			import { track } from '../../lib/track';

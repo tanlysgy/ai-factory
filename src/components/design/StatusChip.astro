@@ -1,0 +1,8 @@
+---
+interface Props {
+  label: string;
+  status: 'live' | 'shipped' | 'rejected' | 'queued' | 'warn' | 'error';
+}
+const { label, status } = Astro.props;
+---
+<span class={`ds-chip ${status}`}><i class="dot" aria-hidden="true"></i><span>{label}</span></span>

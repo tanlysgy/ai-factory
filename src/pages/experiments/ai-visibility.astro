@@ -1,5 +1,7 @@
 ---
 import '../../styles/global.css';
+import Navigation from '../../components/design/Navigation.astro';
+import Footer from '../../components/design/Footer.astro';
 ---
 
 <!doctype html>
@@ -14,10 +16,7 @@ import '../../styles/global.css';
 	</head>
 	<body>
 		<div class="page-shell">
-			<header class="topbar">
-				<a class="brand" href="/" aria-label="AI Factory home"><span class="brand-mark" aria-hidden="true">AF</span><span>AI Factory</span></a>
-				<span class="experiment-tag">Experiment 008 / public demo</span>
-			</header>
+			<Navigation meta="Experiment 008 · AI Search Visibility Audit" />
 
 			<main>
 				<section class="hero" aria-labelledby="page-title">
@@ -54,7 +53,7 @@ import '../../styles/global.css';
 				</section>
 			</main>
 
-			<footer><span>AI Factory</span><span>Experiment 008 / AI Search Visibility Audit</span></footer>
+			<Footer label="Experiment 008 · AI Search Visibility Audit" />
 		</div>
 
 		<script>

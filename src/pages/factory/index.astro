@@ -1,6 +1,8 @@
 ---
 // Single source of truth, injected by the factory-state Vite plugin.
 import factoryState from 'virtual:factory-state';
+import Navigation from '../../components/design/Navigation.astro';
+import Footer from '../../components/design/Footer.astro';
 
 const state = factoryState;
 
@@ -42,16 +44,9 @@ const heroCounts = [
     <title>AI Factory Command Center</title>
     <meta name="description" content="The AI Factory command center: tasks, generated sites, experiments, and memory in one place." />
   </head>
-  <body>
+  <body data-theme="dark">
     <div class="command-page">
-      <header class="site-header">
-        <a class="brand" href="/" aria-label="AI Factory home"><span class="brand-mark" aria-hidden="true">AF</span><span>AI Factory</span><span class="header-tag">COMMAND CENTER</span></a>
-        <nav aria-label="Main navigation">
-          <a href="/">Home</a>
-          <a href="/radar/">Radar</a>
-          <a href="/factory/" aria-current="page">Factory</a>
-        </nav>
-      </header>
+      <Navigation theme="dark" current="/factory/" />
 
       <main>
         <section class="cc-hero" aria-labelledby="cc-title">
@@ -189,7 +184,7 @@ const heroCounts = [
         </section>
       </main>
 
-      <footer class="site-footer"><div><span class="brand-mark small" aria-hidden="true">AF</span><span>AI Factory</span></div><span>Command Center / public operating view</span><a href="/">Home</a></footer>
+      <Footer theme="dark" label="Command Center / public operating view" />
     </div>
   </body>
 </html>

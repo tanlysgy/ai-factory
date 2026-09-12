@@ -11,7 +11,18 @@
     <a class="brand" href="#">Nova</a>
     <nav><a href="#demo">Demo</a><a href="#features">Features</a><a href="#pricing">Pricing</a></nav>
     <a class="button button-primary" href="#cta">Try free</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-drawer"><span>Menu</span></button>
   </header>
+
+  <div class="menu-drawer" id="menu-drawer" aria-hidden="true">
+    <div class="drawer-head shell">
+      <a class="brand" href="#">Nova</a>
+      <button class="menu-close" type="button" aria-label="Close menu">Close</button>
+    </div>
+    <nav class="drawer-nav shell">
+      <a href="#demo">Demo</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#cta" class="drawer-cta">Try free</a>
+    </nav>
+  </div>
 
   <main>
     <section id="hero" class="hero shell">

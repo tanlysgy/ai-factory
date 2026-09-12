@@ -1,0 +1,189 @@
+/* ============================================================
+   AI Factory — Design System
+   Single token source for light cream factory pages and dark
+   command-center pages. Import BEFORE Tailwind utilities so the
+   utility layer can reference these custom properties.
+   ============================================================ */
+
+@layer theme {
+  :root {
+    /* ---- Color ---- */
+    --color-ink: #173b32;            /* Factory Ink: text, primary buttons */
+    --color-ink-strong: #0d1512;     /* dark page background */
+    --color-ink-soft: #315a4c;       /* secondary green on light */
+    --color-cream: #f4f5ef;          /* Factory Cream: page background */
+    --color-card: #ffffff;           /* light surface */
+    --color-dark-card: #111d18;      /* dark surface */
+    --color-acid: #b9d957;           /* Accent: live dots, dark highlights */
+    --color-acid-strong: #d4eb73;
+    --color-muted: #71827b;          /* secondary text on cream */
+    --color-muted-dark: #8fa99b;     /* secondary text on dark */
+    --color-line: #d4dbd4;           /* 1px borders on light */
+    --color-line-dark: #274031;      /* 1px borders on dark */
+    --color-warn: #c89431;
+    --color-danger: #d98a6f;
+
+    /* ---- Typography ---- */
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: ui-monospace, "JetBrains Mono", "SF Mono", SFMono-Regular,
+      Menlo, Consolas, monospace;
+
+    --text-h1-home: 112px;
+    --text-h1-page: 96px;
+    --text-h1-tool: 44px;
+    --text-h2: 48px;
+    --text-h2-dense: 40px;
+    --text-h3: 22px;
+    --text-body: 15px;
+    --text-lede: 20px;
+    --text-caption: 13px;
+    --text-mono-label: 11px;
+    --text-number: 44px;
+
+    --lh-h1: 0.92;
+    --lh-h2: 1.04;
+    --lh-body: 1.6;
+
+    /* ---- Spacing ---- */
+    --space-16: 16px;
+    --space-24: 24px;
+    --space-40: 40px;
+    --space-64: 64px;
+    --space-96: 96px;
+    --space-112: 112px;
+
+    /* ---- Components ---- */
+    --button-h: 46px;
+    --button-pad-x: 22px;
+    --button-font: 700 13px/1 var(--font-sans);
+    --card-pad: 22px;
+    --section-width: min(1160px, calc(100% - 64px));
+    --nav-h: 78px;
+    --nav-h-mobile: 66px;
+
+    /* ---- Motion ---- */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration-fast: 150ms;
+    --duration-enter: 500ms;
+    --duration-count: 800ms;
+    --stagger: 60ms;
+
+    /* ---- Search / focus ---- */
+    --focus-ring: 2px solid var(--color-ink);
+    --focus-offset: 2px;
+  }
+
+  /* Focus visible: every link/button/input across pages */
+  :focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-offset);
+  }
+
+  [data-theme="dark"] :focus-visible {
+    outline-color: var(--color-acid);
+  }
+
+  /* ---- Typography presets ---- */
+  .ds-h1-home { font: 800 var(--text-h1-home)/var(--lh-h1) var(--font-sans); letter-spacing: -0.04em; }
+  .ds-h1-page { font: 800 var(--text-h1-page)/0.94 var(--font-sans); letter-spacing: -0.05em; }
+  .ds-h1-tool { font: 700 var(--text-h1-tool)/1.06 var(--font-sans); letter-spacing: -0.03em; }
+  .ds-h2 { font: 500 var(--text-h2)/var(--lh-h2) var(--font-sans); letter-spacing: -0.05em; }
+  .ds-h2-dense { font: 500 var(--text-h2-dense)/1.1 var(--font-sans); letter-spacing: -0.04em; }
+  .ds-h3 { font: 700 var(--text-h3)/1.15 var(--font-sans); letter-spacing: -0.035em; }
+  .ds-body { font: 400 var(--text-body)/var(--lh-body) var(--font-sans); }
+  .ds-lede { font: 500 var(--text-lede)/1.4 var(--font-sans); letter-spacing: -0.02em; }
+  .ds-caption { font: 400 var(--text-caption)/1.45 var(--font-sans); }
+  .ds-mono-label { font: 700 var(--text-mono-label)/1.2 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
+  .ds-number { font: 800 var(--text-number)/0.9 var(--font-sans); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+
+  /* ---- Spacing presets ---- */
+  .ds-section { padding: var(--space-112) 0; }
+  .ds-section-dense { padding: var(--space-96) 0; }
+  .ds-stack-16 > * + * { margin-top: var(--space-16); }
+  .ds-stack-24 > * + * { margin-top: var(--space-24); }
+  .ds-stack-40 > * + * { margin-top: var(--space-40); }
+  .ds-stack-64 > * + * { margin-top: var(--space-64); }
+
+  /* ---- Buttons ---- */
+  .ds-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 14px; min-height: var(--button-h); padding: 0 var(--button-pad-x);
+    font: var(--button-font); letter-spacing: 0; text-decoration: none;
+    border: 1px solid transparent; border-radius: 0; cursor: pointer;
+    transition: transform var(--duration-fast) var(--ease-out),
+      background var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+  .ds-btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.14); }
+  .ds-btn:active { transform: translate(0, 0); box-shadow: none; }
+  .ds-btn-primary { color: var(--color-cream); background: var(--color-ink); }
+  .ds-btn-primary:hover { box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.22); }
+  .ds-btn-secondary { color: var(--color-ink); background: transparent; border-color: var(--color-ink); }
+  .ds-btn-dark { color: var(--color-ink); background: var(--color-acid); }
+  .ds-btn-dark:hover { box-shadow: 4px 4px 0 rgba(185, 217, 87, 0.28); }
+  .ds-btn:disabled { opacity: 0.4; pointer-events: none; }
+
+  /* ---- StatusChip ---- */
+  .ds-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    font: 700 var(--text-mono-label)/1.2 var(--font-mono);
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted);
+  }
+  .ds-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-line); flex: none; }
+  .ds-chip.live .dot { background: var(--color-acid); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-acid) 20%, transparent); }
+  .ds-chip.shipped .dot { background: var(--color-ink); }
+  .ds-chip.rejected .dot { background: color-mix(in srgb, var(--color-ink) 40%, transparent); }
+  .ds-chip.queued .dot { background: transparent; border: 1px solid var(--color-ink); }
+  .ds-chip.warn { color: var(--color-warn); }
+  .ds-chip.warn .dot { background: var(--color-warn); }
+  .ds-chip.error { color: var(--color-danger); }
+  .ds-chip.error .dot { background: var(--color-danger); }
+  [data-theme="dark"] .ds-chip.shipped .dot { background: #8fd39a; }
+  [data-theme="dark"] .ds-chip.rejected .dot { background: color-mix(in srgb, #8fd39a 40%, transparent); }
+  [data-theme="dark"] .ds-chip.queued .dot { background: transparent; border-color: var(--color-acid); }
+
+  /* ---- Card ---- */
+  .ds-card {
+    display: block; padding: var(--card-pad);
+    border: 1px solid var(--color-line); border-radius: 0;
+    background: var(--color-card);
+  }
+  [data-theme="dark"] .ds-card { border-color: var(--color-line-dark); background: var(--color-dark-card); }
+  .ds-card.featured { border-width: 2px; border-color: var(--color-ink); }
+  [data-theme="dark"] .ds-card.featured { border-color: var(--color-acid); }
+  .ds-card h3 { margin: 0; font: 700 var(--text-h3)/1.15 var(--font-sans); letter-spacing: -0.035em; }
+  .ds-card p { margin: 8px 0 0; color: var(--color-muted); font-size: var(--text-caption); line-height: 1.5; }
+  [data-theme="dark"] .ds-card p { color: var(--color-muted-dark); }
+
+  /* ---- Divider ---- */
+  .ds-divider { height: 1px; border: 0; background: var(--color-line); margin: var(--space-24) 0; }
+  [data-theme="dark"] .ds-divider { background: var(--color-line-dark); }
+
+  /* ---- Section header ---- */
+  .ds-section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-24); }
+  .ds-section-head .eyebrow { margin-bottom: 14px; }
+
+  /* ---- Utility hover language ---- */
+  .ds-link {
+    color: var(--color-ink); text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+  .ds-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  /* ---- Reduced motion ---- */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
+
+@layer base {
+  html { background: var(--color-cream); }
+  body { margin: 0; color: var(--color-ink); background: var(--color-cream); font-family: var(--font-sans); }
+  [data-theme="dark"] body { background: var(--color-ink-strong); color: #dce9df; }
+}

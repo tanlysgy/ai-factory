@@ -1,0 +1,115 @@
+---
+interface Link { label: string; href: string; }
+interface Props {
+  links?: Link[];
+  theme?: 'light' | 'dark';
+  current?: string;
+  cta?: { label: string; href: string };
+  meta?: string;
+}
+const {
+  links = [
+    { label: 'Home', href: '/' },
+    { label: 'Command Center', href: '/factory/' },
+    { label: 'Radar', href: '/radar/' },
+  ],
+  theme = 'light',
+  current = '',
+  cta,
+  meta,
+} = Astro.props;
+---
+<header class={`factory-nav ${theme}`}>
+  <div class="nav-inner">
+    <a class="brand" href="/" aria-label="AI Factory home">
+      <span class="brand-mark" aria-hidden="true">AF</span><span>AI Factory</span>
+    </a>
+    <nav class="nav-desktop" aria-label="Main navigation">
+      {links.map((l) => <a href={l.href} aria-current={l.href === current ? 'page' : undefined}>{l.label}</a>)}
+      {cta && <a class="nav-cta" href={cta.href}>{cta.label}</a>}
+    </nav>
+    {meta && <span class="nav-meta">{meta}</span>}
+    <button class="nav-menu" type="button" aria-expanded="false" aria-controls="factory-drawer">
+      <span>Menu</span><span class="menu-x" aria-hidden="true">+</span>
+    </button>
+  </div>
+  <div class="nav-drawer" id="factory-drawer" aria-hidden="true">
+    <div class="drawer-inner">
+      <a class="brand" href="/" aria-label="AI Factory home">
+        <span class="brand-mark" aria-hidden="true">AF</span><span>AI Factory</span>
+      </a>
+      <button class="drawer-close" type="button" aria-label="Close menu">Close</button>
+    </div>
+    <nav class="drawer-nav" aria-label="Mobile navigation">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      {cta && <a class="drawer-cta" href={cta.href}>{cta.label}</a>}
+    </nav>
+    <p class="drawer-meta">AI Factory / public operating view</p>
+  </div>
+</header>
+
+<script>
+  for (const nav of document.querySelectorAll<HTMLElement>('.factory-nav')) {
+    const menu = nav.querySelector<HTMLButtonElement>('.nav-menu');
+    const drawer = nav.querySelector<HTMLElement>('.nav-drawer');
+    const close = nav.querySelector<HTMLButtonElement>('.drawer-close');
+    const links = [...nav.querySelectorAll<HTMLAnchorElement>('.drawer-nav a')];
+    let open = false;
+    const setOpen = (next: boolean) => {
+      open = next;
+      drawer?.setAttribute('aria-hidden', String(!open));
+      menu?.setAttribute('aria-expanded', String(open));
+      document.documentElement.classList.toggle('drawer-open', open);
+    };
+    menu?.addEventListener('click', () => setOpen(!open));
+    close?.addEventListener('click', () => setOpen(false));
+    for (const link of links) link.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && open) setOpen(false);
+    });
+  }
+</script>
+
+<style>
+  .factory-nav { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid var(--color-line); background: color-mix(in srgb, var(--color-cream) 92%, transparent); backdrop-filter: blur(8px); }
+  .factory-nav.dark { background: color-mix(in srgb, var(--color-ink-strong) 92%, transparent); border-color: var(--color-line-dark); }
+  .nav-inner { width: min(1160px, calc(100% - 64px)); height: var(--nav-h); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--color-ink); font-size: 14px; font-weight: 800; text-decoration: none; }
+  .dark .brand { color: #f0f5ed; }
+  .brand-mark { display: grid; place-items: center; width: 31px; height: 31px; color: var(--color-cream); background: var(--color-ink); font: 800 10px var(--font-mono); }
+  .dark .brand-mark { color: #102018; background: var(--color-acid); }
+  .nav-desktop { display: flex; align-items: center; gap: 28px; }
+  .nav-meta { margin-left: -18px; color: var(--color-muted); font: 10px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+  .dark .nav-meta { color: #5f7d6c; }
+  .nav-desktop a { color: var(--color-muted); font: 11px var(--font-mono); letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+  .nav-desktop a:hover, .nav-desktop a[aria-current] { color: var(--color-ink); }
+  .dark .nav-desktop a { color: #7f998a; }
+  .dark .nav-desktop a:hover, .dark .nav-desktop a[aria-current] { color: var(--color-acid); }
+  .nav-desktop .nav-cta { margin-left: 8px; padding: 10px 16px; color: var(--color-cream); background: var(--color-ink); }
+  .nav-desktop .nav-cta:hover { color: var(--color-cream); box-shadow: 2px 2px 0 rgba(0,0,0,.2); }
+  .nav-menu { display: none; }
+  .nav-drawer { display: none; }
+  @media (max-width: 680px) {
+    .nav-inner { width: min(100% - 34px, 1160px); height: var(--nav-h-mobile); }
+    .nav-desktop { display: none; }
+    .nav-meta { display: none; }
+    .nav-menu { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; border: 1px solid var(--color-ink); background: transparent; color: var(--color-ink); font: 700 11px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+    .dark .nav-menu { border-color: var(--color-acid); color: var(--color-acid); }
+    .nav-menu .menu-x { display: inline-block; transform: rotate(45deg); }
+    .nav-drawer { display: flex; position: fixed; inset: 0; z-index: 50; flex-direction: column; padding: 0 17px; background: var(--color-cream); }
+    .dark .nav-drawer { background: var(--color-ink-strong); }
+    .nav-drawer[aria-hidden="true"] { display: none; }
+    .nav-drawer[aria-hidden="false"] { display: flex; }
+    .drawer-inner { display: flex; align-items: center; justify-content: space-between; height: var(--nav-h-mobile); border-bottom: 1px solid var(--color-line); }
+    .dark .drawer-inner { border-color: var(--color-line-dark); }
+    .drawer-close { padding: 9px 12px; border: 1px solid var(--color-ink); background: transparent; color: var(--color-ink); font: 700 11px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+    .dark .drawer-close { border-color: var(--color-acid); color: var(--color-acid); }
+    .drawer-nav { display: grid; gap: 8px; margin-top: 40px; }
+    .drawer-nav a { padding: 14px 0; border-bottom: 1px solid var(--color-line); color: var(--color-ink); font-size: 18px; font-weight: 700; letter-spacing: -.02em; text-decoration: none; }
+    .dark .drawer-nav a { border-color: var(--color-line-dark); color: #e7efe8; }
+    .drawer-cta { margin-top: 20px; padding: 13px; text-align: center; background: var(--color-ink); color: var(--color-cream) !important; border-bottom: 0 !important; }
+    .dark .drawer-cta { background: var(--color-acid); color: #102018 !important; }
+    .drawer-meta { margin-top: auto; padding: 26px 0 22px; color: var(--color-muted); font: 10px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+    html.drawer-open { overflow: hidden; }
+  }
+</style>
