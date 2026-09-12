@@ -41,6 +41,13 @@ pnpm factory:create https://example.com --slug example
 # Scaffold a site from a template
 pnpm factory:scaffold example saas-landing
 
+# Premium end-to-end pipeline (capture -> rank -> brief -> scaffold ->
+# brand substitution -> browser/mobile/accessibility tests -> preview)
+pnpm factory:create-premium https://attio.com --name Atrix --template saas-landing
+
+# Rank an existing capture without re-capturing
+pnpm factory:rank https://attio.com --slug attio --skip-capture
+
 # Preview a static site locally
 pnpm preview:static sites/example
 PREVIEW_PORT=4399 pnpm preview:static sites/example

@@ -41,17 +41,38 @@ fi
 echo "Capturing $url"
 echo "Output: $output_dir"
 
-"$browser_bin" screenshot "$url" "$output_dir/full-page.png" \
+capture_step() {
+	local label=$1
+	shift
+	if "$@"; then
+		echo "capture-site: $label ok"
+		return 0
+	fi
+	echo "capture-site: $label failed (retrying)" >&2
+	if "$@"; then
+		echo "capture-site: $label ok (after retry)"
+		return 0
+	fi
+	echo "capture-site: $label skipped after retry" >&2
+	return 0
+}
+
+capture_step "full-page screenshot" "$browser_bin" screenshot "$url" "$output_dir/full-page.png" \
 	--full-page --wait "$wait_ms" --timeout "$timeout_ms" "${browser_args[@]}"
-"$browser_bin" screenshot "$url" "$output_dir/desktop.png" \
+capture_step "desktop screenshot" "$browser_bin" screenshot "$url" "$output_dir/desktop.png" \
 	--viewport 1440x1000 --wait "$wait_ms" --timeout "$timeout_ms" "${browser_args[@]}"
-"$browser_bin" screenshot "$url" "$output_dir/mobile.png" \
+capture_step "mobile screenshot" "$browser_bin" screenshot "$url" "$output_dir/mobile.png" \
 	--viewport 390x844 --wait "$wait_ms" --timeout "$timeout_ms" "${browser_args[@]}"
 
-"$browser_bin" html "$url" --full-page --max-text 2000000 --wait "$wait_ms" \
-	--timeout "$timeout_ms" "${browser_args[@]}" > "$tmp_dir/html.json"
-jq -e '.html and (.html | type == "string")' "$tmp_dir/html.json" >/dev/null
-jq -r '.html' "$tmp_dir/html.json" > "$output_dir/index.html"
+if ! "$browser_bin" html "$url" --full-page --max-text 2000000 --wait "$wait_ms" \
+	--timeout "$timeout_ms" "${browser_args[@]}" > "$tmp_dir/html.json" 2>/dev/null; then
+	echo "capture-site: html snapshot failed (retrying)" >&2
+	"$browser_bin" html "$url" --full-page --max-text 2000000 --wait "$wait_ms" \
+		--timeout "$timeout_ms" "${browser_args[@]}" > "$tmp_dir/html.json" 2>/dev/null || true
+fi
+if [[ -s "$tmp_dir/html.json" ]] && jq -e '.html and (.html | type == "string")' "$tmp_dir/html.json" >/dev/null 2>&1; then
+	jq -r '.html' "$tmp_dir/html.json" > "$output_dir/index.html"
+fi
 
 metadata_js='() => {
   const count = (values) => Object.entries(values.reduce((map, value) => {
@@ -87,14 +108,19 @@ metadata_js='() => {
   };
 }'
 
-"$browser_bin" eval "$url" "$metadata_js" --viewport 1440x1000 --wait "$wait_ms" \
-	--timeout "$timeout_ms" "${browser_args[@]}" > "$tmp_dir/metadata.json"
-jq -e '.result and (.result | type == "object")' "$tmp_dir/metadata.json" >/dev/null
-jq '.result' "$tmp_dir/metadata.json" > "$output_dir/metadata.json"
-jq '.result.cssAssets' "$tmp_dir/metadata.json" > "$output_dir/css-assets.json"
-jq -r '.result.cssAssets[]?' "$tmp_dir/metadata.json" > "$output_dir/css-assets.txt"
-jq '.result.colors' "$tmp_dir/metadata.json" > "$output_dir/color-palette.json"
-jq '.result.typography' "$tmp_dir/metadata.json" > "$output_dir/typography-summary.json"
+if ! "$browser_bin" eval "$url" "$metadata_js" --viewport 1440x1000 --wait "$wait_ms" \
+	--timeout "$timeout_ms" "${browser_args[@]}" > "$tmp_dir/metadata.json" 2>/dev/null; then
+	echo "capture-site: metadata eval failed (retrying)" >&2
+	"$browser_bin" eval "$url" "$metadata_js" --viewport 1440x1000 --wait "$wait_ms" \
+		--timeout "$timeout_ms" "${browser_args[@]}" > "$tmp_dir/metadata.json" 2>/dev/null || true
+fi
+if [[ -s "$tmp_dir/metadata.json" ]] && jq -e '.result and (.result | type == "object")' "$tmp_dir/metadata.json" >/dev/null 2>&1; then
+	jq '.result' "$tmp_dir/metadata.json" > "$output_dir/metadata.json"
+	jq '.result.cssAssets' "$tmp_dir/metadata.json" > "$output_dir/css-assets.json"
+	jq -r '.result.cssAssets[]?' "$tmp_dir/metadata.json" > "$output_dir/css-assets.txt"
+	jq '.result.colors' "$tmp_dir/metadata.json" > "$output_dir/color-palette.json"
+	jq '.result.typography' "$tmp_dir/metadata.json" > "$output_dir/typography-summary.json"
+fi
 
 cat > "$output_dir/README.md" <<EOF
 # Browser capture

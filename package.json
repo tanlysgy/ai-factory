@@ -14,8 +14,11 @@
     "astro": "astro",
     "generate-types": "wrangler types",
     "factory:create": "tools/factory/factory-create.sh",
+    "factory:create-premium": "tools/factory/factory-create-premium.sh",
+    "factory:rank": "tools/factory/rank-reference.sh",
     "factory:scaffold": "tools/factory/factory-scaffold.sh",
-    "preview:static": "tools/browser/serve-static.sh"
+    "preview:static": "tools/browser/serve-static.sh",
+    "factory:test-site": "tools/factory/test-site.sh"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.3.1",

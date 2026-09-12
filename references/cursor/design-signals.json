@@ -1,0 +1,1017 @@
+{
+  "capturedAt": "2026-09-12T01:10:40.858Z",
+  "url": "https://cursor.com/",
+  "title": "AI Coding Agent for Building Ambitious Software | Cursor",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "page": {
+    "scrollHeight": 8249,
+    "overflowX": false
+  },
+  "colors": [
+    [
+      "rgb(38, 37, 30)",
+      4354
+    ],
+    [
+      "oklab(0.263084 -0.00230259 0.0124794 / 0.6)",
+      628
+    ],
+    [
+      "rgb(20, 20, 20)",
+      384
+    ],
+    [
+      "oklab(0.263084 -0.00230259 0.0124794 / 0.5)",
+      141
+    ],
+    [
+      "oklab(0.263084 -0.00230259 0.0124794 / 0.1)",
+      100
+    ],
+    [
+      "rgb(10, 10, 10)",
+      84
+    ],
+    [
+      "rgb(247, 247, 244)",
+      84
+    ],
+    [
+      "oklab(0.263084 -0.00230259 0.0124794 / 0.4)",
+      69
+    ],
+    [
+      "rgb(242, 241, 237)",
+      67
+    ],
+    [
+      "rgb(192, 133, 50)",
+      57
+    ],
+    [
+      "rgb(31, 33, 29)",
+      55
+    ],
+    [
+      "oklab(0.263084 -0.00230259 0.0124794 / 0.2)",
+      33
+    ],
+    [
+      "rgb(245, 78, 0)",
+      33
+    ],
+    [
+      "rgb(255, 255, 255)",
+      25
+    ],
+    [
+      "rgb(101, 175, 224)",
+      24
+    ],
+    [
+      "color(srgb 0.14902 0.145098 0.117647 / 0.06)",
+      15
+    ],
+    [
+      "oklab(0.263084 -0.00230259 0.0124794 / 0.9)",
+      10
+    ],
+    [
+      "rgb(230, 229, 224)",
+      10
+    ],
+    [
+      "rgb(235, 234, 229)",
+      9
+    ],
+    [
+      "rgb(74, 222, 128)",
+      9
+    ],
+    [
+      "lab(48.4493 77.4328 61.5452)",
+      6
+    ],
+    [
+      "oklab(0.263084 -0.00230259 0.0124794 / 0.025)",
+      6
+    ],
+    [
+      "rgb(39, 141, 204)",
+      6
+    ],
+    [
+      "lab(59.0978 -58.6621 41.2579)",
+      3
+    ]
+  ],
+  "typography": {
+    "fontFamilies": [
+      [
+        "CursorGothic, \"CursorGothic Fallback\", system-ui, \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        1301
+      ],
+      [
+        "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Helvetica Neue\", Arial, sans-serif",
+        459
+      ],
+      [
+        "berkeleyMono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+        239
+      ],
+      [
+        "\"EB Garamond\", \"Iowan Old Style\", \"Palatino Linotype\", \"URW Palladio L\", P052, ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
+        104
+      ],
+      [
+        "system-ui",
+        100
+      ],
+      [
+        "Lato, \"Lato Fallback\"",
+        71
+      ],
+      [
+        "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        11
+      ],
+      [
+        "CursorIcons16",
+        11
+      ]
+    ],
+    "fontSizes": [
+      [
+        "16px",
+        1420
+      ],
+      [
+        "12px",
+        400
+      ],
+      [
+        "14px",
+        261
+      ],
+      [
+        "13px",
+        96
+      ],
+      [
+        "11px",
+        85
+      ],
+      [
+        "36px",
+        13
+      ],
+      [
+        "22px",
+        12
+      ],
+      [
+        "10px",
+        3
+      ],
+      [
+        "20px",
+        2
+      ],
+      [
+        "19px",
+        1
+      ],
+      [
+        "26px",
+        1
+      ],
+      [
+        "6px",
+        1
+      ],
+      [
+        "72px",
+        1
+      ]
+    ],
+    "fontWeights": [
+      [
+        "400",
+        2247
+      ],
+      [
+        "500",
+        29
+      ],
+      [
+        "600",
+        13
+      ],
+      [
+        "700",
+        6
+      ],
+      [
+        "510",
+        1
+      ]
+    ],
+    "lineHeights": [
+      [
+        "24px",
+        1362
+      ],
+      [
+        "19.5px",
+        162
+      ],
+      [
+        "21px",
+        149
+      ],
+      [
+        "16px",
+        128
+      ],
+      [
+        "14px",
+        110
+      ],
+      [
+        "18.6666px",
+        53
+      ],
+      [
+        "18px",
+        51
+      ],
+      [
+        "20px",
+        51
+      ],
+      [
+        "20.15px",
+        50
+      ],
+      [
+        "15px",
+        39
+      ],
+      [
+        "17.3333px",
+        29
+      ],
+      [
+        "43.2px",
+        13
+      ],
+      [
+        "28.6px",
+        12
+      ],
+      [
+        "15.2728px",
+        8
+      ],
+      [
+        "18.5714px",
+        8
+      ],
+      [
+        "16.2px",
+        6
+      ],
+      [
+        "21.7px",
+        4
+      ],
+      [
+        "16.25px",
+        3
+      ],
+      [
+        "12px",
+        2
+      ],
+      [
+        "16.5px",
+        2
+      ],
+      [
+        "31px",
+        2
+      ],
+      [
+        "11px",
+        1
+      ],
+      [
+        "20.9px",
+        1
+      ],
+      [
+        "21.3333px",
+        1
+      ]
+    ]
+  },
+  "spacing": [
+    {
+      "px": 5,
+      "occurrences": 137
+    },
+    {
+      "px": 8,
+      "occurrences": 101
+    },
+    {
+      "px": 6,
+      "occurrences": 89
+    },
+    {
+      "px": 2,
+      "occurrences": 64
+    },
+    {
+      "px": 4,
+      "occurrences": 58
+    },
+    {
+      "px": 3,
+      "occurrences": 47
+    },
+    {
+      "px": 10,
+      "occurrences": 32
+    },
+    {
+      "px": 18,
+      "occurrences": 32
+    },
+    {
+      "px": 16,
+      "occurrences": 20
+    },
+    {
+      "px": 12,
+      "occurrences": 17
+    },
+    {
+      "px": 67,
+      "occurrences": 16
+    },
+    {
+      "px": 1,
+      "occurrences": 15
+    },
+    {
+      "px": 13,
+      "occurrences": 13
+    },
+    {
+      "px": 15,
+      "occurrences": 13
+    },
+    {
+      "px": 22,
+      "occurrences": 9
+    },
+    {
+      "px": 20,
+      "occurrences": 6
+    },
+    {
+      "px": 45,
+      "occurrences": 6
+    },
+    {
+      "px": 24,
+      "occurrences": 3
+    },
+    {
+      "px": 48,
+      "occurrences": 3
+    },
+    {
+      "px": 90,
+      "occurrences": 3
+    }
+  ],
+  "radius": [
+    [
+      "4px",
+      148
+    ],
+    [
+      "3.35544e+07px",
+      91
+    ],
+    [
+      "50%",
+      30
+    ],
+    [
+      "8px",
+      26
+    ],
+    [
+      "10px",
+      16
+    ],
+    [
+      "12px",
+      7
+    ],
+    [
+      "9999px",
+      7
+    ],
+    [
+      "1.5px",
+      5
+    ],
+    [
+      "2px",
+      5
+    ],
+    [
+      "2px 0px 0px 2px",
+      3
+    ],
+    [
+      "3px",
+      2
+    ],
+    [
+      "44px",
+      2
+    ],
+    [
+      "0px 2px 2px 0px",
+      1
+    ],
+    [
+      "40px",
+      1
+    ],
+    [
+      "6px",
+      1
+    ]
+  ],
+  "shadows": [
+    [
+      "rgba(0, 0, 0, 0.14) 0px 28px 70px 0px, rgba(0, 0, 0, 0.1) 0px 14px 32px 0px, oklab(0.263084 -0.00230259 0.0124794 / 0.1) 0px 0px 0px 1px",
+      6
+    ],
+    [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.02) 0px 0px 16px 0px, rgba(0, 0, 0, 0.008) 0px 0px 8px 0px",
+      4
+    ],
+    [
+      "rgb(252, 252, 252) 0px 0px 0px 2px",
+      3
+    ],
+    [
+      "oklab(0.263084 -0.00230259 0.0124794 / 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.28) 0px 18px 36px -18px",
+      1
+    ],
+    [
+      "rgba(0, 0, 0, 0.25) 0px 25px 50px -12px, rgba(0, 0, 0, 0.15) 0px 12px 24px -8px, oklab(0.263084 -0.00230259 0.0124794 / 0.1) 0px 0px 0px 0.5px",
+      1
+    ],
+    [
+      "rgba(0, 0, 0, 0.3) 0px 22px 70px 4px, rgba(0, 0, 0, 0.15) 0px 0px 0px 0.5px",
+      1
+    ],
+    [
+      "rgba(0, 0, 0, 0.35) 0px 8px 30px 0px, rgba(0, 0, 0, 0.15) 0px 0px 0px 0.5px",
+      1
+    ],
+    [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px",
+      1
+    ]
+  ],
+  "sections": [
+    {
+      "tag": "header",
+      "id": "site-header",
+      "class": "bg-theme-bg px-g2 fixed top-0 left-0 z-50 w-full",
+      "heading": ""
+    },
+    {
+      "tag": "header",
+      "id": "",
+      "class": "type-lg mb-v3 flex h-[var(--site-header-height)] shrink-0 items-center justify-end",
+      "heading": ""
+    },
+    {
+      "tag": "main",
+      "id": "main",
+      "class": "",
+      "heading": "Cursor is your coding agent for building ambitious software."
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "section bg-theme-bg text-theme-text",
+      "heading": "Cursor is your coding agent for building ambitious software."
+    },
+    {
+      "tag": "section",
+      "id": "logo-garden",
+      "class": "section bg-theme-bg text-theme-text pb-v1.5 pt-0",
+      "heading": "Trusted every day by teams that build world-class software"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "section section--flush-x",
+      "heading": "Agents turn ideas into code"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "section bg-theme-bg text-theme-text section--flush-y",
+      "heading": "Agents turn ideas into code"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "section bg-theme-bg text-theme-text section--flush-y",
+      "heading": "Works autonomously, runs in parallel"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "section bg-theme-bg text-theme-text section--flush-y",
+      "heading": "In every tool, at every step"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "section bg-theme-bg text-theme-text section--flush-y",
+      "heading": "Hand work to AI teammates"
+    },
+    {
+      "tag": "header",
+      "id": "",
+      "class": "relative z-[3] flex shrink-0 items-center justify-between gap-2 px-2",
+      "heading": ""
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "section bg-theme-bg text-theme-text overflow-hidden",
+      "heading": "The new way to build software."
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "section bg-theme-bg text-theme-text",
+      "heading": "Stay on the frontier"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "bg-theme-bg text-theme-text section",
+      "heading": "Changelog"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "section bg-theme-bg text-theme-text",
+      "heading": "Cursor is an applied research team focused on building the future of software development."
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "section bg-theme-bg text-theme-text",
+      "heading": "Recent highlights"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "section bg-theme-bg text-theme-text section--headline",
+      "heading": "Try Cursor now."
+    },
+    {
+      "tag": "footer",
+      "id": "site-footer",
+      "class": "pt-v3 pb-v3 md:pb-g3 px-g2 bg-theme-card-hex relative",
+      "heading": "Product"
+    },
+    {
+      "tag": "nav",
+      "id": "",
+      "class": "",
+      "heading": "Product"
+    }
+  ],
+  "ctaPatterns": [
+    {
+      "text": "Skip to content",
+      "tag": "a",
+      "classes": "skipnav btn btn--sm",
+      "style": {
+        "bg": "rgb(38, 37, 30)",
+        "radius": "3.35544e+07px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Cursor",
+      "tag": "a",
+      "classes": "focus-visible:focus-visible relative top-[0.2rem] left-[-2px] inline-flex",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Models",
+      "tag": "a",
+      "classes": "nav__btn",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "↓",
+      "tag": "button",
+      "classes": "nav__btn-caret nav__btn-caret--sm icon-glyph-09",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Grok",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Evals",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Product",
+      "tag": "a",
+      "classes": "nav__btn",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "↓",
+      "tag": "button",
+      "classes": "nav__btn-caret nav__btn-caret--sm icon-glyph-09",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Agents",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Cloud",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Grok Bot ↗",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Mobile",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Automations",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "CLI",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Marketplace ↗",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Review",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Enterprise",
+      "tag": "a",
+      "classes": "nav__link",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "Pricing",
+      "tag": "a",
+      "classes": "nav__link",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "Resources",
+      "tag": "a",
+      "classes": "nav__btn",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "↓",
+      "tag": "button",
+      "classes": "nav__btn-caret nav__btn-caret--sm icon-glyph-09",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Changelog",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Blog",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Docs",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Community",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Help ↗",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Workshops",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Forum ↗",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Careers",
+      "tag": "a",
+      "classes": "nav__sub-nav__link py-v2.5/12",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Models →",
+      "tag": "button",
+      "classes": "nav-sm-item type-lg focus-visible:focus-visible py-v3/12 flex w-full cursor-poin",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Product →",
+      "tag": "button",
+      "classes": "nav-sm-item type-lg focus-visible:focus-visible py-v3/12 flex w-full cursor-poin",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Enterprise",
+      "tag": "a",
+      "classes": "type-lg focus-visible:focus-visible py-v3/12 block",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Pricing",
+      "tag": "a",
+      "classes": "type-lg focus-visible:focus-visible py-v3/12 block",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Resources →",
+      "tag": "button",
+      "classes": "nav-sm-item type-lg focus-visible:focus-visible py-v3/12 flex w-full cursor-poin",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Sign in",
+      "tag": "a",
+      "classes": "btn--quinary",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "ContactContact sales",
+      "tag": "a",
+      "classes": "btn btn--ghost btn--sm hidden lg:inline-flex",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "3.35544e+07px",
+        "border": "oklab(0.263084 -0.00230259 0.0124794 / 0.2)"
+      }
+    },
+    {
+      "text": "Download",
+      "tag": "a",
+      "classes": "btn btn--primary btn--sm max-sm:hidden",
+      "style": {
+        "bg": "rgb(38, 37, 30)",
+        "radius": "3.35544e+07px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Download for Linux⤓",
+      "tag": "a",
+      "classes": "btn",
+      "style": {
+        "bg": "rgb(38, 37, 30)",
+        "radius": "3.35544e+07px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Get started→",
+      "tag": "a",
+      "classes": "btn",
+      "style": {
+        "bg": "rgb(38, 37, 30)",
+        "radius": "3.35544e+07px",
+        "border": "rgb(38, 37, 30)"
+      }
+    },
+    {
+      "text": "Request a demo→",
+      "tag": "a",
+      "classes": "btn btn--secondary",
+      "style": {
+        "bg": "rgb(230, 229, 224)",
+        "radius": "3.35544e+07px",
+        "border": "oklab(0.263084 -0.00230259 0.0124794 / 0.025)"
+      }
+    },
+    {
+      "text": "Get Cursor",
+      "tag": "button",
+      "classes": "transition-opacity duration-200 type-product-base rounded px-2 py-1 text-theme-t",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "4px",
+        "border": "oklab(0.263084 -0.00230259 0.0124794 / 0.6)"
+      }
+    }
+  ]
+}

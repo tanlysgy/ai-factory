@@ -53,3 +53,34 @@ The command produces:
 The capture is a reference artifact. It is not an instruction to copy a
 brand's code or private assets; use it to record layout, responsive behavior,
 colors, typography, and information hierarchy before an independent recreation.
+
+## Timeout handling
+
+- `capture-site.sh` uses `BROWSER_TIMEOUT_MS` (default 30000). Heavy/long
+  pages should set `BROWSER_TIMEOUT_MS=120000`; `factory:create` already
+  defaults to 120000 for signals.
+- Each screenshot/html/metadata step retries once before skipping. A single
+  timeout no longer aborts the whole capture; produced artifacts are kept.
+
+## Failed capture recovery
+
+- Screenshots, HTML, and metadata are written independently. If one step
+  fails twice, capture continues and the README still lists whatever exists.
+- Re-run `pnpm factory:rank <url> --skip-capture` after a partial capture to
+  regenerate analysis from available artifacts.
+
+## Mobile and accessibility checks
+
+- `tools/factory/test-site.sh` checks desktop 1440x1000 and mobile 390x844:
+  no horizontal overflow, sections render, and accessibility flags (missing
+  img alt, unlabeled inputs, empty buttons, missing html lang).
+- Every production demo must pass the same checks through the public tunnel,
+  not only on localhost.
+
+## create-premium workflow
+
+`pnpm factory:create-premium <url> --name <brand> --template <template>`
+
+Runs capture → design analysis → memory retrieval → replication brief →
+scaffold → browser/mobile/accessibility tests → preview instructions. The
+pipeline is the path for any future premium demo.
