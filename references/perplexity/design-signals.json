@@ -1,0 +1,308 @@
+{
+  "capturedAt": "2026-09-12T00:20:12.895Z",
+  "url": "https://www.perplexity.ai/",
+  "title": "Perplexity",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "page": {
+    "scrollHeight": 1000,
+    "overflowX": false
+  },
+  "colors": [
+    [
+      "rgb(39, 37, 30)",
+      87
+    ],
+    [
+      "rgb(253, 251, 250)",
+      11
+    ],
+    [
+      "color(srgb 0.992157 0.984314 0.980392)",
+      9
+    ],
+    [
+      "rgb(1, 106, 113)",
+      7
+    ],
+    [
+      "color(srgb 0.152941 0.145098 0.117647)",
+      2
+    ],
+    [
+      "rgb(255, 255, 255)",
+      2
+    ],
+    [
+      "rgb(252, 252, 249)",
+      1
+    ]
+  ],
+  "typography": {
+    "fontFamilies": [
+      [
+        "pplxSans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        1851
+      ]
+    ],
+    "fontSizes": [
+      [
+        "16px",
+        1743
+      ],
+      [
+        "14px",
+        78
+      ],
+      [
+        "12px",
+        14
+      ],
+      [
+        "24px",
+        14
+      ],
+      [
+        "11px",
+        2
+      ]
+    ],
+    "fontWeights": [
+      [
+        "400",
+        1784
+      ],
+      [
+        "480",
+        67
+      ]
+    ],
+    "lineHeights": [
+      [
+        "24px",
+        1750
+      ],
+      [
+        "28px",
+        48
+      ],
+      [
+        "20px",
+        29
+      ],
+      [
+        "32px",
+        14
+      ],
+      [
+        "12px",
+        4
+      ],
+      [
+        "16px",
+        3
+      ],
+      [
+        "11px",
+        1
+      ],
+      [
+        "16.5px",
+        1
+      ],
+      [
+        "17.5px",
+        1
+      ]
+    ]
+  },
+  "spacing": [
+    {
+      "px": 16,
+      "occurrences": 12
+    },
+    {
+      "px": 1,
+      "occurrences": 10
+    },
+    {
+      "px": 8,
+      "occurrences": 10
+    },
+    {
+      "px": 2,
+      "occurrences": 7
+    },
+    {
+      "px": 4,
+      "occurrences": 6
+    },
+    {
+      "px": 12,
+      "occurrences": 3
+    },
+    {
+      "px": 3,
+      "occurrences": 2
+    },
+    {
+      "px": 32,
+      "occurrences": 1
+    },
+    {
+      "px": 100,
+      "occurrences": 1
+    }
+  ],
+  "radius": [
+    [
+      "9999px",
+      15
+    ],
+    [
+      "12px",
+      13
+    ],
+    [
+      "8px",
+      13
+    ],
+    [
+      "6px",
+      8
+    ],
+    [
+      "16px",
+      4
+    ],
+    [
+      "11px",
+      2
+    ],
+    [
+      "0px 0px 16px 16px",
+      1
+    ],
+    [
+      "15px",
+      1
+    ],
+    [
+      "4px",
+      1
+    ]
+  ],
+  "shadows": [
+    [
+      "color(srgb 0.00392157 0.415686 0.443137 / 0) 0px 0px 36px 4px",
+      1
+    ],
+    [
+      "rgb(255, 255, 255) 0px 0px 0px 0px, rgba(39, 26, 0, 0.07) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      1
+    ],
+    [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px",
+      1
+    ],
+    [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.08) 0px 1px 2px 0px",
+      1
+    ]
+  ],
+  "sections": [],
+  "ctaPatterns": [
+    {
+      "text": "Sign In",
+      "tag": "button",
+      "classes": "reset interactable-alt block w-full rounded-sm",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "4px",
+        "border": "rgba(39, 26, 0, 0.14)"
+      }
+    },
+    {
+      "text": "Search",
+      "tag": "button",
+      "classes": "reset interactable-alt inline-flex select-none max-w-full items-center border tr",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "Computer",
+      "tag": "button",
+      "classes": "reset interactable-alt inline-flex select-none max-w-full items-center border tr",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "Model",
+      "tag": "button",
+      "classes": "reset interactable select-none [-webkit-user-drag:none] outline-hidden font-medi",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgba(39, 26, 0, 0.14)"
+      }
+    },
+    {
+      "text": "Work in a project",
+      "tag": "button",
+      "classes": "reset interactable select-none [-webkit-user-drag:none] outline-hidden font-medi",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgba(39, 26, 0, 0.14)"
+      }
+    },
+    {
+      "text": "Search anythingGet fast and accurate answers from the most t",
+      "tag": "button",
+      "classes": "reset interactable-alt group relative flex h-full w-full min-w-0 flex-col gap-1 ",
+      "style": {
+        "bg": "rgba(39, 26, 0, 0.035)",
+        "radius": "11px",
+        "border": "rgba(39, 26, 0, 0.14)"
+      }
+    },
+    {
+      "text": "Get work done with ComputerNEWHand off your projects to get ",
+      "tag": "button",
+      "classes": "reset interactable-alt group relative flex h-full w-full min-w-0 flex-col gap-1 ",
+      "style": {
+        "bg": "rgba(39, 26, 0, 0.035)",
+        "radius": "11px",
+        "border": "rgba(39, 26, 0, 0.14)"
+      }
+    },
+    {
+      "text": "Decline optional",
+      "tag": "button",
+      "classes": "reset interactable select-none [-webkit-user-drag:none] outline-hidden font-medi",
+      "style": {
+        "bg": "rgba(39, 26, 0, 0.07)",
+        "radius": "8px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "Got it",
+      "tag": "button",
+      "classes": "reset interactable select-none [-webkit-user-drag:none] outline-hidden font-medi",
+      "style": {
+        "bg": "color(srgb 0.152941 0.145098 0.117647)",
+        "radius": "8px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    }
+  ]
+}

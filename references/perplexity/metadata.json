@@ -1,0 +1,154 @@
+{
+  "capturedAt": "2026-09-12T00:19:55.638Z",
+  "title": "Perplexity",
+  "url": "https://www.perplexity.ai/",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "cssAssets": [
+    "https://accounts.google.com/gsi/style",
+    "https://pplx-next-static-public.perplexity.ai/_spa/assets/style__v2-BeEoWn7y.css"
+  ],
+  "inlineStyleBlocks": 3,
+  "colors": [
+    [
+      "color(srgb 0.152941 0.145098 0.117647)",
+      1
+    ],
+    [
+      "color(srgb 0.992157 0.984314 0.980392)",
+      1
+    ],
+    [
+      "rgb(0, 0, 0)",
+      1
+    ],
+    [
+      "rgb(1, 106, 113)",
+      1
+    ],
+    [
+      "rgb(252, 252, 249)",
+      1
+    ],
+    [
+      "rgb(253, 251, 250)",
+      1
+    ],
+    [
+      "rgb(255, 255, 255)",
+      1
+    ],
+    [
+      "rgb(39, 37, 30)",
+      1
+    ],
+    [
+      "rgba(1, 106, 113, 0.09)",
+      1
+    ],
+    [
+      "rgba(39, 26, 0, 0.035)",
+      1
+    ],
+    [
+      "rgba(39, 26, 0, 0.07)",
+      1
+    ],
+    [
+      "rgba(39, 26, 0, 0.14)",
+      1
+    ],
+    [
+      "rgba(39, 26, 0, 0.2)",
+      1
+    ],
+    [
+      "rgba(39, 37, 30, 0.5)",
+      1
+    ],
+    [
+      "rgba(39, 37, 30, 0.65)",
+      1
+    ]
+  ],
+  "typography": {
+    "fontFamilies": [
+      [
+        "pplxSans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        1850
+      ]
+    ],
+    "fontSizes": [
+      [
+        "16px",
+        1742
+      ],
+      [
+        "14px",
+        78
+      ],
+      [
+        "12px",
+        14
+      ],
+      [
+        "24px",
+        14
+      ],
+      [
+        "11px",
+        2
+      ]
+    ],
+    "fontWeights": [
+      [
+        "400",
+        1783
+      ],
+      [
+        "480",
+        67
+      ]
+    ],
+    "lineHeights": [
+      [
+        "24px",
+        1749
+      ],
+      [
+        "28px",
+        48
+      ],
+      [
+        "20px",
+        29
+      ],
+      [
+        "32px",
+        14
+      ],
+      [
+        "12px",
+        4
+      ],
+      [
+        "16px",
+        3
+      ],
+      [
+        "11px",
+        1
+      ],
+      [
+        "16.5px",
+        1
+      ],
+      [
+        "17.5px",
+        1
+      ]
+    ]
+  }
+}

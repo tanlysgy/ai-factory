@@ -1,0 +1,470 @@
+{
+  "capturedAt": "2026-09-12T00:13:16.385Z",
+  "title": "Linear – The system for product development",
+  "url": "https://linear.app/",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "cssAssets": [
+    "https://static.linear.app/web/_next/static/css/AIAutomations.Cbgew4KQ.css",
+    "https://static.linear.app/web/_next/static/css/Author.BmRR-9Eh.css",
+    "https://static.linear.app/web/_next/static/css/Badge.maEbQHhU.css",
+    "https://static.linear.app/web/_next/static/css/Benefits.CzMusJr_.css",
+    "https://static.linear.app/web/_next/static/css/Bleed.CbcodEv9.css",
+    "https://static.linear.app/web/_next/static/css/Bleed.IFwIgUhX.css",
+    "https://static.linear.app/web/_next/static/css/Button.dcAi4KbO.css",
+    "https://static.linear.app/web/_next/static/css/CTA.CDNJI-Em.css",
+    "https://static.linear.app/web/_next/static/css/Carousel.jAwP2tSl.css",
+    "https://static.linear.app/web/_next/static/css/Changelog.C40xlRzV.css",
+    "https://static.linear.app/web/_next/static/css/ChangelogButton.H0U2fYSl.css",
+    "https://static.linear.app/web/_next/static/css/Collapsibles.CKjyh1cv.css",
+    "https://static.linear.app/web/_next/static/css/CommandMenu.SLUGp_-I.css",
+    "https://static.linear.app/web/_next/static/css/Comparison.BbtD2Cgj.css",
+    "https://static.linear.app/web/_next/static/css/ContactLink.BDqMG6gX.css",
+    "https://static.linear.app/web/_next/static/css/CopyButton.BluMS353.css",
+    "https://static.linear.app/web/_next/static/css/CustomerCard.PR-WOC0k.css",
+    "https://static.linear.app/web/_next/static/css/CustomerQuotes.urGJ2SmA.css",
+    "https://static.linear.app/web/_next/static/css/DefaultRenderer.BguiJXrR.css",
+    "https://static.linear.app/web/_next/static/css/Dialog.CwVvSJva.css",
+    "https://static.linear.app/web/_next/static/css/DiffsIllustration.CYoFyd2X.css",
+    "https://static.linear.app/web/_next/static/css/EdgeShine.DgPIODoE.css",
+    "https://static.linear.app/web/_next/static/css/Flex.BEZjGLsi.css",
+    "https://static.linear.app/web/_next/static/css/GlobalSidePanel.CYoFyd2X.css",
+    "https://static.linear.app/web/_next/static/css/Grain.D_EBlr94.css",
+    "https://static.linear.app/web/_next/static/css/Grid.Cds8fjKR.css",
+    "https://static.linear.app/web/_next/static/css/Header.C6U4KenF.css",
+    "https://static.linear.app/web/_next/static/css/Header.DgNjEA-P.css",
+    "https://static.linear.app/web/_next/static/css/Header.q2FgrJcT.css",
+    "https://static.linear.app/web/_next/static/css/Hero.D42gc8OB.css",
+    "https://static.linear.app/web/_next/static/css/HeroIllustration.BLtvXfSp.css",
+    "https://static.linear.app/web/_next/static/css/HomepageLink.CN02O61q.css",
+    "https://static.linear.app/web/_next/static/css/HomepageSeparator.DAb6YYB9.css",
+    "https://static.linear.app/web/_next/static/css/Icon.B18TDZc7.css",
+    "https://static.linear.app/web/_next/static/css/Icon.Bl8l9ltc.css",
+    "https://static.linear.app/web/_next/static/css/IconButton.3p32EmO1.css",
+    "https://static.linear.app/web/_next/static/css/Image.BUY_OmUN.css",
+    "https://static.linear.app/web/_next/static/css/IssueCard.0Mp9aHeV.css",
+    "https://static.linear.app/web/_next/static/css/IssueListView.BH55qTC9.css",
+    "https://static.linear.app/web/_next/static/css/KBD.ByHmXOx_.css",
+    "https://static.linear.app/web/_next/static/css/Layout.tvkMFESE.css",
+    "https://static.linear.app/web/_next/static/css/LayoutContent.D8YYVbao.css",
+    "https://static.linear.app/web/_next/static/css/Link.Tpxbzi3N.css",
+    "https://static.linear.app/web/_next/static/css/LinkAnchor.DtA2msdz.css",
+    "https://static.linear.app/web/_next/static/css/Logos.CS-uXWPW.css",
+    "https://static.linear.app/web/_next/static/css/Note.4CaDvCAO.css",
+    "https://static.linear.app/web/_next/static/css/PageHeader.DD-Ivz5v.css",
+    "https://static.linear.app/web/_next/static/css/PageSection.CkcrxymE.css",
+    "https://static.linear.app/web/_next/static/css/Pillar.BQqfJc4W.css",
+    "https://static.linear.app/web/_next/static/css/Plan.Cd02uiDN.css",
+    "https://static.linear.app/web/_next/static/css/Plans.CJBL2oDa.css",
+    "https://static.linear.app/web/_next/static/css/PreviewLinkIcon.Q6nTXUvX.css",
+    "https://static.linear.app/web/_next/static/css/Providers.qSrgnk7B.css",
+    "https://static.linear.app/web/_next/static/css/ReviewsFrame.Omq08Do4.css",
+    "https://static.linear.app/web/_next/static/css/Select.Bb-JNkHr.css",
+    "https://static.linear.app/web/_next/static/css/Select.M9dz1lBx.css",
+    "https://static.linear.app/web/_next/static/css/Separator.RnTSqYU1.css",
+    "https://static.linear.app/web/_next/static/css/SidePanel.B6ktxgTN.css",
+    "https://static.linear.app/web/_next/static/css/SidePanelRenderer.eu7gfZFk.css",
+    "https://static.linear.app/web/_next/static/css/Sidenote.DB5A15fN.css",
+    "https://static.linear.app/web/_next/static/css/SlackIssue.Dd_4uIaS.css",
+    "https://static.linear.app/web/_next/static/css/Spacer.mYgpGelO.css",
+    "https://static.linear.app/web/_next/static/css/Stats.B54k2VBO.css",
+    "https://static.linear.app/web/_next/static/css/StatusPage.BYDaMjMd.css",
+    "https://static.linear.app/web/_next/static/css/Tabs.BmCvljV0.css",
+    "https://static.linear.app/web/_next/static/css/ThemeToggle._YM9yPbG.css",
+    "https://static.linear.app/web/_next/static/css/Timeline.DkraX15N.css",
+    "https://static.linear.app/web/_next/static/css/Toast.pcGZUK31.css",
+    "https://static.linear.app/web/_next/static/css/Tooltip.mgHd0F-S.css",
+    "https://static.linear.app/web/_next/static/css/VideoPlayer.Be8aVq9e.css",
+    "https://static.linear.app/web/_next/static/css/Zoom.krMPHN5w.css",
+    "https://static.linear.app/web/_next/static/css/charts.4GgBWSKg.css",
+    "https://static.linear.app/web/_next/static/css/code-diff.B1AV-EHC.css",
+    "https://static.linear.app/web/_next/static/css/color.C-dCEHFh.css",
+    "https://static.linear.app/web/_next/static/css/layout.DfSu4IaO.css",
+    "https://static.linear.app/web/_next/static/css/page.BO__v7RW.css",
+    "https://static.linear.app/web/_next/static/css/page.CN02O61q.css",
+    "https://static.linear.app/web/_next/static/css/quoted-tweet-container.BFOKKqQw.css",
+    "https://static.linear.app/web/_next/static/css/scenarios.bL-CLJt9.css",
+    "https://static.linear.app/web/_next/static/css/tweet-info-created-at.CJzi6vKz.css",
+    "https://static.linear.app/web/_next/static/css/tweet-media-video.CgzJqCNl.css",
+    "https://static.linear.app/web/_next/static/css/utils.BNNY1qpD.css"
+  ],
+  "inlineStyleBlocks": 3,
+  "colors": [
+    [
+      "color(srgb 0.0313726 0.0352941 0.0392157 / 0.05)",
+      1
+    ],
+    [
+      "color(srgb 0.0313726 0.0352941 0.0392157 / 0.1)",
+      1
+    ],
+    [
+      "rgb(0, 0, 0)",
+      1
+    ],
+    [
+      "rgb(109, 120, 213)",
+      1
+    ],
+    [
+      "rgb(131, 220, 220)",
+      1
+    ],
+    [
+      "rgb(138, 143, 152)",
+      1
+    ],
+    [
+      "rgb(143, 166, 255)",
+      1
+    ],
+    [
+      "rgb(15, 16, 17)",
+      1
+    ],
+    [
+      "rgb(16, 17, 18)",
+      1
+    ],
+    [
+      "rgb(18, 20, 20)",
+      1
+    ],
+    [
+      "rgb(208, 214, 224)",
+      1
+    ],
+    [
+      "rgb(22, 23, 24)",
+      1
+    ],
+    [
+      "rgb(220, 255, 255)",
+      1
+    ],
+    [
+      "rgb(226, 228, 230)",
+      1
+    ],
+    [
+      "rgb(226, 228, 231)",
+      1
+    ],
+    [
+      "rgb(228, 242, 34)",
+      1
+    ],
+    [
+      "rgb(229, 229, 230)",
+      1
+    ],
+    [
+      "rgb(235, 87, 87)",
+      1
+    ],
+    [
+      "rgb(243, 78, 82)",
+      1
+    ],
+    [
+      "rgb(247, 156, 224)",
+      1
+    ],
+    [
+      "rgb(247, 191, 139)",
+      1
+    ],
+    [
+      "rgb(247, 248, 248)",
+      1
+    ],
+    [
+      "rgb(255, 223, 159)",
+      1
+    ],
+    [
+      "rgb(255, 255, 255)",
+      1
+    ],
+    [
+      "rgb(28, 133, 232)",
+      1
+    ],
+    [
+      "rgb(35, 37, 42)",
+      1
+    ],
+    [
+      "rgb(36, 40, 44)",
+      1
+    ],
+    [
+      "rgb(39, 166, 68)",
+      1
+    ],
+    [
+      "rgb(46, 46, 50)",
+      1
+    ],
+    [
+      "rgb(59, 59, 59)",
+      1
+    ],
+    [
+      "rgb(78, 167, 252)",
+      1
+    ],
+    [
+      "rgb(8, 9, 10)",
+      1
+    ],
+    [
+      "rgb(9, 10, 11)",
+      1
+    ],
+    [
+      "rgb(94, 106, 210)",
+      1
+    ],
+    [
+      "rgb(98, 102, 109)",
+      1
+    ],
+    [
+      "rgba(0, 255, 5, 0.1)",
+      1
+    ],
+    [
+      "rgba(109, 120, 213, 0.15)",
+      1
+    ],
+    [
+      "rgba(243, 78, 82, 0.1)",
+      1
+    ],
+    [
+      "rgba(255, 0, 0, 0.12)",
+      1
+    ],
+    [
+      "rgba(255, 255, 255, 0.01)",
+      1
+    ],
+    [
+      "rgba(255, 255, 255, 0.02)",
+      1
+    ],
+    [
+      "rgba(255, 255, 255, 0.03)",
+      1
+    ],
+    [
+      "rgba(255, 255, 255, 0.04)",
+      1
+    ],
+    [
+      "rgba(255, 255, 255, 0.05)",
+      1
+    ],
+    [
+      "rgba(255, 255, 255, 0.07)",
+      1
+    ],
+    [
+      "rgba(255, 255, 255, 0.08)",
+      1
+    ],
+    [
+      "rgba(255, 255, 255, 0.12)",
+      1
+    ],
+    [
+      "rgba(255, 255, 255, 0.2)",
+      1
+    ],
+    [
+      "rgba(39, 166, 68, 0.07)",
+      1
+    ]
+  ],
+  "typography": {
+    "fontFamilies": [
+      [
+        "\"Inter Variable\", \"SF Pro Display\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif",
+        4833
+      ],
+      [
+        "\"Berkeley Mono\", ui-monospace, \"SF Mono\", Menlo, monospace",
+        308
+      ]
+    ],
+    "fontSizes": [
+      [
+        "16px",
+        4002
+      ],
+      [
+        "14px",
+        313
+      ],
+      [
+        "12px",
+        274
+      ],
+      [
+        "13px",
+        252
+      ],
+      [
+        "13.3333px",
+        137
+      ],
+      [
+        "15px",
+        82
+      ],
+      [
+        "10px",
+        23
+      ],
+      [
+        "18px",
+        20
+      ],
+      [
+        "64px",
+        13
+      ],
+      [
+        "48px",
+        11
+      ],
+      [
+        "24px",
+        7
+      ],
+      [
+        "11px",
+        3
+      ],
+      [
+        "32px",
+        2
+      ],
+      [
+        "20px",
+        1
+      ],
+      [
+        "72px",
+        1
+      ]
+    ],
+    "fontWeights": [
+      [
+        "400",
+        4842
+      ],
+      [
+        "510",
+        268
+      ],
+      [
+        "500",
+        15
+      ],
+      [
+        "300",
+        8
+      ],
+      [
+        "590",
+        8
+      ]
+    ],
+    "lineHeights": [
+      [
+        "24px",
+        3884
+      ],
+      [
+        "normal",
+        660
+      ],
+      [
+        "14px",
+        171
+      ],
+      [
+        "19.5px",
+        144
+      ],
+      [
+        "16px",
+        95
+      ],
+      [
+        "20px",
+        48
+      ],
+      [
+        "16.8px",
+        47
+      ],
+      [
+        "28.8px",
+        20
+      ],
+      [
+        "21px",
+        16
+      ],
+      [
+        "64px",
+        13
+      ],
+      [
+        "48px",
+        11
+      ],
+      [
+        "32px",
+        9
+      ],
+      [
+        "31.92px",
+        7
+      ],
+      [
+        "0px",
+        6
+      ],
+      [
+        "44px",
+        4
+      ],
+      [
+        "36px",
+        2
+      ],
+      [
+        "22.5px",
+        1
+      ],
+      [
+        "26.6px",
+        1
+      ],
+      [
+        "28px",
+        1
+      ],
+      [
+        "72px",
+        1
+      ]
+    ]
+  }
+}

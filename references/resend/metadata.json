@@ -1,0 +1,329 @@
+{
+  "capturedAt": "2026-09-12T00:18:03.129Z",
+  "title": "Resend · Email for developers",
+  "url": "https://resend.com/",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "cssAssets": [
+    "https://resend.com/_next/static/immutable/chunks/05o_glrjf0a_t.css",
+    "https://resend.com/_next/static/immutable/chunks/0q9w1p-wq49jc.css",
+    "https://resend.com/_next/static/immutable/chunks/0sz3w4ruui2m3.css",
+    "https://resend.com/_next/static/immutable/chunks/1v21gcxm4uw9a.css",
+    "https://resend.com/_next/static/immutable/chunks/2fkudypq4z6o8.css"
+  ],
+  "inlineStyleBlocks": 3,
+  "colors": [
+    [
+      "lab(47.7841 -0.393182 -10.0268)",
+      1
+    ],
+    [
+      "lab(70.5521 -66.5147 45.8073)",
+      1
+    ],
+    [
+      "oklab(0.999994 0.0000455677 0.0000200868 / 0.6)",
+      1
+    ],
+    [
+      "oklab(0.999994 0.0000455678 0.0000200868 / 0.05)",
+      1
+    ],
+    [
+      "rgb(0, 0, 0)",
+      1
+    ],
+    [
+      "rgb(0, 163, 255)",
+      1
+    ],
+    [
+      "rgb(108, 108, 108)",
+      1
+    ],
+    [
+      "rgb(11, 14, 20)",
+      1
+    ],
+    [
+      "rgb(112, 117, 126)",
+      1
+    ],
+    [
+      "rgb(112, 184, 255)",
+      1
+    ],
+    [
+      "rgb(160, 160, 160)",
+      1
+    ],
+    [
+      "rgb(161, 164, 165)",
+      1
+    ],
+    [
+      "rgb(161, 252, 234)",
+      1
+    ],
+    [
+      "rgb(171, 171, 171)",
+      1
+    ],
+    [
+      "rgb(186, 167, 255)",
+      1
+    ],
+    [
+      "rgb(235, 236, 237)",
+      1
+    ],
+    [
+      "rgb(240, 240, 240)",
+      1
+    ],
+    [
+      "rgb(255, 149, 146)",
+      1
+    ],
+    [
+      "rgb(255, 202, 22)",
+      1
+    ],
+    [
+      "rgb(255, 214, 10)",
+      1
+    ],
+    [
+      "rgb(255, 255, 255)",
+      1
+    ],
+    [
+      "rgb(38, 42, 45)",
+      1
+    ],
+    [
+      "rgb(59, 158, 255)",
+      1
+    ],
+    [
+      "rgb(70, 74, 77)",
+      1
+    ],
+    [
+      "rgba(0, 119, 255, 0.227)",
+      1
+    ],
+    [
+      "rgba(131, 84, 254, 0.21)",
+      1
+    ],
+    [
+      "rgba(211, 237, 248, 0.114)",
+      1
+    ],
+    [
+      "rgba(214, 235, 253, 0.19)",
+      1
+    ],
+    [
+      "rgba(216, 244, 246, 0.035)",
+      1
+    ],
+    [
+      "rgba(217, 237, 254, 0.145)",
+      1
+    ],
+    [
+      "rgba(217, 237, 255, 0.365)",
+      1
+    ],
+    [
+      "rgba(229, 237, 253, 0.482)",
+      1
+    ],
+    [
+      "rgba(241, 247, 254, 0.71)",
+      1
+    ],
+    [
+      "rgba(250, 130, 0, 0.133)",
+      1
+    ],
+    [
+      "rgba(252, 253, 255, 0.937)",
+      1
+    ],
+    [
+      "rgba(255, 100, 101, 0.92)",
+      1
+    ],
+    [
+      "rgba(255, 23, 63, 0.176)",
+      1
+    ],
+    [
+      "rgba(34, 255, 153, 0.118)",
+      1
+    ],
+    [
+      "rgba(67, 254, 164, 0.67)",
+      1
+    ],
+    [
+      "rgba(68, 255, 164, 0.62)",
+      1
+    ],
+    [
+      "rgba(70, 254, 165, 0.83)",
+      1
+    ]
+  ],
+  "typography": {
+    "fontFamilies": [
+      [
+        "inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        1695
+      ],
+      [
+        "commitMono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+        814
+      ],
+      [
+        "aBCFavorit, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        31
+      ],
+      [
+        "Helvetica",
+        25
+      ],
+      [
+        "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif",
+        4
+      ],
+      [
+        "domaine, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        4
+      ]
+    ],
+    "fontSizes": [
+      [
+        "16px",
+        1044
+      ],
+      [
+        "12px",
+        847
+      ],
+      [
+        "14px",
+        633
+      ],
+      [
+        "18px",
+        19
+      ],
+      [
+        "20px",
+        13
+      ],
+      [
+        "56px",
+        10
+      ],
+      [
+        "24px",
+        3
+      ],
+      [
+        "76.8px",
+        2
+      ],
+      [
+        "96px",
+        2
+      ]
+    ],
+    "fontWeights": [
+      [
+        "400",
+        2348
+      ],
+      [
+        "500",
+        199
+      ],
+      [
+        "600",
+        24
+      ],
+      [
+        "700",
+        2
+      ]
+    ],
+    "lineHeights": [
+      [
+        "24px",
+        1019
+      ],
+      [
+        "16px",
+        847
+      ],
+      [
+        "20px",
+        450
+      ],
+      [
+        "22.4px",
+        125
+      ],
+      [
+        "0px",
+        81
+      ],
+      [
+        "27px",
+        19
+      ],
+      [
+        "67.2px",
+        9
+      ],
+      [
+        "14px",
+        7
+      ],
+      [
+        "24.8px",
+        4
+      ],
+      [
+        "26px",
+        4
+      ],
+      [
+        "33.6px",
+        2
+      ],
+      [
+        "76.8px",
+        2
+      ],
+      [
+        "96px",
+        2
+      ],
+      [
+        "16.8px",
+        1
+      ],
+      [
+        "36px",
+        1
+      ]
+    ]
+  }
+}

@@ -1,0 +1,993 @@
+{
+  "capturedAt": "2026-09-12T00:13:24.541Z",
+  "url": "https://linear.app/",
+  "title": "Linear – The system for product development",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "page": {
+    "scrollHeight": 9960,
+    "overflowX": false
+  },
+  "colors": [
+    [
+      "rgb(247, 248, 248)",
+      11046
+    ],
+    [
+      "rgb(138, 143, 152)",
+      1242
+    ],
+    [
+      "rgb(98, 102, 109)",
+      856
+    ],
+    [
+      "rgb(208, 214, 224)",
+      611
+    ],
+    [
+      "rgb(255, 255, 255)",
+      495
+    ],
+    [
+      "rgb(226, 228, 231)",
+      424
+    ],
+    [
+      "rgb(247, 156, 224)",
+      135
+    ],
+    [
+      "rgb(247, 191, 139)",
+      66
+    ],
+    [
+      "rgb(8, 9, 10)",
+      57
+    ],
+    [
+      "rgb(143, 166, 255)",
+      48
+    ],
+    [
+      "rgb(15, 16, 17)",
+      37
+    ],
+    [
+      "rgb(131, 220, 220)",
+      30
+    ],
+    [
+      "rgb(255, 223, 159)",
+      30
+    ],
+    [
+      "rgb(229, 229, 230)",
+      12
+    ],
+    [
+      "rgb(243, 78, 82)",
+      9
+    ],
+    [
+      "rgb(46, 46, 50)",
+      9
+    ],
+    [
+      "rgb(226, 228, 230)",
+      6
+    ],
+    [
+      "rgb(35, 37, 42)",
+      4
+    ],
+    [
+      "rgb(78, 167, 252)",
+      4
+    ],
+    [
+      "rgb(109, 120, 213)",
+      3
+    ],
+    [
+      "rgb(235, 87, 87)",
+      3
+    ],
+    [
+      "rgb(228, 242, 34)",
+      2
+    ],
+    [
+      "rgb(36, 40, 44)",
+      2
+    ],
+    [
+      "rgb(16, 17, 18)",
+      1
+    ]
+  ],
+  "typography": {
+    "fontFamilies": [
+      [
+        "\"Inter Variable\", \"SF Pro Display\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Open Sans\", \"Helvetica Neue\", sans-serif",
+        4775
+      ],
+      [
+        "\"Berkeley Mono\", ui-monospace, \"SF Mono\", Menlo, monospace",
+        308
+      ]
+    ],
+    "fontSizes": [
+      [
+        "16px",
+        3958
+      ],
+      [
+        "14px",
+        313
+      ],
+      [
+        "12px",
+        266
+      ],
+      [
+        "13px",
+        247
+      ],
+      [
+        "13.3333px",
+        137
+      ],
+      [
+        "15px",
+        82
+      ],
+      [
+        "10px",
+        23
+      ],
+      [
+        "18px",
+        20
+      ],
+      [
+        "64px",
+        13
+      ],
+      [
+        "48px",
+        11
+      ],
+      [
+        "24px",
+        7
+      ],
+      [
+        "11px",
+        2
+      ],
+      [
+        "32px",
+        2
+      ],
+      [
+        "20px",
+        1
+      ],
+      [
+        "72px",
+        1
+      ]
+    ],
+    "fontWeights": [
+      [
+        "400",
+        4785
+      ],
+      [
+        "510",
+        268
+      ],
+      [
+        "500",
+        14
+      ],
+      [
+        "300",
+        8
+      ],
+      [
+        "590",
+        8
+      ]
+    ],
+    "lineHeights": [
+      [
+        "24px",
+        3840
+      ],
+      [
+        "normal",
+        660
+      ],
+      [
+        "14px",
+        168
+      ],
+      [
+        "19.5px",
+        144
+      ],
+      [
+        "16px",
+        89
+      ],
+      [
+        "16.8px",
+        47
+      ],
+      [
+        "20px",
+        43
+      ],
+      [
+        "28.8px",
+        20
+      ],
+      [
+        "21px",
+        16
+      ],
+      [
+        "64px",
+        13
+      ],
+      [
+        "48px",
+        11
+      ],
+      [
+        "32px",
+        9
+      ],
+      [
+        "31.92px",
+        7
+      ],
+      [
+        "44px",
+        4
+      ],
+      [
+        "36px",
+        2
+      ],
+      [
+        "22.5px",
+        1
+      ],
+      [
+        "26.6px",
+        1
+      ],
+      [
+        "28px",
+        1
+      ],
+      [
+        "72px",
+        1
+      ]
+    ]
+  },
+  "spacing": [
+    {
+      "px": 8,
+      "occurrences": 50
+    },
+    {
+      "px": 4,
+      "occurrences": 48
+    },
+    {
+      "px": 12,
+      "occurrences": 28
+    },
+    {
+      "px": 10,
+      "occurrences": 26
+    },
+    {
+      "px": 24,
+      "occurrences": 17
+    },
+    {
+      "px": 1,
+      "occurrences": 11
+    },
+    {
+      "px": 11,
+      "occurrences": 11
+    },
+    {
+      "px": 19,
+      "occurrences": 11
+    },
+    {
+      "px": 6,
+      "occurrences": 10
+    },
+    {
+      "px": 28,
+      "occurrences": 10
+    },
+    {
+      "px": 48,
+      "occurrences": 9
+    },
+    {
+      "px": 2,
+      "occurrences": 8
+    },
+    {
+      "px": 14,
+      "occurrences": 8
+    },
+    {
+      "px": 128,
+      "occurrences": 8
+    },
+    {
+      "px": 7,
+      "occurrences": 7
+    },
+    {
+      "px": 80,
+      "occurrences": 7
+    },
+    {
+      "px": 16,
+      "occurrences": 6
+    },
+    {
+      "px": 35,
+      "occurrences": 6
+    },
+    {
+      "px": 32,
+      "occurrences": 5
+    },
+    {
+      "px": 3,
+      "occurrences": 4
+    }
+  ],
+  "radius": [
+    [
+      "9999px",
+      76
+    ],
+    [
+      "8px",
+      31
+    ],
+    [
+      "50%",
+      28
+    ],
+    [
+      "12px",
+      18
+    ],
+    [
+      "9px",
+      18
+    ],
+    [
+      "4px",
+      17
+    ],
+    [
+      "6px",
+      15
+    ],
+    [
+      "2px",
+      9
+    ],
+    [
+      "12px 12px 0px 0px",
+      7
+    ],
+    [
+      "999px",
+      7
+    ],
+    [
+      "16px",
+      6
+    ],
+    [
+      "0px 2px 2px 0px",
+      4
+    ],
+    [
+      "2px 0px 0px 2px",
+      4
+    ],
+    [
+      "0px 4px 4px 0px",
+      3
+    ],
+    [
+      "4px 0px 0px 4px",
+      3
+    ],
+    [
+      "22px",
+      2
+    ],
+    [
+      "3px",
+      2
+    ],
+    [
+      "1.5px",
+      1
+    ],
+    [
+      "400px",
+      1
+    ]
+  ],
+  "shadows": [
+    [
+      "rgba(0, 0, 0, 0.2) 0px 0px 12px 0px inset",
+      7
+    ],
+    [
+      "rgba(0, 0, 0, 0.2) 0px 0px 0px 1px",
+      6
+    ],
+    [
+      "rgba(0, 0, 0, 0.25) 0px 2px 32px 0px",
+      4
+    ],
+    [
+      "rgba(0, 0, 0, 0) 0px 8px 2px 0px, rgba(0, 0, 0, 0.01) 0px 5px 2px 0px, rgba(0, 0, 0, 0.04) 0px 3px 2px 0px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 0px 1px 0px",
+      4
+    ],
+    [
+      "rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
+      4
+    ],
+    [
+      "rgba(255, 255, 255, 0.08) 0px 0px 0px 0.5px inset",
+      4
+    ],
+    [
+      "rgb(35, 37, 42) 0px 0px 0px 1px inset",
+      3
+    ],
+    [
+      "rgba(255, 255, 255, 0.03) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.04) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.6) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 4px 4px 0px",
+      2
+    ],
+    [
+      "rgb(35, 37, 42) 0px 0px 0px 1px inset, rgba(8, 9, 10, 0.8) 0px 0px 32px 0px",
+      1
+    ],
+    [
+      "rgb(35, 37, 42) 1px 0px 0px 0px inset",
+      1
+    ],
+    [
+      "rgba(0, 0, 0, 0.2) 0px 0px 0px 2px",
+      1
+    ],
+    [
+      "rgba(0, 0, 0, 0.4) 0px 1px 0px 0px",
+      1
+    ],
+    [
+      "rgba(94, 106, 210, 0.4) 0px 0px 0px 3px",
+      1
+    ]
+  ],
+  "sections": [
+    {
+      "tag": "header",
+      "id": "",
+      "class": "TZTsQG_header TZTsQG_header",
+      "heading": ""
+    },
+    {
+      "tag": "main",
+      "id": "",
+      "class": "_5l06ia_content",
+      "heading": "The product development system for teams and agentsThe product developmentsystem for teams and agent"
+    },
+    {
+      "tag": "header",
+      "id": "",
+      "class": "_1uFtza_header _1uFtza_locationBar",
+      "heading": ""
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "b-30Va_root b-30Va_rootHomepage",
+      "heading": "Intakeand integrations"
+    },
+    {
+      "tag": "header",
+      "id": "",
+      "class": "qM9FAa_header",
+      "heading": ""
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "b-30Va_root b-30Va_rootHomepage",
+      "heading": "Planningand monitoring"
+    },
+    {
+      "tag": "header",
+      "id": "",
+      "class": "_9Zs8oG_initiativesBoxHeader",
+      "heading": ""
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "b-30Va_root b-30Va_rootHomepage",
+      "heading": "AI andautomations"
+    },
+    {
+      "tag": "header",
+      "id": "",
+      "class": "NN4GVa_header",
+      "heading": ""
+    },
+    {
+      "tag": "header",
+      "id": "",
+      "class": "NN4GVa_header",
+      "heading": ""
+    },
+    {
+      "tag": "header",
+      "id": "",
+      "class": "NN4GVa_header",
+      "heading": ""
+    },
+    {
+      "tag": "header",
+      "id": "",
+      "class": "NN4GVa_header",
+      "heading": ""
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "b-30Va_root b-30Va_rootHomepage",
+      "heading": "Build, review,and ship"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "dYXc1G_homepagePrefooter",
+      "heading": "Built for the future. Available today."
+    },
+    {
+      "tag": "footer",
+      "id": "",
+      "class": "Jmh1Wq_footer",
+      "heading": "Product"
+    }
+  ],
+  "ctaPatterns": [
+    {
+      "text": "Skip to content →",
+      "tag": "a",
+      "classes": "LSqk9q_root",
+      "style": {
+        "bg": "rgb(94, 106, 210)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Product",
+      "tag": "button",
+      "classes": "TZTsQG_anchor TZTsQG_trigger hCgVwa_reset-button",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgb(138, 143, 152)"
+      }
+    },
+    {
+      "text": "Resources",
+      "tag": "button",
+      "classes": "TZTsQG_anchor TZTsQG_trigger hCgVwa_reset-button",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgb(138, 143, 152)"
+      }
+    },
+    {
+      "text": "Customers",
+      "tag": "a",
+      "classes": "TZTsQG_anchor I_mUeq_root",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgb(138, 143, 152)"
+      }
+    },
+    {
+      "text": "Pricing",
+      "tag": "a",
+      "classes": "TZTsQG_anchor I_mUeq_root",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgb(138, 143, 152)"
+      }
+    },
+    {
+      "text": "Now",
+      "tag": "a",
+      "classes": "TZTsQG_anchor I_mUeq_root",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgb(138, 143, 152)"
+      }
+    },
+    {
+      "text": "Contact",
+      "tag": "a",
+      "classes": "TZTsQG_anchor I_mUeq_root",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgb(138, 143, 152)"
+      }
+    },
+    {
+      "text": "Docs",
+      "tag": "a",
+      "classes": "TZTsQG_anchor I_mUeq_root",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgb(138, 143, 152)"
+      }
+    },
+    {
+      "text": "Open app",
+      "tag": "a",
+      "classes": "S36ykG_root S36ykG_variant-invert S36ykG_size-small S36ykG_variant I_mUeq_root",
+      "style": {
+        "bg": "rgb(229, 229, 230)",
+        "radius": "9999px",
+        "border": "rgb(229, 229, 230)"
+      }
+    },
+    {
+      "text": "Log in",
+      "tag": "a",
+      "classes": "TZTsQG_anchor I_mUeq_root",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "9999px",
+        "border": "rgb(138, 143, 152)"
+      }
+    },
+    {
+      "text": "Sign up",
+      "tag": "a",
+      "classes": "S36ykG_root S36ykG_variant-invert S36ykG_size-small S36ykG_variant I_mUeq_root",
+      "style": {
+        "bg": "rgb(229, 229, 230)",
+        "radius": "9999px",
+        "border": "rgb(229, 229, 230)"
+      }
+    },
+    {
+      "text": "NewLoops →",
+      "tag": "a",
+      "classes": "show-tablet QI8oKG_newFeatureLink I_mUeq_root",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(247, 248, 248)"
+      }
+    },
+    {
+      "text": "NewLoops →",
+      "tag": "a",
+      "classes": "hide-tablet QI8oKG_newFeatureLink I_mUeq_root",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(247, 248, 248)"
+      }
+    },
+    {
+      "text": "Linear",
+      "tag": "button",
+      "classes": "Mmx1Wq_switchWorkspaceButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Pulse",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(208, 214, 224)"
+      }
+    },
+    {
+      "text": "Inbox",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(208, 214, 224)"
+      }
+    },
+    {
+      "text": "My issues",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(208, 214, 224)"
+      }
+    },
+    {
+      "text": "Reviews",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(208, 214, 224)"
+      }
+    },
+    {
+      "text": "Workspace",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem Mmx1Wq_collapsible",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(98, 102, 109)"
+      }
+    },
+    {
+      "text": "Initiatives",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(208, 214, 224)"
+      }
+    },
+    {
+      "text": "Projects",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(208, 214, 224)"
+      }
+    },
+    {
+      "text": "More",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(208, 214, 224)"
+      }
+    },
+    {
+      "text": "Favorites",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem Mmx1Wq_collapsible",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(98, 102, 109)"
+      }
+    },
+    {
+      "text": "Faster app launch",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem",
+      "style": {
+        "bg": "rgba(255, 255, 255, 0.04)",
+        "radius": "8px",
+        "border": "rgb(208, 214, 224)"
+      }
+    },
+    {
+      "text": "Agent tasks",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(208, 214, 224)"
+      }
+    },
+    {
+      "text": "Agent Insights",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(208, 214, 224)"
+      }
+    },
+    {
+      "text": "UI Refresh",
+      "tag": "button",
+      "classes": "Mmx1Wq_navItem",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(208, 214, 224)"
+      }
+    },
+    {
+      "text": "Performance",
+      "tag": "button",
+      "classes": "_1uFtza_labelButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "16px",
+        "border": "rgb(46, 46, 50)"
+      }
+    },
+    {
+      "text": "iOS",
+      "tag": "button",
+      "classes": "_1uFtza_labelButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "16px",
+        "border": "rgb(46, 46, 50)"
+      }
+    },
+    {
+      "text": "Learn more→",
+      "tag": "a",
+      "classes": "I_mUeq_root",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(247, 248, 248)"
+      }
+    },
+    {
+      "text": "Linear Agent +",
+      "tag": "button",
+      "classes": "M31rWW_ingredientButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Customer Requests +",
+      "tag": "button",
+      "classes": "M31rWW_ingredientButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Triage +",
+      "tag": "button",
+      "classes": "M31rWW_ingredientButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Linear Asks +",
+      "tag": "button",
+      "classes": "M31rWW_ingredientButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Learn more→",
+      "tag": "a",
+      "classes": "I_mUeq_root",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(247, 248, 248)"
+      }
+    },
+    {
+      "text": "Projects +",
+      "tag": "button",
+      "classes": "M31rWW_ingredientButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Documents +",
+      "tag": "button",
+      "classes": "M31rWW_ingredientButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Pulse +",
+      "tag": "button",
+      "classes": "M31rWW_ingredientButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Initiatives +",
+      "tag": "button",
+      "classes": "M31rWW_ingredientButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "text": "Visual planning +",
+      "tag": "button",
+      "classes": "M31rWW_ingredientButton",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(255, 255, 255)"
+      }
+    }
+  ]
+}

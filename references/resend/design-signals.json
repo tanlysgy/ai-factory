@@ -1,0 +1,881 @@
+{
+  "capturedAt": "2026-09-12T00:18:17.592Z",
+  "url": "https://resend.com/",
+  "title": "Resend · Email for developers",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "page": {
+    "scrollHeight": 12360,
+    "overflowX": false
+  },
+  "colors": [
+    [
+      "rgb(240, 240, 240)",
+      2274
+    ],
+    [
+      "rgb(161, 164, 165)",
+      1027
+    ],
+    [
+      "rgb(235, 236, 237)",
+      996
+    ],
+    [
+      "rgb(255, 255, 255)",
+      948
+    ],
+    [
+      "rgb(160, 160, 160)",
+      648
+    ],
+    [
+      "rgb(171, 171, 171)",
+      267
+    ],
+    [
+      "rgb(70, 74, 77)",
+      252
+    ],
+    [
+      "rgb(108, 108, 108)",
+      198
+    ],
+    [
+      "rgb(161, 252, 234)",
+      45
+    ],
+    [
+      "rgb(112, 117, 126)",
+      24
+    ],
+    [
+      "oklab(0.999994 0.0000455677 0.0000200868 / 0.6)",
+      13
+    ],
+    [
+      "rgb(59, 158, 255)",
+      12
+    ],
+    [
+      "oklab(0.999994 0.0000455678 0.0000200868 / 0.05)",
+      10
+    ],
+    [
+      "rgb(112, 184, 255)",
+      7
+    ],
+    [
+      "rgb(186, 167, 255)",
+      7
+    ],
+    [
+      "rgb(255, 149, 146)",
+      7
+    ],
+    [
+      "rgb(255, 202, 22)",
+      7
+    ],
+    [
+      "rgb(38, 42, 45)",
+      4
+    ],
+    [
+      "lab(70.5521 -66.5147 45.8073)",
+      3
+    ],
+    [
+      "rgb(0, 163, 255)",
+      1
+    ],
+    [
+      "rgb(11, 14, 20)",
+      1
+    ],
+    [
+      "rgb(255, 214, 10)",
+      1
+    ]
+  ],
+  "typography": {
+    "fontFamilies": [
+      [
+        "inter, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        1706
+      ],
+      [
+        "commitMono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+        814
+      ],
+      [
+        "aBCFavorit, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        31
+      ],
+      [
+        "Helvetica",
+        25
+      ],
+      [
+        "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif",
+        4
+      ],
+      [
+        "domaine, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        4
+      ]
+    ],
+    "fontSizes": [
+      [
+        "16px",
+        1050
+      ],
+      [
+        "12px",
+        799
+      ],
+      [
+        "14px",
+        686
+      ],
+      [
+        "18px",
+        19
+      ],
+      [
+        "20px",
+        13
+      ],
+      [
+        "56px",
+        10
+      ],
+      [
+        "24px",
+        3
+      ],
+      [
+        "76.8px",
+        2
+      ],
+      [
+        "96px",
+        2
+      ]
+    ],
+    "fontWeights": [
+      [
+        "400",
+        2407
+      ],
+      [
+        "500",
+        151
+      ],
+      [
+        "600",
+        24
+      ],
+      [
+        "700",
+        2
+      ]
+    ],
+    "lineHeights": [
+      [
+        "24px",
+        1025
+      ],
+      [
+        "16px",
+        799
+      ],
+      [
+        "20px",
+        503
+      ],
+      [
+        "22.4px",
+        125
+      ],
+      [
+        "27px",
+        19
+      ],
+      [
+        "67.2px",
+        9
+      ],
+      [
+        "14px",
+        7
+      ],
+      [
+        "24.8px",
+        4
+      ],
+      [
+        "26px",
+        4
+      ],
+      [
+        "33.6px",
+        2
+      ],
+      [
+        "76.8px",
+        2
+      ],
+      [
+        "96px",
+        2
+      ],
+      [
+        "16.8px",
+        1
+      ],
+      [
+        "36px",
+        1
+      ]
+    ]
+  },
+  "spacing": [
+    {
+      "px": 2,
+      "occurrences": 104
+    },
+    {
+      "px": 24,
+      "occurrences": 97
+    },
+    {
+      "px": 8,
+      "occurrences": 34
+    },
+    {
+      "px": 16,
+      "occurrences": 24
+    },
+    {
+      "px": 1,
+      "occurrences": 23
+    },
+    {
+      "px": 4,
+      "occurrences": 23
+    },
+    {
+      "px": 96,
+      "occurrences": 23
+    },
+    {
+      "px": 12,
+      "occurrences": 15
+    },
+    {
+      "px": 6,
+      "occurrences": 12
+    },
+    {
+      "px": 32,
+      "occurrences": 11
+    },
+    {
+      "px": 48,
+      "occurrences": 7
+    },
+    {
+      "px": 10,
+      "occurrences": 6
+    },
+    {
+      "px": 64,
+      "occurrences": 4
+    },
+    {
+      "px": 40,
+      "occurrences": 3
+    },
+    {
+      "px": 5,
+      "occurrences": 2
+    },
+    {
+      "px": 30,
+      "occurrences": 2
+    },
+    {
+      "px": 80,
+      "occurrences": 2
+    },
+    {
+      "px": 144,
+      "occurrences": 2
+    },
+    {
+      "px": 20,
+      "occurrences": 1
+    }
+  ],
+  "radius": [
+    [
+      "3.35544e+07px",
+      198
+    ],
+    [
+      "16px",
+      62
+    ],
+    [
+      "6px",
+      54
+    ],
+    [
+      "8px",
+      29
+    ],
+    [
+      "4px",
+      19
+    ],
+    [
+      "24px",
+      10
+    ],
+    [
+      "10px",
+      6
+    ],
+    [
+      "12px",
+      3
+    ],
+    [
+      "0px 8px 8px 0px",
+      2
+    ],
+    [
+      "8px 0px 0px 8px",
+      2
+    ],
+    [
+      "16px 16px 0px 0px",
+      1
+    ]
+  ],
+  "shadows": [
+    [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(24, 25, 28, 0.88) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      60
+    ],
+    [
+      "rgb(0, 0, 0) 0px 0px 0px 8px",
+      5
+    ],
+    [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px",
+      4
+    ],
+    [
+      "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(255, 255, 255) 0px 1px 1px 0px inset",
+      1
+    ]
+  ],
+  "sections": [
+    {
+      "tag": "header",
+      "id": "",
+      "class": "sticky top-0 z-40 transition duration-200 ease-in-out after:content-[\"\"] after:absolute after:inset-0 after:bg-black/60 after:backdrop-blur-md after:opacity-0 after:transition-opacity after:bg-[url(\"/static/texture-btn.png\")] before:absolute before:opacity-0 before:inset-0 before:-bottom-30 before:z-50 before:backdrop-blur-2xl before:backdrop-brightness-200 before:pointer-events-none after:pointer-events-none before:[mask-image:linear-gradient(black,black)] before:[mask-size:100%_1px] before:[mask-repeat:no-repeat] before:mask-[0_calc(100%-7.5rem)]",
+      "heading": ""
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "mx-auto max-w-5xl px-6 pb-8 md:h-screen md:max-h-[950px] md:max-w-7xl",
+      "heading": "Email fordevelopers"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "mx-auto px-6 py-12 sm:py-24 max-w-5xl md:max-w-7xl",
+      "heading": "Integrate this weekend"
+    },
+    {
+      "tag": "header",
+      "id": "",
+      "class": "flex h-16 items-center justify-between border-b border-slate-6 px-0 md:px-4",
+      "heading": ""
+    },
+    {
+      "tag": "footer",
+      "id": "",
+      "class": "absolute bottom-0 left-0 z-30 flex w-full max-w-[calc(100%_-_18px)] items-center gap-4 bg-gradient-to-t from-black via-black px-4 pb-3 pt-5",
+      "heading": ""
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "mx-auto px-6 py-12 sm:py-24 max-w-5xl md:max-w-7xl",
+      "heading": "First-class developer experience"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "mx-auto px-6 py-12 sm:py-24 max-w-5xl md:max-w-7xl",
+      "heading": "Write using a delightful editor"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "mx-auto px-6 py-12 sm:py-24 max-w-5xl md:max-w-7xl",
+      "heading": "Go beyond editing"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "mx-auto px-6 py-12 sm:py-24 max-w-5xl md:max-w-7xl",
+      "heading": "Develop emails using React"
+    },
+    {
+      "tag": "header",
+      "id": "",
+      "class": "flex h-12 items-center border-b border-slate-6 px-4",
+      "heading": ""
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "mx-auto sm:py-24 relative mt-12 max-w-5xl overflow-hidden rounded-3xl border-t border-slate-6 px-6 py-20 md:mt-0 md:max-w-7xl",
+      "heading": "Reach humans, not spam folders"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "mx-auto px-6 py-12 sm:py-24 max-w-5xl md:max-w-7xl",
+      "heading": "Everything in your control"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "mx-auto py-12 sm:py-24 px-0",
+      "heading": "Beyond expectations"
+    },
+    {
+      "tag": "section",
+      "id": "",
+      "class": "mx-auto px-6 py-12 sm:py-24 relative max-w-5xl text-center sm:mb-0 sm:pb-0 md:max-w-7xl",
+      "heading": "Email reimagined.Available today."
+    },
+    {
+      "tag": "footer",
+      "id": "",
+      "class": "mx-auto flex max-w-5xl flex-col gap-12 px-6 py-36 md:max-w-7xl md:flex-row md:gap-8",
+      "heading": ""
+    }
+  ],
+  "ctaPatterns": [
+    {
+      "text": "Open main menu",
+      "tag": "button",
+      "classes": "inline-flex items-center justify-center rounded-md p-1 text-default transition e",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "6px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Features",
+      "tag": "button",
+      "classes": "h-[58px] flex items-center px-1 py-1 text-sm font-medium text-default hover:text",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Company",
+      "tag": "button",
+      "classes": "h-[58px] flex items-center px-1 py-1 text-sm font-medium text-default hover:text",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Enterprise",
+      "tag": "button",
+      "classes": "h-[58px] flex items-center px-1 py-1 text-sm font-medium text-default hover:text",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Help",
+      "tag": "button",
+      "classes": "h-[58px] flex items-center px-1 py-1 text-sm font-medium text-default hover:text",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Docs",
+      "tag": "button",
+      "classes": "h-[58px] flex items-center px-1 py-1 text-sm font-medium text-default hover:text",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "AI",
+      "tag": "button",
+      "classes": "h-[58px] flex items-center px-1 py-1 text-sm font-medium text-default hover:text",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Pricing",
+      "tag": "a",
+      "classes": "outline-hidden transition duration-150 ease-in-out focus-visible:ring-2 focus-vi",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Log in",
+      "tag": "a",
+      "classes": "outline-hidden relative items-center border justify-center select-none rounded-2",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "16px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "Get started",
+      "tag": "a",
+      "classes": "outline-hidden relative inline-flex items-center justify-center select-none roun",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "16px",
+        "border": "oklab(0.999994 0.0000455678 0.0000200868 / 0.05)"
+      }
+    },
+    {
+      "text": "Join us at Resend Forward",
+      "tag": "a",
+      "classes": "rainbow-border mb-8 inline-flex items-center justify-center rounded-full relativ",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "3.35544e+07px",
+        "border": "rgb(240, 240, 240)"
+      }
+    },
+    {
+      "text": "Get started",
+      "tag": "a",
+      "classes": "relative inline-flex items-center justify-center select-none rounded-2xl disable",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "16px",
+        "border": "oklab(0.999994 0.0000455678 0.0000200868 / 0.05)"
+      }
+    },
+    {
+      "text": "Documentation",
+      "tag": "a",
+      "classes": "relative inline-flex items-center border justify-center select-none rounded-2xl ",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "16px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "Explore Enterprise",
+      "tag": "a",
+      "classes": "relative inline-flex items-center border justify-center select-none rounded-2xl ",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "16px",
+        "border": "rgba(0, 0, 0, 0)"
+      }
+    },
+    {
+      "text": "Node.js",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Serverless",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Ruby",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Python",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "PHP",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "CLI",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Go",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Rust",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Java",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Elixir",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": ".NET",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "REST",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "SMTP",
+      "tag": "button",
+      "classes": "group flex flex-col items-center justify-center gap-4 text-default outline-hidde",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Node.js",
+      "tag": "button",
+      "classes": "group relative h-8 shrink-0 rounded-lg p-px text-sm transition duration-200 ease",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(240, 240, 240)"
+      }
+    },
+    {
+      "text": "Next.js",
+      "tag": "button",
+      "classes": "group relative h-8 shrink-0 rounded-lg p-px text-sm transition duration-200 ease",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Remix",
+      "tag": "button",
+      "classes": "group relative h-8 shrink-0 rounded-lg p-px text-sm transition duration-200 ease",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Nuxt",
+      "tag": "button",
+      "classes": "group relative h-8 shrink-0 rounded-lg p-px text-sm transition duration-200 ease",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Express",
+      "tag": "button",
+      "classes": "group relative h-8 shrink-0 rounded-lg p-px text-sm transition duration-200 ease",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Hono",
+      "tag": "button",
+      "classes": "group relative h-8 shrink-0 rounded-lg p-px text-sm transition duration-200 ease",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Redwood",
+      "tag": "button",
+      "classes": "group relative h-8 shrink-0 rounded-lg p-px text-sm transition duration-200 ease",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Bun",
+      "tag": "button",
+      "classes": "group relative h-8 shrink-0 rounded-lg p-px text-sm transition duration-200 ease",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Astro",
+      "tag": "button",
+      "classes": "group relative h-8 shrink-0 rounded-lg p-px text-sm transition duration-200 ease",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "8px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "View on GitHub",
+      "tag": "a",
+      "classes": "outline-hidden transition duration-150 ease-in-out focus-visible:ring-2 focus-vi",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "Download ZIP",
+      "tag": "a",
+      "classes": "outline-hidden transition duration-150 ease-in-out focus-visible:ring-2 focus-vi",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "0px",
+        "border": "rgb(161, 164, 165)"
+      }
+    },
+    {
+      "text": "delivereddelivered@resend.dev",
+      "tag": "button",
+      "classes": "flex items-center gap-0 rounded-sm outline-hidden focus-visible:ring-2 focus-vis",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "4px",
+        "border": "rgb(240, 240, 240)"
+      }
+    },
+    {
+      "text": "Send",
+      "tag": "button",
+      "classes": "flex items-center gap-2 rounded-full border border-slate-6 px-3 py-[5px] text-sm",
+      "style": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "radius": "3.35544e+07px",
+        "border": "rgba(214, 235, 253, 0.19)"
+      }
+    }
+  ]
+}
