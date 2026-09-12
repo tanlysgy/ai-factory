@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "test": "node --test --experimental-strip-types src/lib/seo-analyze.test.ts src/lib/ai-ready-check.test.ts src/lib/site-intelligence.test.ts src/lib/ai-visibility.test.ts radar/engine/score.test.mjs",
+    "test": "node --test --experimental-strip-types src/lib/seo-analyze.test.ts src/lib/ai-ready-check.test.ts src/lib/site-intelligence.test.ts src/lib/ai-visibility.test.ts src/lib/factory-state.test.ts radar/engine/score.test.mjs",
     "preview": "astro preview",
     "preview:tunnel": "tools/browser/preview-tunnel.sh",
     "astro": "astro",
@@ -19,6 +19,11 @@
     "factory:scaffold": "tools/factory/factory-scaffold.sh",
     "preview:static": "tools/browser/serve-static.sh",
     "factory:test-site": "tools/factory/test-site.sh"
+    ,"factory:state:sync": "tools/factory/state-sync.sh"
+    ,"factory:state:inspect": "tools/factory/inspect-state.sh"
+    ,"factory:task:create": "tools/factory/task-create.sh"
+    ,"factory:task:complete": "tools/factory/task-complete.sh"
+    ,"factory:lesson": "tools/factory/lesson-record.sh"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.3.1",

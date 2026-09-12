@@ -1,0 +1,315 @@
+---
+// Single source of truth, injected by the factory-state Vite plugin.
+import factoryState from 'virtual:factory-state';
+
+const state = factoryState;
+
+const counts = state.counts || {};
+const sites = (state.sites || []).filter((s) => s.id !== 'templates');
+const experiments = state.experiments || [];
+const lessons = state.lessons || [];
+const tasks = state.tasks || [];
+const runningTasks = state.runningTasks || [];
+const memories = state.memory?.files || [];
+const updated = state.lastSync || state.updated || '';
+
+const formatDate = (iso) => {
+  if (!iso) return '—';
+  try {
+    return new Date(iso).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  } catch {
+    return iso;
+  }
+};
+
+const statusLabel = (s) => ({ deployed: 'deployed', local: 'local', queued: 'queued', running: 'running', complete: 'complete', live: 'live', research: 'research', shipped: 'shipped' }[s] || s);
+
+const heroCounts = [
+  { label: 'Experiments', value: counts.experiments ?? 0, href: '/radar/' },
+  { label: 'Generated Sites', value: counts.sites ?? 0, href: '/factory/#sites' },
+  { label: 'Memory Files', value: counts.memories ?? 0, href: '/factory/#memory' },
+  { label: 'Lessons', value: counts.lessons ?? 0, href: '/factory/#lessons' }
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>AI Factory Command Center</title>
+    <meta name="description" content="The AI Factory command center: tasks, generated sites, experiments, and memory in one place." />
+  </head>
+  <body>
+    <div class="command-page">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="AI Factory home"><span class="brand-mark" aria-hidden="true">AF</span><span>AI Factory</span><span class="header-tag">COMMAND CENTER</span></a>
+        <nav aria-label="Main navigation">
+          <a href="/">Home</a>
+          <a href="/radar/">Radar</a>
+          <a href="/factory/" aria-current="page">Factory</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="cc-hero" aria-labelledby="cc-title">
+          <div class="cc-hero-copy">
+            <p class="eyebrow"><span class="live-dot"></span> Command Center / operational</p>
+            <h1 id="cc-title">AI Factory<br />Command Center</h1>
+            <p class="cc-lede">A transparent operating view of the website factory: tasks, generated sites, experiments, and memory loops.</p>
+            <div class="cc-meta">
+              <span>STATE: <strong>.factory/state.json</strong></span>
+              <span>LAST SYNC: <strong>{formatDate(updated)}</strong></span>
+            </div>
+          </div>
+          <div class="cc-hero-panel" aria-label="Factory counts">
+            <div class="panel-head"><span>AI FACTORY</span><span>P6 / LIVE</span></div>
+            <div class="count-grid">
+              {heroCounts.map((c) => (
+                <a class="count-card" href={c.href}>
+                  <strong>{String(c.value).padStart(2, '0')}</strong>
+                  <span>{c.label}</span>
+                </a>
+              ))}
+            </div>
+            <div class="panel-foot"><span>STARTED</span><span>P1 2026</span></div>
+          </div>
+        </section>
+
+        <section class="cc-section" id="tasks" aria-labelledby="tasks-title">
+          <div class="cc-section-head"><p class="section-label">01 / Running tasks</p><h2 id="tasks-title">Task Queue</h2></div>
+          {
+            runningTasks.length === 0 ? (
+              <p class="empty-state">No tasks currently running. Queue one with <code>pnpm factory:task:create</code>.</p>
+            ) : (
+              <div class="task-list">
+                {runningTasks.map((t) => (
+                  <div class="task-row run">
+                    <span class="task-status"><i></i>{t.status}</span>
+                    <strong>{t.type}</strong>
+                    <span class="task-ref">{t.reference}</span>
+                    <span class="task-style">{t.style || 'copy-ui'}</span>
+                  </div>
+                ))}
+              </div>
+            )
+          }
+          {
+            tasks.filter((t) => t.status !== 'running').length > 0 && (
+              <div class="task-list muted">
+                {tasks.filter((t) => t.status !== 'running').slice(0, 8).map((t) => (
+                  <div class="task-row">
+                    <span class="task-status">{t.status}</span>
+                    <strong>{t.type}</strong>
+                    <span class="task-ref">{t.reference}</span>
+                    <span class="task-style">{t.style || 'copy-ui'}</span>
+                  </div>
+                ))}
+              </div>
+            )
+          }
+        </section>
+
+        <section class="cc-section" id="sites" aria-labelledby="sites-title">
+          <div class="cc-section-head"><p class="section-label">02 / Generated sites</p><h2 id="sites-title">History</h2></div>
+          <div class="site-grid">
+            {sites.map((s) => (
+              <div class="site-card">
+                <div class="site-top"><span class="site-status {s.status}">{statusLabel(s.status)}</span><span class="site-cat">{s.category || 'generated site'}</span></div>
+                <h3>{s.name}</h3>
+                <p class="site-ref">Reference: {s.reference || '—'}</p>
+                <div class="site-links">
+                  {s.previewUrl ? <a class="link-out" href={s.previewUrl} target="_blank" rel="noopener noreferrer">Preview ↗</a> : <span class="link-out muted">no preview</span>}
+                  <a class="link-out" href={s.page}>Local page ↗</a>
+                </div>
+                <span class="site-created">{formatDate(s.created)}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="cc-section" id="experiments" aria-labelledby="experiments-title">
+          <div class="cc-section-head"><p class="section-label">03 / Experiments</p><h2 id="experiments-title">Live + Research</h2></div>
+          <div class="exp-list">
+            {experiments.slice(0, 14).map((e) => (
+              <a class="exp-row" href={e.href || '/radar/'}>
+                <span class="exp-id">{e.id.split('-')[1] || e.id}</span>
+                <strong>{e.name}</strong>
+                <span class="exp-status">{statusLabel(e.status)}</span>
+                <span class="exp-arrow">↗</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section class="cc-section" id="memory" aria-labelledby="memory-title">
+          <div class="cc-section-head"><p class="section-label">04 / Memory</p><h2 id="memory-title">Loops</h2></div>
+          <div class="memory-grid">
+            <div class="memory-panel">
+              <div class="memory-top"><span>MEMORY / {memories.length} FILES</span><span class="mem-ok">{state.memory?.status || '—'}</span></div>
+              <ul class="memory-files">
+                {memories.map((m) => <li><code>{m}</code></li>)}
+              </ul>
+            </div>
+            <div class="memory-panel dark" id="lessons">
+              <div class="memory-top"><span>LESSONS / {lessons.length}</span><span class="mem-warn">memory loop</span></div>
+              {
+                lessons.length === 0 ? (
+                  <p class="empty-state">No lessons recorded yet. Complete a task to write the first lesson.</p>
+                ) : (
+                  <ul class="lesson-list">
+                    {lessons.slice(0, 8).map((l) => (
+                      <li class="lesson {l.outcome}">
+                        <span class="lesson-outcome">{l.outcome}</span>
+                        <strong>{l.title}</strong>
+                        <span class="lesson-pattern">{(l.pattern || '').replace(/-+$/, '')}</span>
+                        <span class="lesson-source">{l.source}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )
+              }
+            </div>
+          </div>
+        </section>
+
+        <section class="cc-section flow-section" aria-labelledby="flow-title">
+          <div class="cc-section-head"><p class="section-label">05 / Task flow</p><h2 id="flow-title">How work moves</h2></div>
+          <div class="task-flow">
+            {['Task', 'Research', 'Build', 'Test', 'Deploy', 'Memory Update'].map((step, i) => (
+              <div class="flow-step">
+                <span>{String(i + 1).padStart(2, '0')}</span>
+                <strong>{step}</strong>
+                {i < 5 && <i aria-hidden="true">→</i>}
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><div><span class="brand-mark small" aria-hidden="true">AF</span><span>AI Factory</span></div><span>Command Center / public operating view</span><a href="/">Home</a></footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  :global(*) { box-sizing: border-box; }
+  :global(html) { scroll-behavior: smooth; background: #0d1512; }
+  :global(body) { margin: 0; color: #dce9df; background: #0d1512; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  :global(a) { color: inherit; }
+  .command-page { min-height: 100vh; }
+  .site-header, main, .site-footer { width: min(1180px, calc(100% - 64px)); margin: 0 auto; }
+  .site-header { display: flex; align-items: center; justify-content: space-between; height: 78px; border-bottom: 1px solid #274031; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; color: #f0f5ed; font-size: 14px; font-weight: 800; text-decoration: none; }
+  .brand-mark { display: grid; place-items: center; width: 31px; height: 31px; color: #102018; background: #b9d957; font: 800 10px ui-monospace, monospace; }
+  .header-tag { color: #87ac99; font: 10px ui-monospace, monospace; letter-spacing: .1em; }
+  nav { display: flex; gap: 28px; }
+  nav a { color: #7f998a; font: 11px ui-monospace, monospace; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+  nav a:hover, nav a[aria-current] { color: #b9d957; }
+  .cc-hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); align-items: center; gap: 84px; padding: 82px 0 96px; }
+  .eyebrow, .section-label { color: #8ec3a8; font: 700 10px/1.3 ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; }
+  .eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 25px; }
+  .live-dot { width: 7px; height: 7px; background: #b9d957; border-radius: 50%; box-shadow: 0 0 0 5px rgba(185, 217, 87, .16); }
+  h1 { margin: 0; color: #f0f5ed; font-size: clamp(58px, 8.5vw, 104px); line-height: .91; letter-spacing: -.07em; font-weight: 800; }
+  .cc-lede { max-width: 560px; margin: 26px 0 0; color: #8fa99b; font-size: 18px; line-height: 1.5; }
+  .cc-meta { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 34px; color: #5f7d6c; font: 10px ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .cc-meta strong { color: #b9d957; font-weight: 700; }
+  .cc-hero-panel { padding: 20px; border: 1px solid #274031; background: #111d18; box-shadow: 14px 14px 0 #111a16; }
+  .panel-head, .panel-foot, .memory-top, .site-top { display: flex; justify-content: space-between; color: #5f7d6c; font: 10px ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; }
+  .panel-head span:last-child, .panel-foot span:last-child { color: #b9d957; }
+  .count-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 24px 0; }
+  .count-card { display: grid; gap: 8px; padding: 18px 16px; border: 1px solid #243c30; background: #132019; text-decoration: none; }
+  .count-card strong { color: #f0f5ed; font-size: 46px; line-height: .9; letter-spacing: -.05em; }
+  .count-card span { color: #8fa99b; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
+  .count-card:hover { border-color: #b9d957; }
+  .cc-section { padding: 100px 0; border-top: 1px solid #213527; }
+  .cc-section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+  .cc-section-head h2 { margin: 16px 0 0; color: #f0f5ed; font-size: clamp(34px, 5vw, 50px); line-height: 1; letter-spacing: -.05em; }
+  .empty-state { margin: 30px 0 0; color: #6e8678; font-size: 14px; }
+  .empty-state code, .memory-files code { color: #b9d957; font: 11px ui-monospace, monospace; }
+  .task-list { margin-top: 52px; border-top: 1px solid #2b4234; }
+  .task-row { display: grid; grid-template-columns: 110px 1fr 1.4fr 110px; align-items: center; gap: 16px; min-height: 66px; border-bottom: 1px solid #2b4234; }
+  .task-status { display: inline-flex; align-items: center; gap: 8px; color: #6f8879; font: 10px ui-monospace, monospace; text-transform: uppercase; }
+  .task-status i { width: 7px; height: 7px; background: #b9d957; border-radius: 50%; }
+  .task-row strong { color: #e7efe8; font-size: 15px; }
+  .task-ref { color: #7f9889; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .task-style { color: #52705e; font: 10px ui-monospace, monospace; text-transform: uppercase; }
+  .task-list.muted { opacity: .6; }
+  .site-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 52px; }
+  .site-card { display: grid; gap: 15px; padding: 22px; border: 1px solid #2b4234; background: #111d18; }
+  .site-card h3 { margin: 0; color: #f0f5ed; font-size: 21px; letter-spacing: -.035em; }
+  .site-ref { margin: 0; color: #6e8678; font-size: 13px; }
+  .site-links { display: flex; gap: 18px; }
+  .link-out { color: #b9d957; font: 700 11px ui-monospace, monospace; text-decoration: none; text-transform: uppercase; letter-spacing: .06em; }
+  .link-out.muted { color: #52645a; }
+  .site-status { display: inline-flex; align-items: center; gap: 7px; color: #8fa99b; font: 10px ui-monospace, monospace; text-transform: uppercase; }
+  .site-status.deployed, .site-status.live, .site-status.shipped, .site-status.complete { color: #8fd39a; }
+  .site-status.local, .site-status.research { color: #d4a744; }
+  .site-created { color: #52645a; font: 10px ui-monospace, monospace; }
+  .exp-list { margin-top: 52px; border-top: 1px solid #2b4234; }
+  .exp-row { display: grid; grid-template-columns: 70px 1fr 130px 24px; align-items: center; gap: 16px; min-height: 62px; border-bottom: 1px solid #2b4234; color: #8fa99b; text-decoration: none; }
+  .exp-row:hover strong { color: #b9d957; }
+  .exp-id { color: #5f7d6c; font: 10px ui-monospace, monospace; }
+  .exp-row strong { color: #e7efe8; font-size: 15px; }
+  .exp-status { color: #6e8678; font: 10px ui-monospace, monospace; text-transform: uppercase; text-align: right; }
+  .exp-arrow { color: #b9d957; text-align: right; }
+  .memory-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 14px; margin-top: 52px; }
+  .memory-panel { padding: 22px; border: 1px solid #2b4234; background: #111d18; }
+  .memory-panel.dark { background: #0d1712; }
+  .mem-ok { color: #8fd39a; }
+  .mem-warn { color: #d4a744; }
+  .memory-files, .lesson-list { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .memory-files li { padding: 10px 0; border-bottom: 1px solid #22362a; }
+  .lesson { display: grid; grid-template-columns: 62px 1fr; gap: 7px 14px; padding: 12px 0; border-bottom: 1px solid #22362a; }
+  .lesson-outcome { align-self: start; color: #8fd39a; font: 9px ui-monospace, monospace; text-transform: uppercase; padding-top: 2px; }
+  .lesson.fail .lesson-outcome { color: #d98a6f; }
+  .lesson strong { color: #e7efe8; font-size: 14px; line-height: 1.3; }
+  .lesson-pattern { grid-column: 2; color: #6e8678; font-size: 12px; line-height: 1.45; }
+  .lesson-source { grid-column: 2; color: #52645a; font: 9px ui-monospace, monospace; }
+  .task-flow { display: grid; grid-template-columns: repeat(6, 1fr); margin-top: 52px; border-top: 1px solid #2b4234; border-bottom: 1px solid #2b4234; }
+  .flow-step { position: relative; display: grid; gap: 26px; min-height: 112px; padding: 16px 10px 16px 0; border-right: 1px solid #2b4234; }
+  .flow-step:not(:first-child) { padding-left: 10px; }
+  .flow-step:last-child { border-right: 0; }
+  .flow-step span { color: #b9d957; font: 10px ui-monospace, monospace; }
+  .flow-step strong { align-self: end; color: #f0f5ed; font-size: 13px; }
+  .flow-step i { position: absolute; top: 50%; right: -7px; z-index: 1; color: #b9d957; background: #0d1512; font-style: normal; }
+  .site-footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 23px 0 30px; border-top: 1px solid #213527; color: #5f7d6c; font: 10px ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .site-footer > div { display: flex; align-items: center; gap: 8px; color: #8fa99b; font-weight: 800; }
+  .site-footer a { color: #b9d957; text-decoration: none; }
+  @media (max-width: 900px) {
+    .cc-hero { grid-template-columns: 1fr; gap: 50px; }
+    .count-grid { grid-template-columns: repeat(4, 1fr); }
+    .site-grid { grid-template-columns: repeat(2, 1fr); }
+    .memory-grid { grid-template-columns: 1fr; }
+    .task-flow { grid-template-columns: repeat(3, 1fr); border-top: 1px solid #2b4234; }
+    .flow-step:nth-child(3n) { border-right: 0; }
+  }
+  @media (max-width: 680px) {
+    .site-header, main, .site-footer { width: min(100% - 34px, 1180px); }
+    .site-header { height: 66px; }
+    .header-tag, nav a:first-child { display: none; }
+    h1 { font-size: 50px; }
+    .cc-hero { padding: 38px 0 46px; }
+    .eyebrow { margin-bottom: 14px; }
+    .cc-lede { margin-top: 15px; font-size: 15px; line-height: 1.45; }
+    .cc-meta { margin-top: 16px; gap: 12px; }
+    .cc-hero-panel { padding: 13px; box-shadow: 6px 6px 0 #111a16; }
+    .count-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 12px 0; }
+    .count-card { gap: 4px; padding: 9px 7px; }
+    .count-card strong { font-size: 26px; }
+    .count-card span { font-size: 8px; letter-spacing: .04em; }
+    .cc-section { padding: 70px 0; }
+    .cc-section-head { align-items: start; flex-direction: column; gap: 10px; }
+    .site-grid { grid-template-columns: 1fr; }
+    .task-row { grid-template-columns: 74px 1fr; grid-template-rows: auto auto; padding: 13px 0; }
+    .task-ref, .task-style { grid-column: 2; }
+    .task-style { display: none; }
+    .exp-row { grid-template-columns: 48px 1fr 16px; }
+    .exp-status { display: none; }
+    .task-flow { grid-template-columns: repeat(2, 1fr); }
+    .flow-step:nth-child(2n) { border-right: 0; }
+    .site-footer { align-items: start; flex-direction: column; }
+  }
+</style>
