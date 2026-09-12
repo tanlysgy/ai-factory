@@ -189,6 +189,30 @@ const heroCounts = [
       </main>
 
       <Footer theme="dark" label="Command Center / public operating view" />
+      <script is:inline>
+        (function () {
+          var nums = document.querySelectorAll('.count-card strong');
+          var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (!nums.length || reduced) return;
+          var dur = 800;
+          function run() {
+            nums.forEach(function (el) {
+              var target = parseInt(el.textContent.replace(/\D/g, ''), 10) || 0;
+              var start = null;
+              function step(ts) {
+                if (!start) start = ts;
+                var t = Math.min((ts - start) / dur, 1);
+                var eased = 1 - Math.pow(1 - t, 3);
+                el.textContent = String(Math.round(eased * target)).padStart(2, '0');
+                if (t < 1) requestAnimationFrame(step);
+              }
+              requestAnimationFrame(step);
+            });
+          }
+          if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+          else run();
+        })();
+      </script>
     </div>
   </body>
 </html>
