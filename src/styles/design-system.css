@@ -157,6 +157,19 @@
   .ds-card p { margin: 8px 0 0; color: var(--color-muted); font-size: var(--text-caption); line-height: 1.5; }
   [data-theme="dark"] .ds-card p { color: var(--color-muted-dark); }
 
+
+  /* ---- P7.6: enter stagger for result cards/lists (reduced-motion falls back to none) ---- */
+  .ds-list-stagger > * { opacity: 0; animation: ds-rise var(--duration-enter) var(--ease-out) forwards; }
+  .ds-list-stagger > *:nth-child(1) { animation-delay: 0ms; }
+  .ds-list-stagger > *:nth-child(2) { animation-delay: var(--stagger); }
+  .ds-list-stagger > *:nth-child(3) { animation-delay: calc(var(--stagger) * 2); }
+  .ds-list-stagger > *:nth-child(4) { animation-delay: calc(var(--stagger) * 3); }
+  .ds-list-stagger > *:nth-child(5) { animation-delay: calc(var(--stagger) * 4); }
+  .ds-list-stagger > *:nth-child(6) { animation-delay: calc(var(--stagger) * 5); }
+  .ds-list-stagger > *:nth-child(n+7) { animation-delay: calc(var(--stagger) * 6); }
+  @keyframes ds-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .ds-list-stagger > * { opacity: 1; animation: none; } }
+
   /* ---- Divider ---- */
   .ds-divider { height: 1px; border: 0; background: var(--color-line); margin: var(--space-24) 0; }
   [data-theme="dark"] .ds-divider { background: var(--color-line-dark); }

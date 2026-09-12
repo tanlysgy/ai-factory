@@ -1,4 +1,5 @@
 ---
+import '../../styles/global.css';
 // Single source of truth, injected by the factory-state Vite plugin.
 import factoryState from 'virtual:factory-state';
 import Navigation from '../../components/design/Navigation.astro';
@@ -77,7 +78,10 @@ const heroCounts = [
           <div class="cc-section-head"><p class="section-label">01 / Running tasks</p><h2 id="tasks-title">Task Queue</h2></div>
           {
             runningTasks.length === 0 ? (
-              <p class="empty-state">No tasks currently running. Queue one with <code>pnpm factory:task:create</code>.</p>
+              <div class="empty-state">
+                <p>No tasks currently running. Queue one with <code>pnpm factory:task:create</code>.</p>
+                <button class="empty-cta" type="button" onclick="navigator.clipboard.writeText('pnpm factory:task:create').then(() => { this.textContent = 'Copied — run in terminal'; })">Create Task</button>
+              </div>
             ) : (
               <div class="task-list">
                 {runningTasks.map((t) => (
@@ -109,7 +113,7 @@ const heroCounts = [
 
         <section class="cc-section" id="sites" aria-labelledby="sites-title">
           <div class="cc-section-head"><p class="section-label">02 / Generated sites</p><h2 id="sites-title">History</h2></div>
-          <div class="site-grid">
+          <div class="site-grid ds-list-stagger">
             {sites.map((s) => (
               <div class="site-card">
                 <div class="site-top"><span class="site-status {s.status}">{statusLabel(s.status)}</span><span class="site-cat">{s.category || 'generated site'}</span></div>
@@ -127,7 +131,7 @@ const heroCounts = [
 
         <section class="cc-section" id="experiments" aria-labelledby="experiments-title">
           <div class="cc-section-head"><p class="section-label">03 / Experiments</p><h2 id="experiments-title">Live + Research</h2></div>
-          <div class="exp-list">
+          <div class="exp-list ds-list-stagger">
             {experiments.slice(0, 14).map((e) => (
               <a class="exp-row" href={e.href || '/radar/'}>
                 <span class="exp-id">{e.id.split('-')[1] || e.id}</span>
@@ -207,7 +211,7 @@ const heroCounts = [
   .eyebrow, .section-label { color: #8ec3a8; font: 700 10px/1.3 ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; }
   .eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 25px; }
   .live-dot { width: 7px; height: 7px; background: #b9d957; border-radius: 50%; box-shadow: 0 0 0 5px rgba(185, 217, 87, .16); }
-  h1 { margin: 0; color: #f0f5ed; font-size: clamp(58px, 8.5vw, 104px); line-height: .91; letter-spacing: -.07em; font-weight: 800; }
+  h1 { margin: 0; color: #f0f5ed; font-size: clamp(58px, 7.8vw, 96px); line-height: .94; letter-spacing: -.05em; font-weight: 800; }
   .cc-lede { max-width: 560px; margin: 26px 0 0; color: #8fa99b; font-size: 18px; line-height: 1.5; }
   .cc-meta { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 34px; color: #5f7d6c; font: 10px ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }
   .cc-meta strong { color: #b9d957; font-weight: 700; }
@@ -216,13 +220,16 @@ const heroCounts = [
   .panel-head span:last-child, .panel-foot span:last-child { color: #b9d957; }
   .count-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 24px 0; }
   .count-card { display: grid; gap: 8px; padding: 18px 16px; border: 1px solid #243c30; background: #132019; text-decoration: none; }
-  .count-card strong { color: #f0f5ed; font-size: 46px; line-height: .9; letter-spacing: -.05em; }
+  .count-card strong { color: #f0f5ed; font-size: 44px; line-height: .9; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
   .count-card span { color: #8fa99b; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
   .count-card:hover { border-color: #b9d957; }
-  .cc-section { padding: 100px 0; border-top: 1px solid #213527; }
+  .cc-section { padding: 112px 0; border-top: 1px solid #213527; }
   .cc-section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
-  .cc-section-head h2 { margin: 16px 0 0; color: #f0f5ed; font-size: clamp(34px, 5vw, 50px); line-height: 1; letter-spacing: -.05em; }
-  .empty-state { margin: 30px 0 0; color: #6e8678; font-size: 14px; }
+  .cc-section-head h2 { margin: 16px 0 0; color: #f0f5ed; font-size: clamp(34px, 4.5vw, 48px); line-height: 1.04; font-weight: 500; letter-spacing: -.05em; }
+  .empty-state { display: grid; gap: 16px; justify-items: start; margin: 30px 0 0; color: #6e8678; font-size: 14px; }
+  .empty-state p { margin: 0; }
+  .empty-cta { display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border: 0; background: var(--color-acid); color: #102018; font: 700 13px/1 var(--font-sans); cursor: pointer; transition: background var(--duration-fast) var(--ease-out); }
+  .empty-cta:hover { background: var(--color-acid-strong); }
   .empty-state code, .memory-files code { color: #b9d957; font: 11px ui-monospace, monospace; }
   .task-list { margin-top: 52px; border-top: 1px solid #2b4234; }
   .task-row { display: grid; grid-template-columns: 110px 1fr 1.4fr 110px; align-items: center; gap: 16px; min-height: 66px; border-bottom: 1px solid #2b4234; }
@@ -291,9 +298,9 @@ const heroCounts = [
     .cc-lede { margin-top: 15px; font-size: 15px; line-height: 1.45; }
     .cc-meta { margin-top: 16px; gap: 12px; }
     .cc-hero-panel { padding: 13px; box-shadow: 6px 6px 0 #111a16; }
-    .count-grid { grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 12px 0; }
+    .count-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 12px 0; }
     .count-card { gap: 4px; padding: 9px 7px; }
-    .count-card strong { font-size: 26px; }
+    .count-card strong { font-size: 36px; }
     .count-card span { font-size: 8px; letter-spacing: .04em; }
     .cc-section { padding: 70px 0; }
     .cc-section-head { align-items: start; flex-direction: column; gap: 10px; }

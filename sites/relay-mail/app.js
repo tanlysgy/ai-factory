@@ -29,3 +29,26 @@
     if (status) status.textContent = `Status: delivered to ${to} (demo response).`;
   });
 })();
+
+/* P7.6 — mobile drawer: open / close / Escape / scroll lock */
+(function () {
+  const menu = document.querySelector('.menu-btn');
+  const drawer = document.querySelector('.site-drawer');
+  const close = document.querySelector('.drawer-close');
+  if (!menu || !drawer || !close) return;
+  const links = drawer.querySelectorAll('a');
+  let open = false;
+  const setOpen = (next) => {
+    open = next;
+    drawer.setAttribute('aria-hidden', String(!open));
+    menu.setAttribute('aria-expanded', String(open));
+    document.documentElement.classList.toggle('drawer-open', open);
+    if (open) close.focus();
+  };
+  menu.addEventListener('click', () => setOpen(!open));
+  close.addEventListener('click', () => setOpen(false));
+  for (const link of links) link.addEventListener('click', () => setOpen(false));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && open) setOpen(false);
+  });
+})();
