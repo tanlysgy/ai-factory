@@ -1,0 +1,17 @@
+{
+  "id": "mission-002",
+  "title": "Replicate Resend Landing",
+  "status": "completed",
+  "agent": "codex",
+  "outcome": "success",
+  "completed_at": "2026-09-12T10:00:00Z",
+  "created_at": "2026-09-12T08:00:00Z",
+  "updated_at": "2026-09-12T10:00:00Z",
+  "steps": [
+    {"label": "Capture", "time": "08:00"},
+    {"label": "Design Signals", "time": "08:10"},
+    {"label": "Scaffold", "time": "08:25"},
+    {"label": "Browser Verify", "time": "09:10"},
+    {"label": "Live Audit", "time": "10:00"}
+  ]
+}

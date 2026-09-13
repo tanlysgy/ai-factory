@@ -14,7 +14,12 @@ const lessons = state.lessons || [];
 const tasks = state.tasks || [];
 const runningTasks = state.runningTasks || [];
 const memories = state.memory?.files || [];
+const missions = (state.missions || []).slice().sort((a, b) => String(b.updated_at || b.created_at || '').localeCompare(String(a.updated_at || a.created_at || '')));
+const runningMissions = missions.filter((m) => m.status === 'running' || m.status === 'review');
+const queuedMissions = missions.filter((m) => m.status === 'queued');
+const completedMissions = missions.filter((m) => m.status === 'completed');
 const updated = state.lastSync || state.updated || '';
+const runningAgents = state.runningAgents ?? 0;
 
 const formatDate = (iso) => {
   if (!iso) return '—';
@@ -25,16 +30,23 @@ const formatDate = (iso) => {
   }
 };
 
-const statusLabel = (s) => ({ deployed: 'deployed', local: 'local', queued: 'queued', running: 'running', complete: 'complete', live: 'live', research: 'research', shipped: 'shipped' }[s] || s);
+const formatTime = (t) => (t ? String(t).slice(0, 2) + ':' + String(t).slice(2) : '—');
+
+const statusLabel = (s) => ({ deployed: 'deployed', local: 'local', queued: 'queued', running: 'running', review: 'review', complete: 'complete', completed: 'completed', live: 'live', research: 'research', shipped: 'shipped' }[s] || s);
 
 const heroCounts = [
-  { label: 'Experiments', value: counts.experiments ?? 0, href: '/radar/' },
-  { label: 'Generated Sites', value: counts.sites ?? 0, href: '/factory/#sites' },
-  { label: 'Memory Files', value: counts.memories ?? 0, href: '/factory/#memory' },
+  { label: 'Active Missions', value: runningMissions.length, href: '/factory/#missions' },
+  { label: 'Completed', value: completedMissions.length, href: '/factory/#completed' },
+  { label: 'Running Agents', value: Number(runningAgents) || 0, href: '/factory/#missions' },
   { label: 'Lessons', value: counts.lessons ?? 0, href: '/factory/#lessons' }
 ];
----
 
+const stepProgress = (steps) => {
+  const s = steps || [];
+  const done = s.filter((x) => x.time).length;
+  return s.length ? Math.round((done / s.length) * 100) : 0;
+};
+---
 <!doctype html>
 <html lang="en">
   <head>
@@ -42,8 +54,8 @@ const heroCounts = [
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>AI Factory Command Center</title>
-    <meta name="description" content="The AI Factory command center: tasks, generated sites, experiments, and memory in one place." />
+    <title>AI Factory OS — Mission Center</title>
+    <meta name="description" content="AI Factory OS: mission queue, running missions, completed missions, timeline, agent status, lessons and preview links." />
   </head>
   <body data-theme="dark">
     <div class="command-page">
@@ -52,16 +64,16 @@ const heroCounts = [
       <main>
         <section class="cc-hero" aria-labelledby="cc-title">
           <div class="cc-hero-copy">
-            <p class="eyebrow"><span class="live-dot"></span> Command Center / operational</p>
-            <h1 id="cc-title">AI Factory<br />Command Center</h1>
-            <p class="cc-lede">A transparent operating view of the website factory: tasks, generated sites, experiments, and memory loops.</p>
+            <p class="eyebrow"><span class="live-dot"></span> Factory OS / Mission Runtime</p>
+            <h1 id="cc-title">Mission<br />Center</h1>
+            <p class="cc-lede">A transparent operating view of the website factory: mission queue, running work, completed missions, timelines, and the memory loop.</p>
             <div class="cc-meta">
               <span>STATE: <strong>.factory/state.json</strong></span>
               <span>LAST SYNC: <strong>{formatDate(updated)}</strong></span>
             </div>
           </div>
           <div class="cc-hero-panel" aria-label="Factory counts">
-            <div class="panel-head"><span>AI FACTORY</span><span>P6 / LIVE</span></div>
+            <div class="panel-head"><span>AI FACTORY OS</span><span>P8 / MISSION RUNTIME</span></div>
             <div class="count-grid">
               {heroCounts.map((c) => (
                 <a class="count-card" href={c.href}>
@@ -70,49 +82,75 @@ const heroCounts = [
                 </a>
               ))}
             </div>
-            <div class="panel-foot"><span>STARTED</span><span>P1 2026</span></div>
+            <div class="panel-foot"><span>MISSION QUEUE</span><span class="live">{missions.length} TOTAL</span></div>
           </div>
         </section>
 
-        <section class="cc-section" id="tasks" aria-labelledby="tasks-title">
-          <div class="cc-section-head"><p class="section-label">01 / Running tasks</p><h2 id="tasks-title">Task Queue</h2></div>
+        <section class="cc-section" id="missions" aria-labelledby="missions-title">
+          <div class="cc-section-head"><p class="section-label">01 / Mission Queue</p><h2 id="missions-title">Running</h2></div>
           {
-            runningTasks.length === 0 ? (
+            runningMissions.length === 0 ? (
               <div class="empty-state">
-                <p>No tasks currently running. Queue one with <code>pnpm factory:task:create</code>.</p>
-                <button class="empty-cta" type="button" onclick="navigator.clipboard.writeText('pnpm factory:task:create').then(() => { this.textContent = 'Copied — run in terminal'; })">Create Task</button>
+                <p>No missions currently running. Queue one with <code>pnpm factory:mission:create --title "Replicate Stripe Landing"</code>.</p>
+                <button class="empty-cta" type="button" onclick="navigator.clipboard.writeText('pnpm factory:mission:create --title Replicate-Stripe-Landing').then(() => { this.textContent = 'Copied'; })">Create Mission</button>
               </div>
             ) : (
-              <div class="task-list">
-                {runningTasks.map((t) => (
-                  <div class="task-row run">
-                    <span class="task-status"><i></i>{t.status}</span>
-                    <strong>{t.type}</strong>
-                    <span class="task-ref">{t.reference}</span>
-                    <span class="task-style">{t.style || 'copy-ui'}</span>
-                  </div>
+              <div class="mission-grid">
+                {runningMissions.map((m) => (
+                  <article class="mission-card running">
+                    <div class="mission-top"><span class="site-status {m.status}">{statusLabel(m.status)}</span><span class="mission-agent">{m.agent || 'codex'}</span></div>
+                    <h3>{m.title}</h3>
+                    <div class="mission-progress"><span style={`width: ${stepProgress(m.steps)}%`}></span></div>
+                    <div class="mission-progress-label"><span>{stepProgress(m.steps)}%</span><span>{(m.steps || []).filter((s) => s.time).length} / {(m.steps || []).length} steps</span></div>
+                    <div class="mission-timeline">
+                      {(m.steps || []).map((s, i) => (
+                        <div class={`tl-step ${s.time ? 'done' : ''}`}>
+                          <span class="tl-time">{s.time || '—'}</span>
+                          <span class="tl-label">{s.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                    {m.previewUrl && <a class="link-out" href={m.previewUrl} target="_blank" rel="noopener noreferrer">Preview ↗</a>}
+                  </article>
                 ))}
               </div>
             )
           }
           {
-            tasks.filter((t) => t.status !== 'running').length > 0 && (
-              <div class="task-list muted">
-                {tasks.filter((t) => t.status !== 'running').slice(0, 8).map((t) => (
-                  <div class="task-row">
-                    <span class="task-status">{t.status}</span>
-                    <strong>{t.type}</strong>
-                    <span class="task-ref">{t.reference}</span>
-                    <span class="task-style">{t.style || 'copy-ui'}</span>
-                  </div>
+            queuedMissions.length > 0 && (
+              <div class="queued-list">
+                <p class="queued-label">QUEUED</p>
+                {queuedMissions.map((m) => (
+                  <div class="queued-row"><span class="site-status queued">{statusLabel(m.status)}</span><strong>{m.title}</strong><span class="mission-agent">{m.agent || 'codex'}</span></div>
                 ))}
               </div>
             )
           }
         </section>
 
+        <section class="cc-section" id="completed" aria-labelledby="completed-title">
+          <div class="cc-section-head"><p class="section-label">02 / Completed</p><h2 id="completed-title">Recently Done</h2></div>
+          <div class="completed-list">
+            {
+              completedMissions.length === 0 ? (
+                <p class="empty-state">No completed missions yet.</p>
+              ) : (
+                completedMissions.slice(0, 8).map((m) => (
+                  <div class="completed-row">
+                    <span class="site-status completed">{statusLabel(m.status)}</span>
+                    <strong>{m.title}</strong>
+                    <span class="mission-agent">{m.agent || 'codex'}</span>
+                    <span class="completed-date">{formatDate(m.completed_at || m.updated_at)}</span>
+                    {m.previewUrl && <a class="link-out" href={m.previewUrl} target="_blank" rel="noopener noreferrer">Preview ↗</a>}
+                  </div>
+                ))
+              )
+            }
+          </div>
+        </section>
+
         <section class="cc-section" id="sites" aria-labelledby="sites-title">
-          <div class="cc-section-head"><p class="section-label">02 / Generated sites</p><h2 id="sites-title">History</h2></div>
+          <div class="cc-section-head"><p class="section-label">03 / Generated sites</p><h2 id="sites-title">Preview Links</h2></div>
           <div class="site-grid ds-list-stagger">
             {sites.map((s) => (
               <div class="site-card">
@@ -129,22 +167,8 @@ const heroCounts = [
           </div>
         </section>
 
-        <section class="cc-section" id="experiments" aria-labelledby="experiments-title">
-          <div class="cc-section-head"><p class="section-label">03 / Experiments</p><h2 id="experiments-title">Live + Research</h2></div>
-          <div class="exp-list ds-list-stagger">
-            {experiments.slice(0, 14).map((e) => (
-              <a class="exp-row" href={e.href || '/radar/'}>
-                <span class="exp-id">{e.id.split('-')[1] || e.id}</span>
-                <strong>{e.name}</strong>
-                <span class="exp-status">{statusLabel(e.status)}</span>
-                <span class="exp-arrow">↗</span>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        <section class="cc-section" id="memory" aria-labelledby="memory-title">
-          <div class="cc-section-head"><p class="section-label">04 / Memory</p><h2 id="memory-title">Loops</h2></div>
+        <section class="cc-section" id="lessons" aria-labelledby="lessons-title">
+          <div class="cc-section-head"><p class="section-label">04 / Lessons</p><h2 id="lessons-title">Memory Loop</h2></div>
           <div class="memory-grid">
             <div class="memory-panel">
               <div class="memory-top"><span>MEMORY / {memories.length} FILES</span><span class="mem-ok">{state.memory?.status || '—'}</span></div>
@@ -152,11 +176,11 @@ const heroCounts = [
                 {memories.map((m) => <li><code>{m}</code></li>)}
               </ul>
             </div>
-            <div class="memory-panel dark" id="lessons">
-              <div class="memory-top"><span>LESSONS / {lessons.length}</span><span class="mem-warn">memory loop</span></div>
+            <div class="memory-panel dark">
+              <div class="memory-top"><span>LESSONS / {lessons.length}</span><span class="mem-warn">what worked / what failed</span></div>
               {
                 lessons.length === 0 ? (
-                  <p class="empty-state">No lessons recorded yet. Complete a task to write the first lesson.</p>
+                  <p class="empty-state">No lessons recorded yet. Complete a mission to write the first lesson.</p>
                 ) : (
                   <ul class="lesson-list">
                     {lessons.slice(0, 8).map((l) => (
@@ -164,6 +188,8 @@ const heroCounts = [
                         <span class="lesson-outcome">{l.outcome}</span>
                         <strong>{l.title}</strong>
                         <span class="lesson-pattern">{(l.pattern || '').replace(/-+$/, '')}</span>
+                        {l.worked && <span class="lesson-content"><b>Worked</b>: {l.worked}</span>}
+                        {l.failed && l.failed !== 'None observed.' && <span class="lesson-content fail"><b>Failed</b>: {l.failed}</span>}
                         <span class="lesson-source">{l.source}</span>
                       </li>
                     ))}
@@ -175,20 +201,27 @@ const heroCounts = [
         </section>
 
         <section class="cc-section flow-section" aria-labelledby="flow-title">
-          <div class="cc-section-head"><p class="section-label">05 / Task flow</p><h2 id="flow-title">How work moves</h2></div>
+          <div class="cc-section-head"><p class="section-label">05 / Mission CLI</p><h2 id="flow-title">Runtime Commands</h2></div>
           <div class="task-flow">
-            {['Task', 'Research', 'Build', 'Test', 'Deploy', 'Memory Update'].map((step, i) => (
+            {['Create', 'Start', 'Review', 'Complete'].map((step, i) => (
               <div class="flow-step">
                 <span>{String(i + 1).padStart(2, '0')}</span>
                 <strong>{step}</strong>
-                {i < 5 && <i aria-hidden="true">→</i>}
+                {i < 3 && <i aria-hidden="true">→</i>}
               </div>
             ))}
+          </div>
+          <div class="cli-grid">
+            <code>pnpm factory:mission:create --title "Replicate Stripe Landing"</code>
+            <code>pnpm factory:mission:start mission-001</code>
+            <code>pnpm factory:mission:review mission-001</code>
+            <code>pnpm factory:mission:complete mission-001</code>
           </div>
         </section>
       </main>
 
-      <Footer theme="dark" label="Command Center / public operating view" />
+      <Footer theme="dark" label="Factory OS / Mission Runtime" />
+
       <script is:inline>
         (function () {
           var nums = document.querySelectorAll('.count-card strong');
@@ -294,7 +327,7 @@ const heroCounts = [
   .lesson strong { color: #e7efe8; font-size: 14px; line-height: 1.3; }
   .lesson-pattern { grid-column: 2; color: #6e8678; font-size: 12px; line-height: 1.45; }
   .lesson-source { grid-column: 2; color: #52645a; font: 9px ui-monospace, monospace; }
-  .task-flow { display: grid; grid-template-columns: repeat(6, 1fr); margin-top: 52px; border-top: 1px solid #2b4234; border-bottom: 1px solid #2b4234; }
+  .task-flow { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 52px; border-top: 1px solid #2b4234; border-bottom: 1px solid #2b4234; }
   .flow-step { position: relative; display: grid; gap: 26px; min-height: 112px; padding: 16px 10px 16px 0; border-right: 1px solid #2b4234; }
   .flow-step:not(:first-child) { padding-left: 10px; }
   .flow-step:last-child { border-right: 0; }
@@ -304,6 +337,41 @@ const heroCounts = [
   .site-footer { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 23px 0 30px; border-top: 1px solid #213527; color: #5f7d6c; font: 10px ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }
   .site-footer > div { display: flex; align-items: center; gap: 8px; color: #8fa99b; font-weight: 800; }
   .site-footer a { color: #b9d957; text-decoration: none; }
+
+  /* ---- Mission OS (P8) ---- */
+  .site-status.running, .site-status.review { color: #d4eb73; }
+  .site-status.completed, .site-status.complete { color: #8fd39a; }
+  .site-status.queued { color: #d4a744; }
+  .mission-agent { color: #6e8678; font: 10px ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .mission-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 52px; }
+  .mission-card { display: grid; gap: 14px; padding: 22px; border: 1px solid #2b4234; background: #111d18; }
+  .mission-card.running { border-color: #3c5f4e; }
+  .mission-top { display: flex; justify-content: space-between; gap: 12px; }
+  .mission-card h3 { margin: 0; color: #f0f5ed; font-size: 21px; letter-spacing: -.035em; }
+  .mission-progress { height: 4px; background: #22362a; overflow: hidden; }
+  .mission-progress span { display: block; height: 100%; background: #b9d957; transition: width .4s var(--ease-out, cubic-bezier(0.22,1,0.36,1)); }
+  .mission-progress-label { display: flex; justify-content: space-between; color: #6e8678; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; }
+  .mission-timeline { display: grid; gap: 0; border-left: 1px solid #2b4234; padding-left: 14px; }
+  .tl-step { position: relative; display: grid; grid-template-columns: 46px 1fr; gap: 8px; padding: 6px 0; color: #52645a; }
+  .tl-step::before { content: ""; position: absolute; left: -19px; top: 11px; width: 9px; height: 9px; border-radius: 50%; background: #22362a; }
+  .tl-step.done { color: #8fa99b; }
+  .tl-step.done::before { background: #b9d957; box-shadow: 0 0 0 3px rgba(185, 217, 87, .15); }
+  .tl-time { font: 10px ui-monospace, monospace; }
+  .tl-label { font-size: 12px; }
+  .queued-list { margin-top: 18px; border-top: 1px solid #2b4234; }
+  .queued-label { margin: 16px 0 0; color: #52645a; font: 10px ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; }
+  .queued-row { display: grid; grid-template-columns: 90px 1fr 90px; align-items: center; gap: 14px; min-height: 52px; border-bottom: 1px solid #2b4234; }
+  .queued-row strong { color: #c6d4c9; font-size: 14px; }
+  .completed-list { margin-top: 52px; border-top: 1px solid #2b4234; }
+  .completed-row { display: grid; grid-template-columns: 110px 1fr 110px 130px auto; align-items: center; gap: 14px; min-height: 64px; border-bottom: 1px solid #2b4234; }
+  .completed-row strong { color: #e7efe8; font-size: 15px; }
+  .completed-date { color: #52645a; font: 10px ui-monospace, monospace; }
+  .cli-grid { display: grid; gap: 8px; margin-top: 24px; }
+  .cli-grid code { display: block; padding: 12px 14px; color: #b9d957; border: 1px solid #2b4234; background: #111d18; font: 12px/1.5 ui-monospace, monospace; }
+  .lesson-content { grid-column: 2; color: #7f998a; font-size: 12px; line-height: 1.5; }
+  .lesson-content b { color: #8fd39a; font-weight: 700; }
+  .lesson-content.fail b { color: #d98a6f; }
+
   @media (max-width: 900px) {
     .cc-hero { grid-template-columns: 1fr; gap: 50px; }
     .count-grid { grid-template-columns: repeat(4, 1fr); }
@@ -329,6 +397,12 @@ const heroCounts = [
     .cc-section { padding: 70px 0; }
     .cc-section-head { align-items: start; flex-direction: column; gap: 10px; }
     .site-grid { grid-template-columns: 1fr; }
+    .mission-grid { grid-template-columns: 1fr; }
+    .queued-row { grid-template-columns: 68px 1fr; }
+    .queued-row .mission-agent { grid-column: 2; }
+    .completed-row { grid-template-columns: 80px 1fr; grid-template-rows: auto auto auto; padding: 13px 0; }
+    .completed-row .mission-agent, .completed-row .completed-date, .completed-row .link-out { grid-column: 2; }
+    .task-flow { grid-template-columns: repeat(2, 1fr); }
     .task-row { grid-template-columns: 74px 1fr; grid-template-rows: auto auto; padding: 13px 0; }
     .task-ref, .task-style { grid-column: 2; }
     .task-style { display: none; }

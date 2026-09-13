@@ -10,6 +10,7 @@ repo_root="$(cd "$factory_dir/../.." && pwd)"
 cd "$repo_root"
 
 scan=$(tools/factory/inspect-state.sh)
+[[ -f .factory/missions/mission-001.json ]] || mkdir -p .factory/missions
 state_file=".factory/state.json"
 prev='{}'
 [[ -f "$state_file" ]] && prev=$(cat "$state_file")
@@ -41,6 +42,8 @@ merged=$(jq -nc \
   experiments: $scan.experiments,
   memory: $scan.memory,
   lessons: $scan.lessons,
+  missions: $scan.missions,
+  runningAgents: $scan.runningAgents,
   lastSync: $scan.updated
 }')
 

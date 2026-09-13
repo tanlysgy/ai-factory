@@ -66,7 +66,9 @@ for f in .agent/memory/*.md; do
     source=$(sed -n 's/^- source: //p' "$f" | head -1)
     pattern=$(sed -n '/^## reusable pattern/,/^## /p' "$f" | sed '1d;/^## /d;/^$/d;s/^- //' | head -1)
     [[ -n "$outcome" ]] || outcome=unknown
-    lessons+=("{\"id\":\"$b\",\"title\":\"$title\",\"outcome\":\"$outcome\",\"pattern\":\"$pattern\",\"source\":\"$source\"}")
+    worked=$(sed -n '/^## what worked/,/^## /p' "$f" | sed '1d;/^## /d;/^$/d;s/^- //' | head -2 | paste -sd ' ' -)
+    failed=$(sed -n '/^## what failed/,/^## /p' "$f" | sed '1d;/^## /d;/^$/d;s/^- //' | head -2 | paste -sd ' ' -)
+    lessons+=("$(jq -nc --arg id "$b" --arg title "$title" --arg outcome "$outcome" --arg pattern "$pattern" --arg source "$source" --arg worked "$worked" --arg failed "$failed" '{id:$id,title:$title,outcome:$outcome,pattern:$pattern,source:$source,worked:$worked,failed:$failed}')")
   fi
 done
 
@@ -81,6 +83,18 @@ for f in .factory/tasks/*.json; do
   fi
 done
 
+# --- missions (from .factory/missions/*.json) ---
+missions=(); mission_count=0
+for f in .factory/missions/mission-*.json; do
+  [[ -e "$f" ]] || continue
+  mission_count=$((mission_count + 1))
+  missions+=("$(jq -c '.' "$f")")
+done
+running_agents=0
+if [[ "$mission_count" -gt 0 ]]; then
+  running_agents=$(printf '%s\n' "${missions[@]}" | jq -s '[.[] | select(.status == "running" or .status == "review") | .agent // "codex"] | unique | length' 2>/dev/null || echo 0)
+fi
+
 jq -nc \
   --arg factory "ai-factory-command-center" \
   --arg updated "$now" \
@@ -91,4 +105,6 @@ jq -nc \
   --argjson memories "$(printf '%s\n' "${memories[@]:-}" | jq -Rs 'split("\n") | map(select(length>0))' 2>/dev/null || echo '[]')" \
   --argjson lessons "$(printf '[%s]\n' "$(IFS=,; echo "${lessons[*]}")" 2>/dev/null || echo '[]')" \
   --argjson tasks_count "$task_count" \
-  '{ factory: $factory, version: 1, updated: $updated, counts: { experiments: ($exp|length), sites: ($sites|length), memories: ($memories|length), lessons: ($lessons|length), tasks: $tasks_count }, runningTasks: $tasks, tasks: $tasklist, sites: $sites, experiments: $exp, memory: { status: "loaded", files: $memories }, lessons: $lessons, lastSync: $updated }'
+  --argjson missions "$(printf '[%s]' "$(IFS=,; echo "${missions[*]}")" 2>/dev/null || echo '[]')" \
+  --argjson running_agents "${running_agents:-0}" \
+  '{ factory: $factory, version: 1, updated: $updated, counts: { experiments: ($exp|length), sites: ($sites|length), memories: ($memories|length), lessons: ($lessons|length), tasks: $tasks_count, missions: ($missions|length) }, runningTasks: $tasks, tasks: $tasklist, sites: $sites, experiments: $exp, missions: $missions, runningAgents: $running_agents, memory: { status: "loaded", files: $memories }, lessons: $lessons, lastSync: $updated }'

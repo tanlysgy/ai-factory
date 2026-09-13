@@ -6,9 +6,12 @@ repo_root=$(git rev-parse --show-toplevel)
 port=${PREVIEW_PORT:-4321}
 mode=${PREVIEW_TUNNEL_MODE:-quick}
 tunnel_name=${PREVIEW_TUNNEL_NAME:-xiaoxin-linux}
+preview_slug=${PREVIEW_SLUG:-}
+if [[ $# -ge 1 && -z "$preview_slug" ]]; then preview_slug=$1; fi
 cloudflared_bin=${CLOUDFLARED_BIN:-cloudflared}
 started_dev=0
 dev_pid=""
+overlay_url=""
 
 command -v "$cloudflared_bin" >/dev/null 2>&1 || {
 	echo "preview-tunnel: cloudflared is required but was not found" >&2
@@ -16,6 +19,10 @@ command -v "$cloudflared_bin" >/dev/null 2>&1 || {
 }
 
 cleanup() {
+	# Mark the quick-tunnel preview expired on exit (local-only sync).
+	if [[ -n "$preview_slug" ]]; then
+		tools/factory/preview-overlay.sh expire "$preview_slug" >/dev/null 2>&1 || true
+	fi
 	if [[ "$started_dev" -eq 1 ]]; then
 		(cd "$repo_root" && pnpm exec astro dev stop >/dev/null 2>&1 || true)
 		if [[ -n "$dev_pid" ]]; then
@@ -60,7 +67,23 @@ fi
 case "$mode" in
 	quick)
 		echo "Starting Cloudflare Quick Tunnel for http://127.0.0.1:$port"
-	"$cloudflared_bin" tunnel --url "http://127.0.0.1:$port"
+		log=$(mktemp)
+		(
+			for _ in $(seq 1 120); do
+				overlay_url=$(grep -aoE 'https://[a-z0-9-]+\.trycloudflare\.com' "$log" 2>/dev/null | head -1 || true)
+				if [[ -n "$overlay_url" && -n "$preview_slug" ]]; then
+					tools/factory/preview-overlay.sh activate "$preview_slug" "$overlay_url" >/dev/null 2>&1 || true
+					break
+				fi
+				sleep 0.5
+			done
+		) &
+		monitor_pid=$!
+		"$cloudflared_bin" tunnel --url "http://127.0.0.1:$port" 2>&1 | tee "$log"
+		rc=${PIPESTATUS[0]}
+		kill "$monitor_pid" 2>/dev/null || true
+		rm -f "$log"
+		exit "$rc"
 		;;
 	named)
 	config=${CLOUDFLARED_CONFIG:-$HOME/.cloudflared/config.yml}

@@ -1,0 +1,32 @@
+{
+  "id": "mission-003",
+  "title": "Replicate Linear Landing",
+  "status": "completed",
+  "agent": "codex",
+  "created_at": "2026-09-13T00:43:30Z",
+  "updated_at": "2026-09-13T00:43:30Z",
+  "steps": [
+    {
+      "label": "Capture",
+      "time": "00:43"
+    },
+    {
+      "label": "Design Signals",
+      "time": "00:43"
+    },
+    {
+      "label": "Scaffold",
+      "time": "00:43"
+    },
+    {
+      "label": "Browser Verify",
+      "time": "00:43"
+    },
+    {
+      "label": "Live Audit",
+      "time": "00:43"
+    }
+  ],
+  "updated": "2026-09-13T00:43:35Z",
+  "outcome": "success"
+}
