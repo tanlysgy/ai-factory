@@ -51,3 +51,11 @@
 - [ ] GitHub Actions build + deploy 成功
 - [ ] 生产 URL `https://ai-factory.sgyyyds.qzz.io/` 返回 200
 - [ ] 生产抽查:移动抽屉打开正常(HOME / FACTORY)
+
+## Launch Kit (P9)
+
+- [ ] `pnpm launch:create <slug>` 生成完整 kit(截图 5 张 + OG/Banner/Thumbnail + copy + metadata + checklist)
+- [ ] 截图互不相同(md5 或像素 diff),feature/pricing 锚点真实存在
+- [ ] `metadata.json` 含 `preview_url`(从 factory state 填充)
+- [ ] `pnpm factory:state:sync` 后 `/factory/` Recent Launches 显示新 kit(1440 + 390 无横向滚动)
+- [ ] Launch 文案含 Demo 披露;不伪造用户;OG/Banner/Thumbnail 本地 PIL 生成

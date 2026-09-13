@@ -25,3 +25,7 @@ pnpm-debug.log*
 
 # Cloudflare Wrangler local state
 .wrangler/
+
+# local code intelligence / session caches
+.codegraph/
+.v2c/

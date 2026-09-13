@@ -25,6 +25,7 @@
     "factory:task:create": "tools/factory/task-create.sh",
     "factory:test-site": "tools/factory/test-site.sh",
     "generate-types": "wrangler types",
+    "launch:create": "tools/launch/launch-create.sh",
     "preview": "astro preview",
     "preview:overlay": "tools/factory/preview-overlay.sh",
     "preview:static": "tools/browser/serve-static.sh",

@@ -95,6 +95,22 @@ if [[ "$mission_count" -gt 0 ]]; then
   running_agents=$(printf '%s\n' "${missions[@]}" | jq -s '[.[] | select(.status == "running" or .status == "review") | .agent // "codex"] | unique | length' 2>/dev/null || echo 0)
 fi
 
+# --- launches (from launch/*/metadata.json) ---
+launches=(); launch_count=0
+for meta in launch/*/metadata.json; do
+  [[ -e "$meta" ]] || continue
+  slug=$(basename "$(dirname "$meta")")
+  launch_count=$((launch_count + 1))
+  ltitle=$(jq -r '.title // ""' "$meta")
+  lcreated=$(jq -r '.created // ""' "$meta")
+  lref=$(jq -r '.reference // ""' "$meta")
+  lpreview=$(jq -r '.preview_url // ""' "$meta")
+  lshot=""
+  [[ -f "launch/$slug/screenshots/desktop-hero.png" ]] && lshot="launch/$slug/screenshots/desktop-hero.png"
+  [[ -n "$lshot" ]] || lshot="launch/$slug/og-image.png"
+  launches+=("$(jq -nc --arg slug "$slug" --arg title "$ltitle" --arg created "$lcreated" --arg reference "$lref" --arg preview "$lpreview" --arg shot "$lshot" '{slug:$slug,title:$title,created:$created,reference:$reference,previewUrl:$preview,screenshot:$shot}')")
+done
+
 jq -nc \
   --arg factory "ai-factory-command-center" \
   --arg updated "$now" \
@@ -107,4 +123,6 @@ jq -nc \
   --argjson tasks_count "$task_count" \
   --argjson missions "$(printf '[%s]' "$(IFS=,; echo "${missions[*]}")" 2>/dev/null || echo '[]')" \
   --argjson running_agents "${running_agents:-0}" \
-  '{ factory: $factory, version: 1, updated: $updated, counts: { experiments: ($exp|length), sites: ($sites|length), memories: ($memories|length), lessons: ($lessons|length), tasks: $tasks_count, missions: ($missions|length) }, runningTasks: $tasks, tasks: $tasklist, sites: $sites, experiments: $exp, missions: $missions, runningAgents: $running_agents, memory: { status: "loaded", files: $memories }, lessons: $lessons, lastSync: $updated }'
+  --argjson launches "$(printf '[%s]' "$(IFS=,; echo "${launches[*]}")" 2>/dev/null || echo '[]')" \
+  --argjson launch_count "$launch_count" \
+  '{ factory: $factory, version: 1, updated: $updated, counts: { experiments: ($exp|length), sites: ($sites|length), memories: ($memories|length), lessons: ($lessons|length), tasks: $tasks_count, missions: ($missions|length), launches: $launch_count }, runningTasks: $tasks, tasks: $tasklist, sites: $sites, experiments: $exp, missions: $missions, runningAgents: $running_agents, memory: { status: "loaded", files: $memories }, lessons: $lessons, launches: $launches, lastSync: $updated }'

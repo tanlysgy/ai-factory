@@ -20,6 +20,7 @@ const queuedMissions = missions.filter((m) => m.status === 'queued');
 const completedMissions = missions.filter((m) => m.status === 'completed');
 const updated = state.lastSync || state.updated || '';
 const runningAgents = state.runningAgents ?? 0;
+const launches = (state.launches || []).slice().sort((a, b) => String(b.created || '').localeCompare(String(a.created || '')));
 
 const formatDate = (iso) => {
   if (!iso) return '—';
@@ -167,8 +168,26 @@ const stepProgress = (steps) => {
           </div>
         </section>
 
+        <section class="cc-section" id="launches" aria-labelledby="launches-title">
+          <div class="cc-section-head"><p class="section-label">04 / Recent Launches</p><h2 id="launches-title">Launch Kit</h2></div>
+          {
+            launches.length === 0 ? (
+              <p class="empty-state">No launch kits yet. Run <code>pnpm launch:create &lt;slug&gt;</code>.</p>
+            ) : (
+              <div class="launch-grid ds-list-stagger">
+                {launches.slice(0, 6).map((l) => (
+                  <a class="launch-card" href={l.previewUrl || `/factory/#launches`} target={l.previewUrl ? "_blank" : undefined} rel={l.previewUrl ? "noopener noreferrer" : undefined} aria-label={`${l.title} launch kit`}>
+                    <div class="launch-shot">{l.screenshot ? <img src={`/${l.screenshot}`} alt={`${l.title} screenshot`} loading="lazy" /> : <span>NO SHOT</span>}</div>
+                    <div class="launch-body"><strong>{l.title}</strong><span>{formatDate(l.created)}</span>{l.reference && <span class="launch-ref">Ref: {l.reference}</span>}</div>
+                  </a>
+                ))}
+              </div>
+            )
+          }
+        </section>
+
         <section class="cc-section" id="lessons" aria-labelledby="lessons-title">
-          <div class="cc-section-head"><p class="section-label">04 / Lessons</p><h2 id="lessons-title">Memory Loop</h2></div>
+          <div class="cc-section-head"><p class="section-label">05 / Lessons</p><h2 id="lessons-title">Memory Loop</h2></div>
           <div class="memory-grid">
             <div class="memory-panel">
               <div class="memory-top"><span>MEMORY / {memories.length} FILES</span><span class="mem-ok">{state.memory?.status || '—'}</span></div>
@@ -201,7 +220,7 @@ const stepProgress = (steps) => {
         </section>
 
         <section class="cc-section flow-section" aria-labelledby="flow-title">
-          <div class="cc-section-head"><p class="section-label">05 / Mission CLI</p><h2 id="flow-title">Runtime Commands</h2></div>
+          <div class="cc-section-head"><p class="section-label">06 / Mission CLI</p><h2 id="flow-title">Runtime Commands</h2></div>
           <div class="task-flow">
             {['Create', 'Start', 'Review', 'Complete'].map((step, i) => (
               <div class="flow-step">
@@ -372,6 +391,19 @@ const stepProgress = (steps) => {
   .lesson-content b { color: #8fd39a; font-weight: 700; }
   .lesson-content.fail b { color: #d98a6f; }
 
+
+  /* ---- Launch Kit (P9) ---- */
+  .launch-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 52px; }
+  .launch-card { display: flex; flex-direction: column; border: 1px solid #2b4234; background: #111d18; text-decoration: none; transition: border-color .15s ease; }
+  .launch-card:hover { border-color: #b9d957; }
+  .launch-shot { aspect-ratio: 16/9; overflow: hidden; border-bottom: 1px solid #2b4234; background: #0d1712; }
+  .launch-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .launch-shot span { display: grid; place-items: center; height: 100%; color: #52645a; font: 10px ui-monospace, monospace; letter-spacing: .1em; }
+  .launch-body { display: grid; gap: 6px; padding: 14px 16px 16px; }
+  .launch-body strong { color: #f0f5ed; font-size: 15px; }
+  .launch-body > span { color: #6e8678; font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; }
+  .launch-ref { color: #52645a !important; text-transform: none !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
   @media (max-width: 900px) {
     .cc-hero { grid-template-columns: 1fr; gap: 50px; }
     .count-grid { grid-template-columns: repeat(4, 1fr); }
@@ -397,6 +429,7 @@ const stepProgress = (steps) => {
     .cc-section { padding: 70px 0; }
     .cc-section-head { align-items: start; flex-direction: column; gap: 10px; }
     .site-grid { grid-template-columns: 1fr; }
+    .launch-grid { grid-template-columns: 1fr; }
     .mission-grid { grid-template-columns: 1fr; }
     .queued-row { grid-template-columns: 68px 1fr; }
     .queued-row .mission-agent { grid-column: 2; }

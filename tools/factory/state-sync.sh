@@ -44,6 +44,7 @@ merged=$(jq -nc \
   lessons: $scan.lessons,
   missions: $scan.missions,
   runningAgents: $scan.runningAgents,
+  launches: $scan.launches,
   lastSync: $scan.updated
 }')
 

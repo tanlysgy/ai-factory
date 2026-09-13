@@ -1,0 +1,22 @@
+{
+  "slug": "codeflare",
+  "title": "Codeflare",
+  "tagline": "Ship software faster with an agent that understands your codebase.",
+  "created": "2026-09-13T02:05:35Z",
+  "reference": "https://cursor.com/",
+  "colors": {
+    "ink": "#173B32",
+    "ink_strong": "#0D1512",
+    "cream": "#F4F5EF",
+    "acid": "#B9D957",
+    "muted": "#71827B"
+  },
+  "preview_url": "https://guy-billing-routine-reply.trycloudflare.com",
+  "screenshots": [
+    "desktop-feature.png",
+    "desktop-hero.png",
+    "desktop-pricing.png",
+    "fullpage.png",
+    "mobile-hero.png"
+  ]
+}
