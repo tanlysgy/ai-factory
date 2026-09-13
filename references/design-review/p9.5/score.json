@@ -1,0 +1,41 @@
+{
+  "phase": "p9.5",
+  "baseline": "0414084",
+  "date": "2026-09-13",
+  "overall": 83,
+  "scores": {
+    "factory_ui": { "score": 21, "max": 25 },
+    "demo_product": { "score": 21, "max": 25, "target": "codeflare (live tunnel)" },
+    "launch_assets": { "score": 19, "max": 25 },
+    "mobile": { "score": 13, "max": 15 },
+    "brand_matrix": { "score": 9, "max": 10 }
+  },
+  "verified_fixes_in_production": [
+    "factory H1 96px/-0.05em",
+    "factory H2 48px/500",
+    "stat numbers tabular-nums",
+    "mobile drawer full-screen solid background (844px, deep ink)",
+    "factory stats 2x2 on mobile",
+    "codeflare mobile MENU drawer working",
+    "no horizontal overflow on all audited pages"
+  ],
+  "issues": {
+    "P0": [
+      "og-image.png bakes ephemeral trycloudflare tunnel URL (issues/P0-01-og-tunnel-url.png)"
+    ],
+    "P1": [
+      "factory Preview Links / Launch Kit cards: 4 tunnel URLs as primary links (issues/P1-01-factory-tunnel-links.png)",
+      "og (tunnel domain) vs social-banner (codeflare.dev) inconsistent domain story",
+      "factory page has zero clickable CTA (Mission CLI text-only)"
+    ],
+    "P2": [
+      "StatusChip 10px vs spec 11px",
+      "codeflare logo accessible name 'CCodeflare'",
+      "pricing Custom tier thin card",
+      "Memory Loop density (1521px single section)",
+      "5448px long page without in-page section nav"
+    ]
+  },
+  "tunnel_status": "ALIVE at audit time (HTTP 200)",
+  "evidence_dir": "references/design-review/p9.5/"
+}
