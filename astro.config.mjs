@@ -34,10 +34,25 @@ function factoryStatePlugin() {
   };
 }
 
+// Copy launch kits (screenshots, OG/banner) into the static build so
+// /launch/<slug>/... assets resolve in production (dist/client/launch).
+function launchAssetsPlugin() {
+  const launchDir = path.join(repoRoot, 'launch');
+  const outDir = path.join(repoRoot, 'dist', 'client', 'launch');
+  return {
+    name: 'launch-assets',
+    closeBundle() {
+      if (fs.existsSync(launchDir)) {
+        fs.cpSync(launchDir, outDir, { recursive: true });
+      }
+    }
+  };
+}
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss(), factoryStatePlugin()]
+    plugins: [tailwindcss(), factoryStatePlugin(), launchAssetsPlugin()]
   },
 
   adapter: cloudflare()
